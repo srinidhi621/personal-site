@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Meta on Srinidhi Ramanujam</title>
+    <link>http://localhost:1313/tags/meta/</link>
+    <description>Recent content in Meta on Srinidhi Ramanujam</description>
+    <generator>Hugo -- 0.152.2</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Nov 2025 18:30:00 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/meta/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I Finally Set Up srinidhi.dev</title>
+      <link>http://localhost:1313/fiction/first-story/</link>
+      <pubDate>Thu, 27 Nov 2025 18:30:00 +0530</pubDate>
+      <guid>http://localhost:1313/fiction/first-story/</guid>
+      <description>&lt;p&gt;Hello, world.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why I Finally Set Up srinidhi.dev</title>
+      <link>http://localhost:1313/links/first-link/</link>
+      <pubDate>Thu, 27 Nov 2025 18:30:00 +0530</pubDate>
+      <guid>http://localhost:1313/links/first-link/</guid>
+      <description>&lt;p&gt;Link 0&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Why I Finally Set Up srinidhi.dev</title>
+      <link>http://localhost:1313/writing/first-post/</link>
+      <pubDate>Thu, 27 Nov 2025 18:30:00 +0530</pubDate>
+      <guid>http://localhost:1313/writing/first-post/</guid>
+      <description>&lt;p&gt;A short note on why I set up this site, what I plan to write about, and how I think about AI, data engineering, and fiction.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
