@@ -5,8 +5,17 @@ theme = "PaperMod"
 
 enableRobotsTXT = true
 
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+  taxonomyTerm = ["HTML"]
+
 [params]
-  description = "Writing on Data Engineering, AI, technology, and fiction."
+  description = "Writing on data engineering, AI, technology, and fiction."
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowPostNavLinks = true
@@ -34,3 +43,4 @@ enableRobotsTXT = true
     name = "About"
     url  = "/about/"
     weight = 40
+
