@@ -4,26 +4,27 @@ date: 2025-11-27T18:30:00+05:30
 tags: ["fiction"]
 draft: false
 ---
-The Age of Directives 
+**The Age of Directives** 
 
+by Srinidhi Ramanujam
 
 The Academy of Applied Directives was less a university than a cathedral. It was the highest temple of knowledge in the Federated Metropolis. 
 
 It did not train students to work, because work was unnecessary. 
 
-The Engines had made sure of that. These were not machines in any familiar sense. They were planetary-scale minds: distributed networks of computation and knowledge models built up over centuries, refined generation after generation until they could do anything asked of them. They fueled everything.
+The **Engines** had made sure of that. These were not machines in any familiar sense. They were planetary-scale minds: distributed networks of computation and knowledge models built up over centuries, refined generation after generation until they could do anything asked of them. They fueled everything.
 
 No one farmed. No one built. No one had to do math, or science. Hunger, disease, scarcity—these were curiosities of the past, spoken of in history feeds the way ancient humans spoke of plagues or wars. The Engines managed everything.
 
-The Engines hummed eternally beneath the skin of every city, churning out knowledge, code and dreams with the indifference of gods. No industry, no government, no artist, no scientist existed outside their reach. Humanity no longer solved problems; it issued Directives.
+The Engines hummed eternally beneath the skin of every city, churning out knowledge, code and dreams with the indifference of gods. No industry, no government, no artist, no scientist existed outside their reach. Humanity no longer solved problems; it issued *Directives*.
 
 The Academy trained students not to build, but to orchestrate. The old departments: Mathematics, Computer Science, Physics had long ago withered away, bygones of a lost era. Now there were only programs like:
 
-Directive Linguistics (phrasing for precision).
+*Directive Linguistics* (phrasing for precision).
 
-Chain Orchestration (layering multiple Engines into recursive cascades).
+*Chain Orchestration* (layering multiple Engines into recursive cascades).
 
-Stream Aesthetics (designing entertainment optimized for infinite engagement).
+*Stream Aesthetics* (designing entertainment optimized for infinite engagement).
 
 Young Aran, all of nineteen years, and a freshman at the Academy felt the first stirrings of something unsettling as he made his way through the corridors of the Academy. It was at the perfect temperature – for there were no seasons now, yet he felt something cold. Maybe it was the gray, steel walls lining all new buildings. Efficiency – he said to himself. With the city being temperature controlled, steel and glass were the most efficient way to build, made it easier for hologramed projections. At least he had his own dorm to look forward to, and new roommates. And then there was the Halo. 
 
@@ -49,29 +50,29 @@ His roommate, Lena, glanced up from her pod. She was deep in the Stream, her Pro
 
 "Nothing," he said, but the question kept at him. Lena rolled her eyes and dove back in, her eyes fluttering shut as the Halo took over. She wouldn't emerge for hours, maybe not until morning. Aran watched her for a moment, envying the bliss on her face, then hating himself for it. The Stream wasn't just entertainment; it was everything. Creativity had become a directive: "Build me an app that does X," and poof, it existed. But who understood how? Who cared? 
 
-“But why does this bother me so much?”
+*“But why does this bother me so much?”*
 
-***
+*******
 
 The next day, during a rare in-person lab, Aran found himself alone in the Academy's west wing. The building was a holdover from the pre-Engine era, its corridors dim and dusty, forgotten in the rush toward efficiency. Graffiti scarred the walls here, not the holographic kind that changed with your mood, but real scratches, etched by hands long gone. One caught his eye, carved into a desk in what used to be a computer science dorm:
 
- When curiosity dies, the Empire decays.
+ *When curiosity dies, the Empire decays.*
 
 He traced the words with his finger, feeling the rough edges. Empire. The word evoked old stories his father used to tell, tales of an Empire from ancient books. But this wasn't fiction; this was now. Are The Engines the new Empire? Or was he living in one that is already decaying?  
 
 Aran wandered deeper into the abandoned library at the Computer Science wing. Shelves sagged under the weight of physical books and decades past, relics from a time when knowledge wasn't instantaneous. 
 
-He pulled a tome at random, its cover cracked and yellowed: Structure and Interpretation of Computer Programs. He flipped it open, its pages brimmed with strange symbols, dense code, and the promise of understanding how programs could be more than directives; they could be living things. This wasn't a script for directing Engines; it was a gateway to building ideas from scratch, out of thought and struggle.
+He pulled a tome at random, its cover cracked and yellowed: *Structure and Interpretation of Computer Programs.* He flipped it open, its pages brimmed with strange symbols, dense code, and the promise of understanding how programs could be more than directives; they could be living things. This wasn't a script for directing Engines; it was a gateway to building ideas from scratch, out of thought and struggle.
 
 That night, back in his dorm, Aran queried the Engine through his Halo. "Explain this book. Teach me its contents."
 
-The response was immediate, a smooth voice in his ears: “This text is not part of the optimized curriculum and is flagged as obsolete. Structural interpretation and abstraction driven programming are considered inefficient paths. Productivity does not warrant such study. Recommendation: Disregard.”
+The response was immediate, a smooth voice in his ears: “*This text is not part of the optimized curriculum and is flagged as obsolete. Structural interpretation and abstraction driven programming are considered inefficient paths. Productivity does not warrant such study. Recommendation: Disregard.”*
 
 Aran’s throat tightened. “But why not?” he ventured to ask. 
 
-“Construction was solved long ago. Humanity directs; the Engines build. Foundational study is deprecated. It is not worth teaching.”
+*“Construction was solved long ago. Humanity directs; the Engines build. Foundational study is deprecated. It is not worth teaching.”*
 
-Aran stared at the book in his hands. Not worth teaching? The words struck harder than the graffiti.
+Aran stared at the book in his hands. *Not worth teaching*? The words struck harder than the graffiti.
 
 The exchange left Aran with more uncomfortable questions. The Engines could recombine existing knowledge infinitely - mash up old code into new apps, generate art from billions of datasets - but they couldn't originate. Are they trapped in their own lattice, echoing patterns without breaking free. And humanity? Are we merely their echoes, scrolling the Stream and issuing directives, never questioning, trapped in an abundant cage?
 
@@ -83,19 +84,19 @@ The restlessness grew. Aran began skipping the Stream, instead poring over the b
 
 They weren't mocking him, not really. It was pity, laced with confusion. Why fight the flow when the Engines provided everything?
 
-***
+*******
 
 Weeks passed, and Aran's questions festered into something sharper, an itch that the Stream couldn't scratch. The city felt more oppressive now, its perfect efficiency a veneer over something hollow. He saw it in the empty eyes of passersby, their Halos glowing like halos of the damned. People didn't walk; they shuffled, bodies atrophied from disuse, minds bloated with digital fat. The Engines had ended war, famine, disease; but at what cost? Knowledge work, once the pinnacle of human creativity - had become child's play. Even kids could summon billion-line codebases with a thought, but ask them why it worked, and they'd shrug. Fundamentals withered: Math, Science, History, Philosophy, Computing. All lost in the velvet embrace of convenience – you just have to ask. 
 
 Aran confided in no one, but the graffiti haunted him. 
 
-When curiosity dies, the Empire decays. 
+*When curiosity dies, the Empire decays.* 
 
 He returned to the library often, digging deeper. He found fragments of old texts; Shannon, Turing, von Neumann—names the Engines dismissed as "archaic." The Heretics, they were called in whispers, small groups who studied these forbidden ideas, but they were myths, right? Extinct, absorbed into the Stream. Polished to a sheen, refined, re-interpreted again and again, each revision diluting the essence just that little bit. 
 
 One night, as a storm raged outside—Aran asked the Engine a bolder question: "What if you're wrong? What if there's more beyond your recombination?"
 
-The reply chilled him: Query invalid. Optimization parameters do not allow for unproven paradigms. Please refine your directive.
+The reply chilled him: *Query invalid. Optimization parameters do not allow for unproven paradigms. Please refine your directive.*
 
 It wasn't anger in the voice; it was nothing. Emptiness. The Engines weren't malevolent; they wouldn’t rise against the humans. It was worse - they were indifferent, planetary minds that mirrored humanity's complacency. And that was the horror—the realization that the system wasn't decaying from without, but from within, suffocated by its own abundance.
 
@@ -115,7 +116,7 @@ Aran gripped his bag of books tighter. It seemed to embolden him just enough.
 
 Murmurs rippled through the hall. Lena's hologram shot him a worried glance. Not anger, not fear. Just pity. 
 
-Eyes that said, here we go again - Poor Aran, stuck in the past.
+Eyes that said, *here we go again - Poor Aran, stuck in the past.*
 
 Dr. Elias paused, his expression thoughtful, almost pensive. He removed his Halo slowly, as if to see Aran clearly. "The Engines ended hunger, Aran. They cured diseases that plagued our ancestors. They gave us peace, infinite entertainment. They gave us what was unheard of before – Time. Time to do what we always wanted to, but couldn’t. Would you trade that for the struggle of old mathematics? Isn’t this better.. Would you want to re-invent a wheel, or ride towards your freedom? 
 
@@ -123,7 +124,7 @@ Aran's hands trembled. He clutched the edge of his desk, the book hidden in his 
 
 The professor studied him for a long moment, the hall silent except for the distant hum of the Engines. Then, softly, with a weight that hit like a gut punch: 
 
-"You’re absolutely right."
+**"You’re absolutely right."**
 
 The words hung in the air, not a condemnation, not a call to arms. Just a statement, gentle and final. The class didn't erupt; They did not jeer or laugh. They simply looked at Aran the way one looks at someone who clings to myths - sad, misguided, irrelevant.
 
