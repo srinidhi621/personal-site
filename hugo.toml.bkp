@@ -1,0 +1,36 @@
+baseURL = "https://srinidhi.dev/"
+languageCode = "en-us"
+title = "Srinidhi Ramanujam"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+
+[params]
+  description = "Writing on Data Engineering, AI, technology, and fiction."
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+
+[menu]
+  [[menu.main]]
+    name = "Writing"
+    url  = "/writing/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Fiction"
+    url  = "/fiction/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Links"
+    url  = "/links/"
+    weight = 30
+
+  [[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 40

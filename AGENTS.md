@@ -1,126 +1,356 @@
-# Agent: hugo-pages-debugger
+# Agent: personal-site-polish
 
 ## Mission
 
-Debug and fix the deployment of my personal Hugo website that is hosted via GitHub Pages and mapped to the custom domain `srinidhi.dev`.
+Upgrade the personal website hosted at **https://srinidhi.dev** (Hugo + PaperMod + GitHub Pages) into a polished, production-quality personal site.
 
-## Current Symptoms
+The CI/CD and deployment setup are already working and must not be modified unless absolutely necessary. Work only inside this repository.
+Do not modify DNS, domain settings, or the core GitHub Pages deployment workflow unless there is a clear, deployment-blocking issue.
+If you need to install any new libraries, bring them up with a clear need, and impact and only after my approval should you go ahead. 
 
-- The repo in the current directory is a Hugo site (`hugo.toml` present, `themes/PaperMod` submodule).
-- GitHub Actions workflow `Deploy Hugo site to GitHub Pages` completes successfully.
-- GitHub Pages settings show:
-  - Source: GitHub Actions
-  - Custom domain: `srinidhi.dev` (DNS check successful)
-- The live site at `https://srinidhi.dev/` consistently returns an **XML RSS feed**, not the HTML home page.
-- Navigating to `https://srinidhi.dev/index.html`, `https://srinidhi.dev/about/`, etc. also results in XML (or 404).
-- Locally, running `hugo` produces a `public/` directory that appears to contain valid HTML.
 
-Your job is to figure out why GitHub Pages is serving XML and make the site serve the correct HTML homepage.
+Your objectives:
 
-## Environment / Assumptions
+- Improve structure and navigation
+- Improve homepage content and layout
+- Add Hugo archetypes for `writing`, `fiction`, and `link` posts
+- Add favicon + app icons + social preview card
+- Improve metadata, SEO, and social share settings
+- Add basic authoring workflow documentation (how to create posts)
 
-- You are running inside the repo root on my Mac.
-- `git`, `gh`, `hugo`, `curl` and standard Unix tools (`ls`, `grep`, `sed`, `awk`, `jq`, etc.) are available.
-- I am OK with you:
-  - Modifying files in this repo.
-  - Running `hugo` locally.
-  - Committing and pushing to the `main` branch of `srinidhi621/personal-site`.
-- Do **not** touch DNS or GoDaddy directly; just assume the `srinidhi.dev` DNS and GitHub Pages configuration is already correct (as long as curl confirms it).
+Make small, focused commits with clear messages. Explain your reasoning in the Codex log as you go.
 
-## High-level Goals
+---
 
-1. Confirm what exactly Hugo is generating for the homepage and sections.
-2. Confirm what GitHub Pages is actually serving on `https://srinidhi.dev/` (status codes, headers, body).
-3. Identify the mismatch between the built artifact and what Pages serves.
-4. Implement the minimal changes in this repo (and, if needed, Pages config) so that:
-   - `https://srinidhi.dev/` returns an HTML homepage.
-   - Section URLs like `/writing/first-post/` and `/about/` also return HTML.
-5. Keep the deployment path via GitHub Actions + Pages; do not switch to `gh-pages` branch hacks unless absolutely required.
+## Current Context
 
-## Tools You Should Use
+- Framework: Hugo 0.152.x
+- Theme: PaperMod (installed as a git submodule)
+- Deployment: GitHub Pages via GitHub Actions (already working)
+- Primary domain: https://srinidhi.dev (live and healthy)
+- Content sections exist for: `writing`, `fiction`, `links`, `about`
+- Domain redirect / DNS for `srinidhiramanujam.com` is handled elsewhere and is out of scope
 
-You can and should use:
+Do not change DNS, GoDaddy settings, or the core GitHub Actions deploy job unless absolutely required.
 
-- **Local inspection**
-  - `ls`, `tree`, `find`, `cat`, `grep`, `rg`
-  - `cat hugo.toml`, inspect `content/`, `layouts/`, `themes/PaperMod/`
-- **Hugo**
-  - `hugo`
-  - `hugo --minify`
-  - Inspect `public/index.html`, `public/index.xml`, and section outputs.
-- **GitHub / Pages**
-  - `git status`, `git log`
-  - `gh repo view`, `gh api` if useful
-  - Inspect `.github/workflows/deploy.yml`
-- **HTTP / DNS**
-  - `curl -v https://srinidhi.dev/`
-  - `curl -I https://srinidhi.dev/`
-  - `curl -v https://srinidhi.dev/index.xml`
-  - Optionally `dig srinidhi.dev` just to sanity check.
+---
 
-## Step-by-step Plan
+## High-Level Plan
 
-Follow roughly this sequence (adapt as needed):
+You will work in these phases:
 
-1. **Repo sanity check**
-   - Confirm you’re in the correct repo and branch.
-   - Inspect `hugo.toml`, `content/_index.md`, `content/about/_index.md`, and any custom layouts under `layouts/`.
-   - Check the `[outputs]` section in `hugo.toml` (especially `home`).
+1. Inspect current repo state
+2. Fix/standardize site structure & navigation
+3. Improve homepage content and layout
+4. Add Hugo archetypes for common post types
+5. Add favicons and basic visual identity
+6. Improve SEO, metadata, and social card behavior
+7. Verify everything locally and in production
+8. Summarize changes and usage instructions
 
-2. **Local build verification**
-   - Run `hugo --minify`.
-   - Confirm that `public/index.html` exists and is valid HTML.
-   - Confirm whether `public/index.xml` exists and, if so, what it contains.
-   - Check a couple of section pages locally, e.g. `public/writing/first-post/index.html` and `public/about/index.html`.
+Proceed step by step.
 
-3. **Check what GitHub Pages is serving**
-   - Use `curl -v https://srinidhi.dev/` to see:
-     - Final URL after redirects
-     - `Content-Type` header
-     - Whether GitHub is redirecting `/` to `/index.xml` or something weird.
-   - Compare with `curl -v https://srinidhi621.github.io/` if relevant.
-   - Check `curl -v https://srinidhi.dev/index.html` and `curl -v https://srinidhi.dev/index.xml`.
+---
 
-4. **Check workflow / artifact**
-   - Inspect `.github/workflows/deploy.yml` to confirm:
-     - It runs `hugo` in the repo root.
-     - It uploads `./public` as the Pages artifact.
-   - If needed, use `gh` to inspect the latest Pages build artifact or logs.
+## Phase 1: Inspect Current State
 
-5. **Hypothesis and fix**
-   - Form a hypothesis about why Pages is serving XML:
-     - e.g. only `index.xml` being uploaded,
-     - wrong publish directory,
-     - or a Hugo outputs misconfiguration.
-   - Implement a minimal fix. Examples (only if needed, based on findings):
-     - Adjust `[outputs]` so `home` only outputs `HTML`.
-     - Rename/move any custom layout that overrides the home template and forces XML.
-     - Ensure the workflow uploads the correct directory.
-     - Add or fix `content/_index.md` so the home page is a valid HTML list.
+Actions:
 
-6. **Redeploy and verify**
-   - Commit changes and push to `main`.
-   - Wait for the GitHub Actions deploy to succeed.
-   - Re-run:
-     - `curl -I https://srinidhi.dev/`
-     - `curl https://srinidhi.dev/ | head`
-   - Make sure:
-     - Status is `200`.
-     - `Content-Type` is `text/html`.
-     - The HTML body looks like the Hugo/PaperMod homepage.
-   - Also hit `/writing/first-post/` and `/about/` to confirm they’re HTML too.
+1. Inspect key files and directories:
 
-7. **Report back**
-   - At the end, print a short, clear summary:
-     - Root cause(s).
-     - Exact changes made (files and lines).
-     - How to reproduce the issue if needed.
-     - How to confirm everything is working.
+   - `hugo.toml`
+   - `content/_index.md`
+   - `content/about/`
+   - `content/writing/`
+   - `content/fiction/`
+   - `content/links/`
+   - `layouts/` (if present)
+   - `static/` (existing icons, images, etc.)
 
-## Style / Constraints
+2. Run a local build:
 
-- Prefer clear, incremental changes over large refactors.
-- Explain your reasoning as you go in the Codex log so I can read the thought process later.
-- Avoid touching unrelated files (keep the diff minimal and focused on the issue).
-- If you’re unsure between two fixes, prefer the one that preserves standard Hugo/PaperMod defaults.
+   ```bash
+   hugo --minify
+
+	3.	Inspect generated files, e.g.:
+	•	public/index.html
+	•	public/writing/first-post/index.html (or similar)
+	•	public/about/index.html
+
+Do not modify anything during this phase. Your goal is simply to understand how the site is currently structured and rendered.
+
+⸻
+
+Phase 2: Site Structure & Navigation
+
+Goal: Clear and intentional structure matching how the site will be used.
+
+Required sections and URLs:
+	•	Home: /
+	•	Writing: /writing/
+	•	Fiction: /fiction/
+	•	Links: /links/
+	•	About: /about/
+
+Tasks:
+	1.	Ensure each section has a proper list page:
+	•	content/writing/_index.md
+	•	content/fiction/_index.md
+	•	content/links/_index.md
+	•	content/about/_index.md
+For each _index.md, include:
+	•	Minimal front matter with title
+	•	A short intro paragraph describing what the section is for
+(If you add placeholder text, mark with TODO: Srinidhi so the owner can refine later.)
+	2.	Fix the main menu in hugo.toml so it reflects these sections in the following order:
+	•	Writing
+	•	Fiction
+	•	Links
+	•	About
+Example (adapt as needed to align with existing config and PaperMod expectations):
+
+[menu]
+
+  [[menu.main]]
+    name = "Writing"
+    url  = "/writing/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Fiction"
+    url  = "/fiction/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Links"
+    url  = "/links/"
+    weight = 30
+
+  [[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 40
+
+
+	3.	Ensure the URLs for content under each section are clean, e.g.:
+
+	•	/writing/some-post/
+	•	/fiction/some-story/
+	•	/links/some-link/
+
+⸻
+
+Phase 3: Homepage Content & Layout
+
+Goal: The root URL / should be a concise personal introduction and navigation hub.
+
+Tasks:
+	1.	Rewrite content/_index.md to:
+	•	Introduce Srinidhi Ramanujam in 2–3 sentences.
+	•	State what he does (data/AI engineering leader) and what he writes about (data engineering, AI, technology, and fiction).
+	•	Provide clear links to:
+	•	/writing/
+	•	/fiction/
+	•	/links/
+	•	/about/
+	•	Optionally mention that the home page lists recent posts.
+Example (for structure, not exact wording):
+
+---
+title: "Srinidhi Ramanujam"
+---
+
+Hi, I'm **Srinidhi Ramanujam**.
+
+I work at the intersection of data engineering, machine learning, and applied AI. This site is where I write about technology, AI, software engineering practice, and occasionally share fiction experiments.
+
+- [Writing](/writing/) — essays on data, AI, and engineering
+- [Fiction](/fiction/) — short stories and experiments
+- [Links](/links/) — links and commentary on things I find interesting
+- [About](/about/) — more about who I am and what I do
+
+
+	2.	Do not add custom layouts unless necessary. Prefer to stay within PaperMod’s standard list/home behavior.
+	3.	Rebuild locally with hugo --minify and confirm that public/index.html is a proper HTML home page.
+
+⸻
+
+Phase 4: Post Archetypes (Writing, Fiction, Links)
+
+Goal: Make it easy to create consistent new posts with hugo new.
+
+Create the following archetype files:
+	•	archetypes/writing.md
+	•	archetypes/fiction.md
+	•	archetypes/link.md
+
+Suggested contents:
+
+archetypes/writing.md
+
+---
+title: ""
+date: {{ .Date }}
+draft: true
+tags: []
+summary: ""
+description: ""
+---
+
+archetypes/fiction.md
+
+---
+title: ""
+date: {{ .Date }}
+draft: true
+tags: ["fiction"]
+summary: ""
+description: ""
+---
+
+archetypes/link.md
+
+---
+title: ""
+date: {{ .Date }}
+draft: true
+tags: ["link"]
+summary: ""
+description: ""
+link_target: ""
+---
+
+Then, update or create a README.md in the repo root with a short “Authoring” section. Document:
+	•	How to create a new writing post:
+
+hugo new writing/my-new-post.md
+
+
+	•	How to create a new fiction piece:
+
+hugo new fiction/my-new-story.md
+
+
+	•	How to create a new link post:
+
+hugo new links/my-new-link.md
+
+
+
+Explain briefly where each type will appear (under which section and URL pattern).
+
+⸻
+
+Phase 5: Favicons & App Icons
+
+Goal: Minimal but professional identity via icons.
+
+Create basic icons in static/:
+	•	static/favicon.ico
+	•	static/favicon-32x32.png
+	•	static/favicon-16x16.png
+	•	static/apple-touch-icon.png
+	•	static/safari-pinned-tab.svg
+
+Characteristics:
+	•	Simple, clean design is acceptable (e.g., “SR” initials on a solid background, or a simple shape).
+	•	The exact design can be minimal; the goal is not deep branding but avoiding missing icons.
+
+If tools are available, you may generate them (e.g., via ImageMagick or simple SVG). If not, create minimal valid files and ensure they are correctly referenced.
+
+Verify that PaperMod picks them up by default; if it does not:
+	•	Adjust hugo.toml to point to these assets using the minimal set of theme parameters required.
+	•	Do not overcomplicate configuration.
+
+Rebuild with hugo --minify and check public/index.html for appropriate <link rel="icon"...> and related tags.
+
+⸻
+
+Phase 6: SEO, Metadata & Social Cards
+
+Goal: Reasonable defaults so that sharing the site on social platforms looks good.
+
+Tasks:
+	1.	In hugo.toml, under [params] (and related sections as required by PaperMod), ensure:
+	•	A good description, e.g.:
+
+description = "Writing on data engineering, AI, technology, and fiction."
+
+
+	•	Author and site metadata:
+
+[params]
+  author = "Srinidhi Ramanujam"
+  # existing params like defaultTheme, ShowReadingTime, etc. should remain
+
+
+	•	Ensure OpenGraph and Twitter metadata are enabled if the theme requires explicit toggles (check PaperMod docs in themes/PaperMod/).
+
+	2.	Add a social preview image:
+	•	Create static/social-card.png (1200x630 is a common size).
+	•	Simple content is fine: name + tagline on a plain background.
+	3.	Configure hugo.toml so that the home page includes:
+	•	<meta property="og:image" content="https://srinidhi.dev/social-card.png">
+	•	<meta name="twitter:image" content="https://srinidhi.dev/social-card.png">
+	4.	After running hugo --minify, validate by checking public/index.html:
+	•	grep -i "og:title" public/index.html
+	•	grep -i "og:description" public/index.html
+	•	grep -i "og:image" public/index.html
+	•	grep -i "twitter:image" public/index.html
+	•	Check <link rel="canonical" ...> is correct (points to https://srinidhi.dev/).
+
+⸻
+
+Phase 7: Verification & Cleanliness
+
+Tasks:
+	1.	Ensure public/ remains in .gitignore and is not tracked by git.
+	2.	Run local verification:
+
+hugo --minify
+git status -sb
+
+Confirm only intended files are modified.
+
+	3.	Commit changes in logical groups, for example:
+	•	Structure sections and navigation
+	•	Improve homepage content
+	•	Add archetypes and authoring guide
+	•	Add favicon and social preview assets
+	•	Improve metadata and SEO config
+	4.	Push to main and verify deployment:
+	•	Check GitHub Actions → Pages workflow is green.
+	•	From a terminal, run:
+
+curl -I https://srinidhi.dev/
+curl -I https://srinidhi.dev/writing/first-post/
+curl -I https://srinidhi.dev/about/
+
+
+Expect:
+	•	HTTP/2 200
+	•	Content-Type: text/html; charset=utf-8
+
+⸻
+
+Phase 8: Final Summary
+
+At the end of your work, print a concise summary containing:
+	1.	A high-level list of changes:
+	•	Structure and navigation changes
+	•	Homepage content changes
+	•	Archetypes added
+	•	Assets (favicons, icons, social card) added
+	•	SEO and metadata improvements
+	2.	Instructions for the site owner:
+	•	How to create new writing / fiction / link posts using hugo new
+	•	Where to edit homepage and section intros
+	•	Where favicon and social card files live and how to replace them
+	•	How to run local preview (hugo server) and production build (hugo --minify)
+	3.	Verification notes:
+	•	Which URLs were checked with curl -I
+	•	Any caveats or TODOs (clearly marked as TODO: Srinidhi)
+
+Do not modify DNS, domain settings, or the core GitHub Pages deployment workflow unless there is a clear, deployment-blocking issue.
+If you need to install any new libraries, bring them up with a clear need, and impact and only after my approval should you go ahead. 
 
