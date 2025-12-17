@@ -18,6 +18,7 @@ enableRobotsTXT = true
   description = "Writing on data engineering, AI, technology, and fiction."
   keywords = ["data engineering", "applied ai", "writing", "fiction"]
   images = ["social-card.png"]
+  mainSections = ["writing", "fiction", "links"]
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowPostNavLinks = true

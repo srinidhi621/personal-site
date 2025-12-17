@@ -24,6 +24,4 @@ help them ship dependable platforms, and document what we learn here.
 
 ## Spotlight
 
-The latest post highlights why I finally set up this space and how future
-writing will connect engineering practice with craft. Poke around, and feel
-free to reuse ideas with attribution.
+{{< spotlight >}}

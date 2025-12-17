@@ -1,0 +1,16 @@
+{{/* Show the latest post across main sections */}}
+{{ $latest := first 1 (.Site.RegularPages.ByDate.Reverse) }}
+{{ with index $latest 0 }}
+<div class="spotlight">
+  <p class="spotlight-label">Spotlight</p>
+  <h3 class="spotlight-title"><a href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+  <p class="spotlight-meta">{{ .Date.Format "Jan 2, 2006" }} &middot; {{ .Section | title }}</p>
+  {{ with .Description }}
+  <p class="spotlight-summary">{{ . }}</p>
+  {{ else }}
+  {{ with .Summary }}<p class="spotlight-summary">{{ . }}</p>{{ end }}
+  {{ end }}
+</div>
+{{ else }}
+<p>No posts yet.</p>
+{{ end }}

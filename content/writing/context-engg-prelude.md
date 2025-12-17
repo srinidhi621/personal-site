@@ -1,4 +1,11 @@
-# The Million-Token Question: Does More Context Actually Make LLMs Smarter?
+---
+title: "The Million-Token Question: Does More Context Actually Make LLMs Smarter?"
+date: 2025-11-01T00:00:00Z # TODO: Srinidhi confirm original date
+draft: false
+tags: ["llm", "context"]
+summary: ""
+description: ""
+---
 
 **A prelude on context engineering, long windows, and why “just add tokens” is not a strategy**
 

@@ -1,4 +1,11 @@
-# How AI Is Actually Changing Software Engineering
+---
+title: "How AI Is Actually Changing Software Engineering"
+date: 2025-06-01T00:00:00Z 
+draft: false
+tags: ["ai", "software engineering"]
+summary: ""
+description: ""
+---
 
 *Originally written in June 2025. This is a more detailed version of a talk from around the same time.*
 
@@ -215,4 +222,3 @@ Both are lazy responses.
 The useful stance is somewhere in the middle. Treat it like the rest of the stack. Learn how it fails. Use it for the heavy lifting. Keep your own model running.
 
 **Do not outsource the thinking. Only outsource the doing to AIs.**
-
