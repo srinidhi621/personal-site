@@ -1,15 +1,15 @@
 ---
 title: "Srinidhi Ramanujam"
-description: "Engineering leader writing about data platforms, AI, and the occasional story."
+description: "Technical Leadership Through Systems Thinking."
 ---
 
-Hi, I'm **Srinidhi Ramanujam**. I lead data engineering and applied AI teams,
-help them ship dependable platforms, and document what we learn here.
+Hi, I'm **Srinidhi Ramanujam**. I am a consulting technologist based in Bangalore. 
+I bridge the gap between enterprise finance and applied AI, building agents that work and platforms that last. This site is a log of my technical deep dives, experiments curiosities, and the odd bit of fiction.
 
 ## Currently focused on
 
 - Building durable data platforms that partner well with product teams
-- Shipping applied AI tooling that blends LLMs with pragmatic automation
+- Shipping applied AI tooling that blends LLMs with business processes
 - Coaching engineers on how to work calmly, even when the roadmap isn't
 
 ## Explore the site
