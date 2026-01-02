@@ -139,7 +139,7 @@ I'll resist the urge to write prescriptive rules. Your use case isn't my use cas
 - Structured 1M delivers the best quality when latency is less critical. The 68% lift over naive is effectively free performance once you add a TOC and consistent boundaries.
 - Re-run evaluations when your fill percentage changes; the 50–70% naive cliff is real.
 
-**Noisy or polluted corpora**
+**Noisy or polluted text data**
 - Route through a retriever. At 19:1 noise-to-signal, RAG variants more than doubled naive performance. Retrieval isn't just helpful in this regime—it's the only thing keeping quality above random.
 
 **Greenfield builds**
@@ -175,16 +175,6 @@ We found that:
 - **Simple baselines often beat fancy techniques**, at least in our domain
 
 None of these are universal laws. All of them are testable in your context. And that's the real takeaway: **empirical evaluation beats intuition**. The only way to know what works for your use case is to measure.
-
----
-
-## Everything Is Open Source
-
-All 4,380 API call records. All four context assembly strategies. All evaluation scripts and analysis notebooks. The visualization code you've seen in this article.
-
-It's all at **[github.com/srinidhi621/context-engineering-experiments](https://github.com/srinidhi621/context-engineering-experiments)**.
-
-Why open source? Because science advances through replication. If our results surprise you, replicate them. If our methodology has flaws, improve it. If your domain differs, adapt the framework. We used Google's free tier specifically so anyone can verify this work without budget constraints.
 
 ---
 
