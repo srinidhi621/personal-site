@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Summary (Key Metrics)</text>
+<text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Values reflect the post’s reported averages; latency values are wall-clock.</text>
+<rect x="80" y="110" width="1040" height="420" fill="white" stroke="#ddd" stroke-width="1" rx="10" />
+<text x="120" y="150" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#111" text-anchor="start">Strategy</text>
+<text x="420" y="150" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#111" text-anchor="start">Avg F1</text>
+<text x="560" y="150" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#111" text-anchor="start">Latency</text>
+<text x="700" y="150" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#111" text-anchor="start">Note</text>
+<line x1="110" y1="165" x2="1090" y2="165" stroke="#eee" stroke-width="2" />
+<text x="120" y="210" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Naive 1M</text>
+<text x="420" y="210" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">0.136</text>
+<text x="560" y="210" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">≈22s</text>
+<text x="700" y="210" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Unreliable at 50–70% fill</text>
+<rect x="100" y="240" width="1000" height="58" fill="#fafafa" stroke="none" stroke-width="0" rx="8" />
+<text x="120" y="282" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Structured 1M</text>
+<text x="420" y="282" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">0.228</text>
+<text x="560" y="282" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">45.8s</text>
+<text x="700" y="282" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Best quality; higher latency</text>
+<text x="120" y="354" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Basic RAG</text>
+<text x="420" y="354" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">0.221</text>
+<text x="560" y="354" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">≈30s</text>
+<text x="700" y="354" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Strong baseline; simpler ops</text>
+<rect x="100" y="384" width="1000" height="58" fill="#fafafa" stroke="none" stroke-width="0" rx="8" />
+<text x="120" y="426" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Advanced RAG</text>
+<text x="420" y="426" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">0.217</text>
+<text x="560" y="426" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">35.3s</text>
+<text x="700" y="426" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#333" text-anchor="start">Balanced; domain-dependent gains</text>
+</svg>

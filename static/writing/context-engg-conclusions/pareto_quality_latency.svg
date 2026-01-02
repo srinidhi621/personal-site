@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Quality vs Latency (Pareto View)</text>
+<text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Higher quality tends to cost more latency; choose based on your SLO.</text>
+<rect x="120" y="110" width="980" height="400" fill="white" stroke="#ddd" stroke-width="1" rx="8" />
+<line x1="120.0" y1="510.0" x2="1100.0" y2="510.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="515.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.12</text>
+<line x1="120.0" y1="410.0" x2="1100.0" y2="410.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="415.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.15</text>
+<line x1="120.0" y1="310.0" x2="1100.0" y2="310.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="315.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.18</text>
+<line x1="120.0" y1="210.0" x2="1100.0" y2="210.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="215.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.21</text>
+<line x1="120.0" y1="110.0" x2="1100.0" y2="110.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="115.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.24</text>
+<line x1="260.0" y1="510.0" x2="260.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="260.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">20s</text>
+<line x1="540.0" y1="510.0" x2="540.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="540.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">30s</text>
+<line x1="820.0" y1="510.0" x2="820.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="820.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">40s</text>
+<line x1="1100.0" y1="510.0" x2="1100.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="1100.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">50s</text>
+<polyline points="540.0,173.3333333333333 688.4,186.66666666666666 982.3999999999999,149.99999999999994" fill="none" stroke="#111" stroke-width="2" stroke-linejoin="round" stroke-linecap="round" />
+<text x="980" y="160" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#111" text-anchor="end">Pareto-ish frontier</text>
+<circle cx="316.0" cy="456.6666666666666" r="7" fill="#d62728" />
+<text x="326.0" y="446.6666666666666" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Naive</text>
+<circle cx="540.0" cy="173.3333333333333" r="7" fill="#1f77b4" />
+<text x="550.0" y="163.3333333333333" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Basic RAG</text>
+<circle cx="688.4" cy="186.66666666666666" r="7" fill="#9467bd" />
+<text x="698.4" y="176.66666666666666" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Advanced RAG</text>
+<circle cx="982.3999999999999" cy="149.99999999999994" r="7" fill="#2ca02c" />
+<text x="992.3999999999999" y="139.99999999999994" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Structured</text>
+<text x="600" y="615" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="middle">Latency (seconds)</text>
+<text x="1120" y="560" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="end">F1 score</text>
+</svg>

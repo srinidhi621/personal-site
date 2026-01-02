@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Experiment 2: Robustness Under Noise (Pollution Tokens)</text>
+<text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">At extreme noise, retrieval separates from full-context approaches.</text>
+<rect x="120" y="110" width="980" height="400" fill="white" stroke="#ddd" stroke-width="1" rx="8" />
+<line x1="120.0" y1="510.0" x2="1100.0" y2="510.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="515.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.00</text>
+<line x1="120.0" y1="452.85714285714283" x2="1100.0" y2="452.85714285714283" stroke="#eee" stroke-width="1" />
+<text x="110" y="457.85714285714283" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.05</text>
+<line x1="120.0" y1="395.71428571428567" x2="1100.0" y2="395.71428571428567" stroke="#eee" stroke-width="1" />
+<text x="110" y="400.71428571428567" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.10</text>
+<line x1="120.0" y1="281.4285714285714" x2="1100.0" y2="281.4285714285714" stroke="#eee" stroke-width="1" />
+<text x="110" y="286.4285714285714" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.20</text>
+<line x1="120.0" y1="167.1428571428571" x2="1100.0" y2="167.1428571428571" stroke="#eee" stroke-width="1" />
+<text x="110" y="172.1428571428571" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.30</text>
+<line x1="120.0" y1="110.0" x2="1100.0" y2="110.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="115.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.35</text>
+<line x1="120.0" y1="510.0" x2="120.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="120.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">0</text>
+<line x1="171.57894736842104" y1="510.0" x2="171.57894736842104" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="171.57894736842104" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">50k</text>
+<line x1="326.31578947368416" y1="510.0" x2="326.31578947368416" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="326.31578947368416" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">200k</text>
+<line x1="635.7894736842105" y1="510.0" x2="635.7894736842105" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="635.7894736842105" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">500k</text>
+<line x1="842.1052631578947" y1="510.0" x2="842.1052631578947" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="842.1052631578947" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">700k</text>
+<line x1="1100.0" y1="510.0" x2="1100.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="1100.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">950k</text>
+<polyline points="120.0,430.0 171.57894736842104,441.4285714285714 326.31578947368416,441.4285714285714 635.7894736842105,452.85714285714283 842.1052631578947,441.4285714285714 1100.0,340.8571428571429" fill="none" stroke="#d62728" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="120.0" cy="430.0" r="4" fill="#d62728" />
+<circle cx="171.57894736842104" cy="441.4285714285714" r="4" fill="#d62728" />
+<circle cx="326.31578947368416" cy="441.4285714285714" r="4" fill="#d62728" />
+<circle cx="635.7894736842105" cy="452.85714285714283" r="4" fill="#d62728" />
+<circle cx="842.1052631578947" cy="441.4285714285714" r="4" fill="#d62728" />
+<circle cx="1100.0" cy="340.8571428571429" r="4" fill="#d62728" />
+<polyline points="120.0,418.57142857142856 171.57894736842104,430.0 326.31578947368416,430.0 635.7894736842105,441.4285714285714 842.1052631578947,430.0 1100.0,315.71428571428567" fill="none" stroke="#2ca02c" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="120.0" cy="418.57142857142856" r="4" fill="#2ca02c" />
+<circle cx="171.57894736842104" cy="430.0" r="4" fill="#2ca02c" />
+<circle cx="326.31578947368416" cy="430.0" r="4" fill="#2ca02c" />
+<circle cx="635.7894736842105" cy="441.4285714285714" r="4" fill="#2ca02c" />
+<circle cx="842.1052631578947" cy="430.0" r="4" fill="#2ca02c" />
+<circle cx="1100.0" cy="315.71428571428567" r="4" fill="#2ca02c" />
+<polyline points="120.0,418.57142857142856 171.57894736842104,430.0 326.31578947368416,430.0 635.7894736842105,441.4285714285714 842.1052631578947,430.0 1100.0,159.1428571428571" fill="none" stroke="#1f77b4" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="120.0" cy="418.57142857142856" r="4" fill="#1f77b4" />
+<circle cx="171.57894736842104" cy="430.0" r="4" fill="#1f77b4" />
+<circle cx="326.31578947368416" cy="430.0" r="4" fill="#1f77b4" />
+<circle cx="635.7894736842105" cy="441.4285714285714" r="4" fill="#1f77b4" />
+<circle cx="842.1052631578947" cy="430.0" r="4" fill="#1f77b4" />
+<circle cx="1100.0" cy="159.1428571428571" r="4" fill="#1f77b4" />
+<polyline points="120.0,418.57142857142856 171.57894736842104,430.0 326.31578947368416,430.0 635.7894736842105,441.4285714285714 842.1052631578947,430.0 1100.0,151.1428571428571" fill="none" stroke="#9467bd" stroke-width="3" stroke-linejoin="round" stroke-linecap="round" />
+<circle cx="120.0" cy="418.57142857142856" r="4" fill="#9467bd" />
+<circle cx="171.57894736842104" cy="430.0" r="4" fill="#9467bd" />
+<circle cx="326.31578947368416" cy="430.0" r="4" fill="#9467bd" />
+<circle cx="635.7894736842105" cy="441.4285714285714" r="4" fill="#9467bd" />
+<circle cx="842.1052631578947" cy="430.0" r="4" fill="#9467bd" />
+<circle cx="1100.0" cy="151.1428571428571" r="4" fill="#9467bd" />
+<rect x="120" y="548" width="18" height="10" fill="#d62728" stroke="#d62728" stroke-width="1" />
+<text x="144" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Naive</text>
+<rect x="212" y="548" width="18" height="10" fill="#2ca02c" stroke="#2ca02c" stroke-width="1" />
+<text x="236" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Structured</text>
+<rect x="344" y="548" width="18" height="10" fill="#1f77b4" stroke="#1f77b4" stroke-width="1" />
+<text x="368" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">RAG</text>
+<rect x="420" y="548" width="18" height="10" fill="#9467bd" stroke="#9467bd" stroke-width="1" />
+<text x="444" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Advanced RAG</text>
+<text x="600" y="615" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="middle">Added irrelevant tokens (thousands)</text>
+<text x="1120" y="560" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="end">F1 score</text>
+</svg>

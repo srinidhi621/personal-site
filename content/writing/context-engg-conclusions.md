@@ -59,7 +59,7 @@ Here's the methodological piece that mattered most: we padded all strategies to 
 
 Everyone's heard of "Lost in the Middle"—that research showing models lose track of information buried deep in their context. We expected that effect. What we didn't expect was where it hit.
 
-![Performance degradation showing naive collapse at 50% fill](exp1_degradation_curve_fixed.png)
+![Performance degradation showing naive collapse at 50% fill](exp1_degradation_curve_fixed.svg)
 
 At 30% fill, naive holds at F1 0.188. Then at 50% fill, it falls off a cliff—down to 0.019. Not graceful degradation. Catastrophic failure. And then—and this is the weird part—it *recovers* at 90% fill, climbing back to 0.189.
 
@@ -67,7 +67,7 @@ We checked the raw outputs. At 50% fill, naive wasn't just getting questions wro
 
 The structured approach? Flat line across all fill levels. Boring. Reliable. Exactly what you want in production.
 
-![Heatmap showing strategy and fill level interaction](exp1_strategy_fill_heatmap.png)
+![Heatmap showing strategy and fill level interaction](exp1_strategy_fill_heatmap.svg)
 
 That red-bordered cell in the heatmap tells the whole story. Naive at 50% fill is a danger zone.
 
@@ -75,13 +75,13 @@ That red-bordered cell in the heatmap tells the whole story. Naive at 50% fill i
 
 So does structure help? Here's the headline number: **68% relative improvement**.
 
-![Strategy comparison showing 68% improvement over naive](exp1_strategy_comparison_fixed.png)
+![Strategy comparison showing 68% improvement over naive](exp1_strategy_comparison_fixed.svg)
 
 Structured averaged F1 0.228. Naive averaged 0.136. That's not a rounding error. That's the difference between a system that works and a system that frustrates users.
 
 Structure helping was expected; structure helping *everywhere* was not. Even at low fill percentages, where you'd think there's plenty of room for the model to find what it needs, structure added value.
 
-![Relative performance lift showing percentage improvements](exp1_relative_lift.png)
+![Relative performance lift showing percentage improvements](exp1_relative_lift.svg)
 
 The horizontal bars make it visceral. Structured: +68%. RAG: +63%. Advanced RAG: +60%. Naive: baseline. If you're using naive long-context in production, you're leaving performance on the table.
 
@@ -99,7 +99,7 @@ This doesn't mean advanced retrieval is never worth it. But it means you should 
 
 Experiment 2 tested pollution. We started with a clean 50k-token corpus containing all the answers, then progressively buried it in plausible but irrelevant content. 50k extra tokens. Then 200k. Then 500k, 700k, and finally 950k—a 19:1 noise-to-signal ratio.
 
-![Pollution robustness showing RAG advantage at extreme noise](exp2_pollution_robustness_fixed.png)
+![Pollution robustness showing RAG advantage at extreme noise](exp2_pollution_robustness_fixed.svg)
 
 At moderate pollution (50k to 700k), all strategies clustered together around F1 0.05-0.07. Structure helped a little. Retrieval helped a little. Nothing broke away from the pack.
 
@@ -113,15 +113,15 @@ There's a threshold, and it's not where you'd expect. Below it, everyone struggl
 
 I wish I could tell you one strategy wins on every metric. It doesn't work that way.
 
-![Pareto plot showing quality-latency trade-offs](pareto_quality_latency.png)
+![Pareto plot showing quality-latency trade-offs](pareto_quality_latency.svg)
 
 That dotted line is the Pareto frontier—the strategies where you can't improve one metric without sacrificing another. Structured sits at the top right: best quality (0.228 F1), but highest latency (45.8 seconds). Advanced RAG is the balanced option: slightly lower quality (0.217 F1), but faster (35.3 seconds). Naive is quick but unreliable.
 
-![Latency vs tokens showing RAG stays constant](exp1_latency_vs_tokens.png)
+![Latency vs tokens showing RAG stays constant](exp1_latency_vs_tokens.svg)
 
 See that cluster of blue points at the left? That's RAG, processing about 92k tokens regardless of corpus size. The orange and teal scatter spreading rightward? That's naive and structured, scaling linearly with context. At 900k tokens, full-context strategies take 60+ seconds. RAG stays flat. For any system with an SLO, that predictability matters.
 
-![Summary table with all key metrics](summary_table.png)
+![Summary table with all key metrics](summary_table.svg)
 
 **Method notes:** All runs used Gemini 2.0 Flash Experimental at temperature 0.0, identical prompts across strategies, padded contexts to fixed fill percentages (10–90%). Latency was measured wall-clock on a single GCP VM (n2-standard-4) with serial requests and no batching. Variance across repeated runs was low enough that differences under ~0.01 F1 should be treated as noise.
 

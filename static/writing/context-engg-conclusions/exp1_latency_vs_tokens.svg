@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Latency vs Tokens Processed</text>
+<text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Retrieval stays roughly constant; full-context strategies scale with tokens.</text>
+<rect x="120" y="110" width="980" height="400" fill="white" stroke="#ddd" stroke-width="1" rx="8" />
+<line x1="120.0" y1="510.0" x2="1100.0" y2="510.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="515.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">20s</text>
+<line x1="120.0" y1="430.0" x2="1100.0" y2="430.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="435.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">30s</text>
+<line x1="120.0" y1="350.0" x2="1100.0" y2="350.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="355.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">40s</text>
+<line x1="120.0" y1="270.0" x2="1100.0" y2="270.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="275.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">50s</text>
+<line x1="120.0" y1="190.0" x2="1100.0" y2="190.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="195.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">60s</text>
+<line x1="120.0" y1="110.0" x2="1100.0" y2="110.0" stroke="#eee" stroke-width="1" />
+<text x="110" y="115.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">70s</text>
+<line x1="120.0" y1="510.0" x2="120.0" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="120.0" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">0</text>
+<line x1="223.15789473684208" y1="510.0" x2="223.15789473684208" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="223.15789473684208" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">100k</text>
+<line x1="429.4736842105263" y1="510.0" x2="429.4736842105263" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="429.4736842105263" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">300k</text>
+<line x1="738.9473684210526" y1="510.0" x2="738.9473684210526" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="738.9473684210526" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">600k</text>
+<line x1="1048.4210526315787" y1="510.0" x2="1048.4210526315787" y2="110.0" stroke="#f2f2f2" stroke-width="1" />
+<text x="1048.4210526315787" y="532" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="middle">900k</text>
+<circle cx="214.90526315789475" cy="414.0" r="6" fill="#1f77b4" />
+<circle cx="214.90526315789475" cy="398.0" r="6" fill="#1f77b4" />
+<circle cx="214.90526315789475" cy="406.0" r="6" fill="#1f77b4" />
+<circle cx="214.90526315789475" cy="390.0" r="6" fill="#1f77b4" />
+<circle cx="223.15789473684208" cy="446.0" r="6" fill="#d62728" />
+<circle cx="429.4736842105263" cy="382.0" r="6" fill="#d62728" />
+<circle cx="738.9473684210526" cy="286.0" r="6" fill="#d62728" />
+<circle cx="1048.4210526315787" cy="174.0" r="6" fill="#d62728" />
+<circle cx="223.15789473684208" cy="430.0" r="6" fill="#2ca02c" />
+<circle cx="429.4736842105263" cy="366.0" r="6" fill="#2ca02c" />
+<circle cx="738.9473684210526" cy="254.0" r="6" fill="#2ca02c" />
+<circle cx="1048.4210526315787" cy="142.0" r="6" fill="#2ca02c" />
+<rect x="120" y="548" width="18" height="10" fill="#1f77b4" stroke="#1f77b4" stroke-width="1" />
+<text x="144" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">RAG</text>
+<rect x="196" y="548" width="18" height="10" fill="#d62728" stroke="#d62728" stroke-width="1" />
+<text x="220" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Naive</text>
+<rect x="288" y="548" width="18" height="10" fill="#2ca02c" stroke="#2ca02c" stroke-width="1" />
+<text x="312" y="557" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="start">Structured</text>
+<text x="600" y="615" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="middle">Tokens processed (thousands)</text>
+<text x="1120" y="560" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="end">Latency (seconds)</text>
+</svg>

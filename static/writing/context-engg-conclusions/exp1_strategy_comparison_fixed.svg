@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Average F1 by Strategy</text>
+<text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Structured long-context improves ~68% vs naive (0.228 vs 0.136).</text>
+<rect x="80" y="95" width="1040" height="450" fill="white" stroke="#ddd" stroke-width="1" rx="10" />
+<line x1="100" y1="500.0" x2="1100" y2="500.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="505.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.00</text>
+<line x1="100" y1="424.0" x2="1100" y2="424.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="429.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.05</text>
+<line x1="100" y1="348.0" x2="1100" y2="348.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="353.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.10</text>
+<line x1="100" y1="272.0" x2="1100" y2="272.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="277.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.15</text>
+<line x1="100" y1="196.0" x2="1100" y2="196.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="201.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.20</text>
+<line x1="100" y1="120.0" x2="1100" y2="120.0" stroke="#eee" stroke-width="1" />
+<text x="95" y="125.0" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#444" text-anchor="end">0.25</text>
+<rect x="120" y="293.28" width="190" height="206.72000000000003" fill="#d62728" stroke="#d62728" stroke-width="1" rx="8" />
+<text x="215.0" y="530" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">Naive 1M</text>
+<text x="215.0" y="283.28" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">0.136</text>
+<rect x="370" y="153.44" width="190" height="346.56" fill="#2ca02c" stroke="#2ca02c" stroke-width="1" rx="8" />
+<text x="465.0" y="530" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">Structured 1M</text>
+<text x="465.0" y="143.44" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">0.228</text>
+<rect x="620" y="164.07999999999998" width="190" height="335.92" fill="#1f77b4" stroke="#1f77b4" stroke-width="1" rx="8" />
+<text x="715.0" y="530" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">Basic RAG</text>
+<text x="715.0" y="154.07999999999998" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">0.221</text>
+<rect x="870" y="170.16000000000003" width="190" height="329.84" fill="#9467bd" stroke="#9467bd" stroke-width="1" rx="8" />
+<text x="965.0" y="530" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">Advanced RAG</text>
+<text x="965.0" y="160.16000000000003" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#333" text-anchor="middle">0.217</text>
+<text x="1100" y="560" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="12" fill="#666" text-anchor="end">F1 score</text>
+</svg>
