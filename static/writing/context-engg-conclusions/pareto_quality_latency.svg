@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<rect x="0" y="0" width="1200" height="630" fill="#ffffff" />
 <text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Quality vs Latency (Pareto View)</text>
 <text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Higher quality tends to cost more latency; choose based on your SLO.</text>
 <rect x="120" y="110" width="980" height="400" fill="white" stroke="#ddd" stroke-width="1" rx="8" />

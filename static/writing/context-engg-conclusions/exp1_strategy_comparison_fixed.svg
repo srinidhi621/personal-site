@@ -1,4 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img">
+<rect x="0" y="0" width="1200" height="630" fill="#ffffff" />
 <text x="60" y="48" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="22" fill="#111" text-anchor="start">Average F1 by Strategy</text>
 <text x="60" y="74" font-family="ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="14" fill="#555" text-anchor="start">Structured long-context improves ~68% vs naive (0.228 vs 0.136).</text>
 <rect x="80" y="95" width="1040" height="450" fill="white" stroke="#ddd" stroke-width="1" rx="10" />

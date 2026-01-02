@@ -27,6 +27,12 @@ def _svg_footer() -> str:
     return "</svg>\n"
 
 
+def _bg(w: int, h: int, *, fill: str = "#ffffff") -> str:
+    # Always paint an explicit background so SVG text doesn't become unreadable
+    # when the surrounding page switches to dark mode.
+    return f'<rect x="0" y="0" width="{w}" height="{h}" fill="{fill}" />'
+
+
 def _esc(s: str) -> str:
     return (
         s.replace("&", "&amp;")
@@ -118,7 +124,7 @@ def write_exp1_degradation_curve() -> None:
     naive = [(10, 0.14), (30, 0.188), (50, 0.019), (70, 0.06), (90, 0.189)]
     structured = [(10, 0.22), (30, 0.23), (50, 0.228), (70, 0.227), (90, 0.229)]
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Experiment 1: Performance vs Fill Percentage", size=22, fill="#111"))
     parts.append(_text(60, 74, "Naive long-context shows a sharp cliff at ~50% fill; structured remains stable.", size=14, fill="#555"))
     parts.append(_axes(area, xticks=xticks, yticks=yticks))
@@ -152,7 +158,7 @@ def write_exp1_strategy_comparison() -> None:
     bw, gap = 190, 60
     chart_h = 380
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Average F1 by Strategy", size=22, fill="#111"))
     parts.append(_text(60, 74, "Structured long-context improves ~68% vs naive (0.228 vs 0.136).", size=14, fill="#555"))
     parts.append(_rect(80, 95, 1040, 450, fill="white", stroke="#ddd", sw=1, rx=10))
@@ -186,7 +192,7 @@ def write_exp1_relative_lift() -> None:
     bar_h = 48
     gap = 34
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Relative Lift vs Naive (Baseline = 0%)", size=22, fill="#111"))
     parts.append(_text(60, 74, "Higher is better. Numbers based on experiment averages reported in the post.", size=14, fill="#555"))
     parts.append(_rect(80, 95, 1040, 450, fill="white", stroke="#ddd", sw=1, rx=10))
@@ -214,7 +220,7 @@ def write_exp2_pollution_robustness() -> None:
     rag = [(0, 0.08), (50, 0.07), (200, 0.07), (500, 0.06), (700, 0.07), (950, 0.307)]
     adv = [(0, 0.08), (50, 0.07), (200, 0.07), (500, 0.06), (700, 0.07), (950, 0.314)]
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Experiment 2: Robustness Under Noise (Pollution Tokens)", size=22, fill="#111"))
     parts.append(_text(60, 74, "At extreme noise, retrieval separates from full-context approaches.", size=14, fill="#555"))
     parts.append(_axes(area, xticks=xticks, yticks=yticks))
@@ -249,7 +255,7 @@ def write_pareto_quality_latency() -> None:
         ("Structured", 45.8, 0.228, "#2ca02c"),
     ]
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Quality vs Latency (Pareto View)", size=22, fill="#111"))
     parts.append(_text(60, 74, "Higher quality tends to cost more latency; choose based on your SLO.", size=14, fill="#555"))
     parts.append(_axes(area, xticks=xticks, yticks=yticks))
@@ -278,7 +284,7 @@ def write_exp1_latency_vs_tokens() -> None:
     naive = [(100, 28), (300, 36), (600, 48), (900, 62)]
     structured = [(100, 30), (300, 38), (600, 52), (900, 66)]
 
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Latency vs Tokens Processed", size=22, fill="#111"))
     parts.append(_text(60, 74, "Retrieval stays roughly constant; full-context strategies scale with tokens.", size=14, fill="#555"))
     parts.append(_axes(area, xticks=xticks, yticks=yticks))
@@ -306,7 +312,7 @@ def write_summary_table() -> None:
         ("Basic RAG", "0.221", "≈30s", "Strong baseline; simpler ops"),
         ("Advanced RAG", "0.217", "35.3s", "Balanced; domain-dependent gains"),
     ]
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Summary (Key Metrics)", size=22, fill="#111"))
     parts.append(_text(60, 74, "Values reflect the post’s reported averages; latency values are wall-clock.", size=14, fill="#555"))
     parts.append(_rect(80, 110, 1040, 420, fill="white", stroke="#ddd", sw=1, rx=10))
@@ -346,7 +352,7 @@ def write_exp1_strategy_fill_heatmap() -> None:
 
     x0, y0 = 220, 150
     cell = 150
-    parts: List[str] = [_svg_header(w, h)]
+    parts: List[str] = [_svg_header(w, h), _bg(w, h)]
     parts.append(_text(60, 48, "Strategy × Fill Level Heatmap (F1)", size=22, fill="#111"))
     parts.append(_text(60, 74, "Naive shows a failure zone around 50% fill; structured is stable.", size=14, fill="#555"))
     parts.append(_rect(80, 110, 1040, 460, fill="white", stroke="#ddd", sw=1, rx=10))
