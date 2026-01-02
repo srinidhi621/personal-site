@@ -1,6 +1,7 @@
 ---
 title: "How AI Is Actually Changing Software Engineering"
 date: 2025-06-01T00:00:00Z 
+lastmod: 2025-06-01T00:00:00Z
 draft: false
 tags: ["ai", "software engineering"]
 summary: ""
@@ -17,14 +18,6 @@ Depending on who you listen to, that means either:
 - “Developers are finally 0x employed.”
 
 Reality, as usual, is less dramatic and more interesting.
-
-When you strip away the hype videos with glowing terminals and lo-fi beats, what we are seeing in 2025 is something we have seen before. Not the end of programming. Just one more layer of abstraction piled on top of a stack that was already ridiculous.
-
-Let me start with that stack.
-
----
-
-## Living on an invisible stack
 
 A normal day for most engineers in 2025 looks something like this:
 
@@ -49,9 +42,9 @@ Abstractions are the reason we can do that. They let us say “database” inste
 
 AI in your editor fits exactly into this story. It is just the first abstraction that answers back in English.
 
-You say, “I want a function that does X.” It proposes an implementation. The stack underneath has not disappeared. You just have a new way of pushing on it.
+You say, “I want a function that does X.” It proposes an implementation. The stack underneath has not disappeared. You just have a new way of poking at it.
 
-That is the right mental model, at least for me. Not magic. Not doom. Another layer.
+That is the right mental model, at least for me. Not magic, but not doom and gloom either. Its another layer.
 
 ---
 
@@ -69,7 +62,7 @@ Plain editor. Maybe syntax highlighting. Maybe a linter. You type every characte
 
 ### Level 1: autocomplete with manners
 
-The IDE finishes your lines. Copilot-style stuff. It saves you keystrokes, but it does not change how you think about the problem. You are still steering every decision.
+The IDE finishes your lines. Copilot-style stuff. It saves you keystrokes, but it does not change how you think about the problem. You are still writing every function, and steering every decision.
 
 ### Level 2: function sized chunks
 
@@ -99,7 +92,7 @@ People demo pieces of this. Some research labs are playing in this space. Most a
 
 In June 2025, most teams I see are living somewhere between Level 1 and Level 4, depending on the maturity of their tests, their architecture, and their appetite for risk.
 
-The important point is this:
+The thing that stands out for me around this is:
 
 > The limiting factor is not how “smart” the AI is.  
 > It is how much autonomy your engineering practices can safely absorb.
@@ -132,7 +125,7 @@ The model is not lying. It is doing pattern completion.
 
 You are the one who has to remember the parts of reality that never made it into the training data.
 
-### 2. 0→1 is not the same as 1→2
+### 2. 0→1 is not the same as 1→10, and certainly not the same as 1→100 
 
 Most AI demos start from nothing.
 
@@ -149,7 +142,7 @@ Now compare that to the thing you actually work on:
 - The person who knew why a certain edge case exists left two years ago.  
 - There are behaviors that nobody fully understands but everyone is scared to touch.
 
-The hard work here is not “write code.” The hard work is “change something without breaking three other things we forgot about.”
+The hard work here is not “write code.” The hard work is “change something without breaking three other things we forgot about, or didn't know existed.”
 
 AI is not useless in this world, but the jagged frontier shows up very quickly. Telling an agent, “Modernize this monolith,” and watching it go to town is the engineering equivalent of taking your hands off the steering wheel because the brochure says “lane assist.”
 
@@ -215,10 +208,12 @@ AI is just another turn of that crank.
 
 We have been adding layers under our feet for decades. Managed memory, frameworks, ORMs, containers, serverless, hosted everything. Each generation pushes the machinery further away from the day-to-day work.
 
+In 3-4 years (maybe sooner), "AI-assisted" won't be a modifier. We'll just call it software engineering. But the engineers who matter then will be the ones who spent today learning to debug not just code, but the gaps between what their AI knows and what their business actually is. That skill doesn't show up in productivity metrics, but it shows up when production stays up. Start measuring that gap now.
+
 AI is the first layer that feels like a colleague. It reads your code, suggests changes, writes tests, argues with you a bit. It is easy to either fall in love with it or dismiss it entirely.
 
 Both are lazy responses.
 
-The useful stance is somewhere in the middle. Treat it like the rest of the stack. Learn how it fails. Use it for the heavy lifting. Keep your own model running.
+The useful stance is somewhere in the middle. Treat it like the rest of the stack. Learn how it fails. Use it for the boring stuff, and the heavy lifting. Keep your own model running.
 
 **Do not outsource the thinking. Only outsource the doing to AIs.**
