@@ -47,7 +47,11 @@ Flag when frequent or clustered, especially in intros/conclusions:
 
 - **Title Case In Headings** where sentence case is normal
 - **Overuse of boldface** for emphasis, especially bolded inline headers in lists
-- **Em dashes (—)** used excessively for parenthetical asides
+- **Em dashes (—)** used excessively for parenthetical asides. **Alert if more than 3–4 em-dashes appear in an article.** This is a strong signal for automated AI detection systems. Replace with colons, parentheses, commas, or semicolons as appropriate:
+  - Definition/explanation → colon (`:`)
+  - Aside/supplementary info → parentheses (`()`)
+  - Light pause → comma (`,`)
+  - Related independent clauses → semicolon (`;`)
 - **Curly/smart quotes** ("…") instead of straight quotes ("...")—or inconsistent mixing
 - **Emoji-decorated bullets** with perfectly matched emoji per item (🚀 💡 🤝)
 
@@ -124,7 +128,8 @@ Prioritized mechanical edits:
 
 - **Cut/Delete**: exact sentences/phrases to remove (fluff, boilerplate transitions)
 - **Replace lexicon**: suggested substitutions for flagged AI words (plainspoken alternatives)
-- **Increase information density**: what details to add (names, dates, constraints, numbers, edge cases)—use `[placeholder: …]` for author to fill
+- **Replace em-dashes**: if count > 3–4, rewrite sentences using colons, parentheses, commas, or semicolons
+- **Increase information density**: what details to add (names, dates, constraints, numbers, edge cases); use `[placeholder: …]` for author to fill
 - **Add ownership**: rewrite passive/hedged patterns into first-person responsibility
 - **Inject burstiness**: vary sentence lengths; add an occasional fragment or sharp question
 - **Add real tradeoffs**: what was given up, what surprised you, what failed, what changed
@@ -161,5 +166,6 @@ When scanning a draft quickly, check for:
 - [ ] Platform dialect markers (bro-etry, SEO-bot)
 - [ ] Missing first-person ownership ("I observed", "I decided")
 - [ ] "In conclusion" / "In summary" closers
-- [ ] Formatting artifacts (smart quotes, excessive em-dashes, emoji bullets)
+- [ ] Formatting artifacts (smart quotes, emoji bullets)
+- [ ] **Em-dash count > 3–4** (strong automated detection signal; replace with colons/parentheses/commas)
 
