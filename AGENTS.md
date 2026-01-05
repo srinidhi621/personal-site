@@ -1,356 +1,215 @@
-# Agent: personal-site-polish
+## Repo overview (for agents)
 
-## Mission
+This repository contains the source for **[srinidhi.dev](https://srinidhi.dev)** — a personal site built with **Hugo** and the **PaperMod** theme, published via **GitHub Pages**.
 
-Upgrade the personal website hosted at **https://srinidhi.dev** (Hugo + PaperMod + GitHub Pages) into a polished, production-quality personal site.
-
-The CI/CD and deployment setup are already working and must not be modified unless absolutely necessary. Work only inside this repository.
-Do not modify DNS, domain settings, or the core GitHub Pages deployment workflow unless there is a clear, deployment-blocking issue.
-If you need to install any new libraries, bring them up with a clear need, and impact and only after my approval should you go ahead. 
-
-
-Your objectives:
-
-- Improve structure and navigation
-- Improve homepage content and layout
-- Add Hugo archetypes for `writing`, `fiction`, and `link` posts
-- Add favicon + app icons + social preview card
-- Improve metadata, SEO, and social share settings
-- Add basic authoring workflow documentation (how to create posts)
-
-Make small, focused commits with clear messages. Explain your reasoning in the Codex log as you go.
+- **Production site**: `https://srinidhi.dev/`
+- **GitHub repo**: `https://github.com/srinidhi621/personal-site`
+- **Stack**: Hugo (extended) + PaperMod (git submodule) + GitHub Actions → GitHub Pages
 
 ---
 
-## Current Context
+## Guardrails (read first)
 
-- Framework: Hugo 0.152.x
-- Theme: PaperMod (installed as a git submodule)
-- Deployment: GitHub Pages via GitHub Actions (already working)
-- Primary domain: https://srinidhi.dev (live and healthy)
-- Content sections exist for: `writing`, `fiction`, `links`, `about`
-- Domain redirect / DNS for `srinidhiramanujam.com` is handled elsewhere and is out of scope
-
-Do not change DNS, GoDaddy settings, or the core GitHub Actions deploy job unless absolutely required.
+- **No DNS / domain registrar changes**: out of scope for this repo.
+- **Avoid changes to deployment**: `.github/workflows/deploy.yml` is production-critical. Only change if deployment is broken.
+- **No new dependencies** (npm/pip/etc.) without explicit owner approval.
+- **Do not commit build output**: `public/` must remain ignored (see `.gitignore`).
+- **Prefer small, focused commits** with clear messages.
 
 ---
 
-## High-Level Plan
+## How the site works
 
-You will work in these phases:
+### Hugo configuration
 
-1. Inspect current repo state
-2. Fix/standardize site structure & navigation
-3. Improve homepage content and layout
-4. Add Hugo archetypes for common post types
-5. Add favicons and basic visual identity
-6. Improve SEO, metadata, and social card behavior
-7. Verify everything locally and in production
-8. Summarize changes and usage instructions
+Primary config: `config/_default/hugo.toml`
 
-Proceed step by step.
+- **`baseURL`**: `https://srinidhi.dev/`
+- **Theme**: `PaperMod`
+- **Menu**: Writing / Fiction / Links / About
+- **Home feed sections**: `params.mainSections = ["writing", "fiction", "links"]`
+- **Icons/social**:
+  - `params.assets.*` point to files under `static/`
+  - `params.images = ["social-card.png"]` for OpenGraph/Twitter defaults
 
----
+Staging override: `config/staging/hugo.toml`
 
-## Phase 1: Inspect Current State
+- **Drafts on staging**: `buildDrafts = true`
+- **Env flag**: `params.env = "staging"`
+- **Local baseURL**: `http://localhost:1313/`
 
-Actions:
+### Theme
 
-1. Inspect key files and directories:
+PaperMod is included as a git submodule:
 
-   - `hugo.toml`
-   - `content/_index.md`
-   - `content/about/`
-   - `content/writing/`
-   - `content/fiction/`
-   - `content/links/`
-   - `layouts/` (if present)
-   - `static/` (existing icons, images, etc.)
+- `themes/PaperMod` (see `.gitmodules`)
+- Prefer configuration and light overrides over editing theme files directly.
 
-2. Run a local build:
+### Content model (sections → URLs)
 
-   ```bash
-   hugo --minify
+All content is Markdown under `content/`:
 
-	3.	Inspect generated files, e.g.:
-	•	public/index.html
-	•	public/writing/first-post/index.html (or similar)
-	•	public/about/index.html
+- **Home**: `content/_index.md` → `/`
+- **Writing**: `content/writing/` → `/writing/<slug>/`
+- **Fiction**: `content/fiction/` → `/fiction/<slug>/`
+- **Links**: `content/links/` → `/links/<slug>/`
+- **About**: `content/about/` → `/about/`
 
-Do not modify anything during this phase. Your goal is simply to understand how the site is currently structured and rendered.
+Each section has a list page:
 
-⸻
-
-Phase 2: Site Structure & Navigation
-
-Goal: Clear and intentional structure matching how the site will be used.
-
-Required sections and URLs:
-	•	Home: /
-	•	Writing: /writing/
-	•	Fiction: /fiction/
-	•	Links: /links/
-	•	About: /about/
-
-Tasks:
-	1.	Ensure each section has a proper list page:
-	•	content/writing/_index.md
-	•	content/fiction/_index.md
-	•	content/links/_index.md
-	•	content/about/_index.md
-For each _index.md, include:
-	•	Minimal front matter with title
-	•	A short intro paragraph describing what the section is for
-(If you add placeholder text, mark with TODO: Srinidhi so the owner can refine later.)
-	2.	Fix the main menu in hugo.toml so it reflects these sections in the following order:
-	•	Writing
-	•	Fiction
-	•	Links
-	•	About
-Example (adapt as needed to align with existing config and PaperMod expectations):
-
-[menu]
-
-  [[menu.main]]
-    name = "Writing"
-    url  = "/writing/"
-    weight = 10
-
-  [[menu.main]]
-    name = "Fiction"
-    url  = "/fiction/"
-    weight = 20
-
-  [[menu.main]]
-    name = "Links"
-    url  = "/links/"
-    weight = 30
-
-  [[menu.main]]
-    name = "About"
-    url  = "/about/"
-    weight = 40
-
-
-	3.	Ensure the URLs for content under each section are clean, e.g.:
-
-	•	/writing/some-post/
-	•	/fiction/some-story/
-	•	/links/some-link/
-
-⸻
-
-Phase 3: Homepage Content & Layout
-
-Goal: The root URL / should be a concise personal introduction and navigation hub.
-
-Tasks:
-	1.	Rewrite content/_index.md to:
-	•	Introduce Srinidhi Ramanujam in 2–3 sentences.
-	•	State what he does (data/AI engineering leader) and what he writes about (data engineering, AI, technology, and fiction).
-	•	Provide clear links to:
-	•	/writing/
-	•	/fiction/
-	•	/links/
-	•	/about/
-	•	Optionally mention that the home page lists recent posts.
-Example (for structure, not exact wording):
+- `content/writing/_index.md`
+- `content/fiction/_index.md`
+- `content/links/_index.md`
+- `content/about/_index.md`
 
 ---
-title: "Srinidhi Ramanujam"
----
 
-Hi, I'm **Srinidhi Ramanujam**.
+## Publishing mode: where to edit what
 
-I work at the intersection of data engineering, machine learning, and applied AI. This site is where I write about technology, AI, software engineering practice, and occasionally share fiction experiments.
+This section is the “navigation map” agents should use when helping with content.
 
-- [Writing](/writing/) — essays on data, AI, and engineering
-- [Fiction](/fiction/) — short stories and experiments
-- [Links](/links/) — links and commentary on things I find interesting
-- [About](/about/) — more about who I am and what I do
+### Staging vs production (worktree workflow)
 
+- **Production worktree**: this repo root on `main`
+- **Staging worktree**: `../personal-site-staging` on `staging`
+- **Default authoring target**: use the staging worktree for all new drafts and edits
+- **Compare versions**: `git diff main..staging -- content/writing/<post>.md`
+- **Publish**: merge `staging` → `main` and set `draft = false` when explicitly asked to publish
+- **Commits/push**: commit with a clear message; only push if the user asks
 
-	2.	Do not add custom layouts unless necessary. Prefer to stay within PaperMod’s standard list/home behavior.
-	3.	Rebuild locally with hugo --minify and confirm that public/index.html is a proper HTML home page.
+### Example publish flow (commands)
 
-⸻
-
-Phase 4: Post Archetypes (Writing, Fiction, Links)
-
-Goal: Make it easy to create consistent new posts with hugo new.
-
-Create the following archetype files:
-	•	archetypes/writing.md
-	•	archetypes/fiction.md
-	•	archetypes/link.md
-
-Suggested contents:
-
-archetypes/writing.md
-
----
-title: ""
-date: {{ .Date }}
-draft: true
-tags: []
-summary: ""
-description: ""
----
-
-archetypes/fiction.md
-
----
-title: ""
-date: {{ .Date }}
-draft: true
-tags: ["fiction"]
-summary: ""
-description: ""
----
-
-archetypes/link.md
-
----
-title: ""
-date: {{ .Date }}
-draft: true
-tags: ["link"]
-summary: ""
-description: ""
-link_target: ""
----
-
-Then, update or create a README.md in the repo root with a short “Authoring” section. Document:
-	•	How to create a new writing post:
-
-hugo new writing/my-new-post.md
-
-
-	•	How to create a new fiction piece:
-
-hugo new fiction/my-new-story.md
-
-
-	•	How to create a new link post:
-
-hugo new links/my-new-link.md
-
-
-
-Explain briefly where each type will appear (under which section and URL pattern).
-
-⸻
-
-Phase 5: Favicons & App Icons
-
-Goal: Minimal but professional identity via icons.
-
-Create basic icons in static/:
-	•	static/favicon.ico
-	•	static/favicon-32x32.png
-	•	static/favicon-16x16.png
-	•	static/apple-touch-icon.png
-	•	static/safari-pinned-tab.svg
-
-Characteristics:
-	•	Simple, clean design is acceptable (e.g., “SR” initials on a solid background, or a simple shape).
-	•	The exact design can be minimal; the goal is not deep branding but avoiding missing icons.
-
-If tools are available, you may generate them (e.g., via ImageMagick or simple SVG). If not, create minimal valid files and ensure they are correctly referenced.
-
-Verify that PaperMod picks them up by default; if it does not:
-	•	Adjust hugo.toml to point to these assets using the minimal set of theme parameters required.
-	•	Do not overcomplicate configuration.
-
-Rebuild with hugo --minify and check public/index.html for appropriate <link rel="icon"...> and related tags.
-
-⸻
-
-Phase 6: SEO, Metadata & Social Cards
-
-Goal: Reasonable defaults so that sharing the site on social platforms looks good.
-
-Tasks:
-	1.	In hugo.toml, under [params] (and related sections as required by PaperMod), ensure:
-	•	A good description, e.g.:
-
-description = "Writing on data engineering, AI, technology, and fiction."
-
-
-	•	Author and site metadata:
-
-[params]
-  author = "Srinidhi Ramanujam"
-  # existing params like defaultTheme, ShowReadingTime, etc. should remain
-
-
-	•	Ensure OpenGraph and Twitter metadata are enabled if the theme requires explicit toggles (check PaperMod docs in themes/PaperMod/).
-
-	2.	Add a social preview image:
-	•	Create static/social-card.png (1200x630 is a common size).
-	•	Simple content is fine: name + tagline on a plain background.
-	3.	Configure hugo.toml so that the home page includes:
-	•	<meta property="og:image" content="https://srinidhi.dev/social-card.png">
-	•	<meta name="twitter:image" content="https://srinidhi.dev/social-card.png">
-	4.	After running hugo --minify, validate by checking public/index.html:
-	•	grep -i "og:title" public/index.html
-	•	grep -i "og:description" public/index.html
-	•	grep -i "og:image" public/index.html
-	•	grep -i "twitter:image" public/index.html
-	•	Check <link rel="canonical" ...> is correct (points to https://srinidhi.dev/).
-
-⸻
-
-Phase 7: Verification & Cleanliness
-
-Tasks:
-	1.	Ensure public/ remains in .gitignore and is not tracked by git.
-	2.	Run local verification:
-
-hugo --minify
+```bash
+# in staging worktree
+cd ../personal-site-staging
 git status -sb
+# edit content, set draft = false when publishing
+git add content/writing/<post>.md
+git commit -m "Update <post> draft"
 
-Confirm only intended files are modified.
+# in production worktree
+cd ../personal-site
+./scripts/publish_staging.sh
+```
 
-	3.	Commit changes in logical groups, for example:
-	•	Structure sections and navigation
-	•	Improve homepage content
-	•	Add archetypes and authoring guide
-	•	Add favicon and social preview assets
-	•	Improve metadata and SEO config
-	4.	Push to main and verify deployment:
-	•	Check GitHub Actions → Pages workflow is green.
-	•	From a terminal, run:
+### Quick content map
 
-curl -I https://srinidhi.dev/
-curl -I https://srinidhi.dev/writing/first-post/
-curl -I https://srinidhi.dev/about/
+- **Homepage copy**: `content/_index.md`
+  - Includes the homepage intro + the `{{< spotlight >}}` block.
+- **Section intros**:
+  - Writing: `content/writing/_index.md`
+  - Fiction: `content/fiction/_index.md`
+  - Links: `content/links/_index.md`
+  - About: `content/about/_index.md`
+- **Posts**:
+  - Writing: `content/writing/*.md`
+  - Fiction: `content/fiction/*.md`
+  - Links: `content/links/*.md`
 
+### Common “change requests” → file to touch
 
-Expect:
-	•	HTTP/2 200
-	•	Content-Type: text/html; charset=utf-8
+- **Update site title/menu/SEO defaults/social card**: `config/_default/hugo.toml`
+- **Change what appears on home feed**: `config/_default/hugo.toml` → `params.mainSections`
+- **Change how the home list renders**: `layouts/index.html` (override of PaperMod list behavior)
+- **Change spotlight selection/rendering**: `layouts/shortcodes/spotlight.html`
+- **Add or update per-post images/diagrams**:
+  - Put assets in `static/<section>/<slug>/...`
+  - Reference them by URL (e.g. `/writing/my-post/diagram.svg`)
+- **Update icons / social preview**: `static/` (see “Static assets” section above)
 
-⸻
+### Content front matter expectations
 
-Phase 8: Final Summary
+Agents should preserve existing patterns, but in general:
 
-At the end of your work, print a concise summary containing:
-	1.	A high-level list of changes:
-	•	Structure and navigation changes
-	•	Homepage content changes
-	•	Archetypes added
-	•	Assets (favicons, icons, social card) added
-	•	SEO and metadata improvements
-	2.	Instructions for the site owner:
-	•	How to create new writing / fiction / link posts using hugo new
-	•	Where to edit homepage and section intros
-	•	Where favicon and social card files live and how to replace them
-	•	How to run local preview (hugo server) and production build (hugo --minify)
-	3.	Verification notes:
-	•	Which URLs were checked with curl -I
-	•	Any caveats or TODOs (clearly marked as TODO: Srinidhi)
+- **Draft control**: `draft = true/false`
+- **Good share previews**: fill `summary` and/or `description` (archetypes already include these)
+- **Tags**: keep tags consistent (used for taxonomy pages)
 
-Do not modify DNS, domain settings, or the core GitHub Pages deployment workflow unless there is a clear, deployment-blocking issue.
-If you need to install any new libraries, bring them up with a clear need, and impact and only after my approval should you go ahead. 
+---
 
+## Agent skills (authoring & review)
+
+When working with Srinidhi on writing/publishing, use these skill guides in `docs/agent-skills/`:
+
+| File | Purpose |
+|------|---------|
+| `README.md` | Overview |
+| `authoring-workflow.md` | Hugo commands for creating/previewing content |
+| `content-authoring.md` | Turning ideas into outlines and drafts |
+| `content-review.md` | Reviewing for clarity, structure, tone |
+| `ai-writing-detection.md` | Detecting AI-like patterns and humanizing drafts |
+| `publishing-checklist.md` | Final checks before publishing |
+| `style-guide.md` | Markdown/Hugo formatting conventions |
+
+### Custom layout overrides (minimal)
+
+This repo intentionally keeps customization small, but two overrides matter:
+
+- **Home/list template override**: `layouts/index.html`
+  - On home, it lists pages from `params.mainSections` (via PaperMod-style paginator logic).
+- **Homepage spotlight shortcode**: `layouts/shortcodes/spotlight.html`
+  - Used from `content/_index.md` as `{{< spotlight >}}`
+  - Currently shows the latest *non-draft* post from the **writing** section.
+
+### Scripts
+
+Utility scripts live in `scripts/`:
+
+- `generate_context_engg_svgs.py` — generates SVG charts for the context engineering posts
+- `publish_staging.sh` — merges `staging` into `main` with a no-ff merge commit
+
+### Static assets (published at site root)
+
+Everything in `static/` is served from `/`:
+
+- **Custom domain**: `static/CNAME`
+- **Favicons/app icons**: `static/favicon.ico`, `static/favicon-16x16.png`, `static/favicon-32x32.png`, `static/apple-touch-icon.png`, `static/safari-pinned-tab.svg`
+- **Social preview image**: `static/social-card.png`
+- **Per-post assets**: put files under `static/<section>/<slug>/...` and reference by URL.
+
+---
+
+## Common workflows
+
+See `docs/agent-skills/authoring-workflow.md` for the full checklist. Quick reference:
+
+```bash
+hugo server --environment staging   # Staging preview (includes drafts)
+hugo server                         # Production preview (no drafts)
+hugo --minify           # Production build
+hugo new writing/x.md   # New writing post
+hugo new fiction/x.md   # New fiction post
+hugo new links/x.md     # New link entry
+```
+
+Archetypes: `archetypes/writing.md`, `archetypes/fiction.md`, `archetypes/links.md`
+
+---
+
+## Conventions & gotchas
+
+- **Drafts**: drafts won’t publish on production builds. Flip `draft = false` when ready, and use the staging environment to preview drafts.
+- **Spotlight behavior**: `spotlight.html` currently only considers `content/writing/` and excludes drafts.
+  - If you want the spotlight to cover Fiction/Links, adjust the shortcode (small, safe change).
+- **Styling**: prefer PaperMod params and small additive overrides.
+  - If custom CSS is needed, prefer adding it via Hugo’s assets pipeline (e.g. `assets/css/extended/*.css`) rather than editing `themes/PaperMod`.
+- **Binaries**: avoid committing large binary files (PDF/DOCX) unless intentionally providing downloads.
+
+---
+
+## Deployment (GitHub Pages)
+
+Workflow: `.github/workflows/deploy.yml`
+
+Trigger:
+
+- Pushes to `main`
+
+What it does (high level):
+
+- Checks out the repo **with submodules**
+- Sets up **Hugo extended**
+- Runs `hugo --minify` (outputs to `public/`)
+- Uploads `public/` as the Pages artifact and deploys it
+
+Treat this workflow as **production-critical**.

@@ -1,0 +1,58 @@
+baseURL = "https://srinidhi.dev/"
+languageCode = "en-us"
+title = "Srinidhi Ramanujam"
+theme = "PaperMod"
+
+enableRobotsTXT = true
+
+[pagination]
+  pagerSize = 10
+
+[outputs]
+  home = ["HTML", "RSS", "JSON"]
+  section = ["HTML", "RSS"]
+  taxonomy = ["HTML", "RSS"]
+
+[params]
+  author = "Srinidhi Ramanujam"
+  description = "Writing on data engineering, AI, technology, and fiction."
+  keywords = ["data engineering", "applied ai", "writing", "fiction"]
+  images = ["social-card.png"]
+  mainSections = ["writing", "fiction", "links"]
+  defaultTheme = "auto"
+  ShowReadingTime = true
+  ShowPostNavLinks = true
+  ShowToc = true
+  ShowBreadCrumbs = true
+  ShowCodeCopyButtons = true
+  env = "production"
+
+  [params.assets]
+    favicon = "favicon.ico"
+    favicon16x16 = "favicon-16x16.png"
+    favicon32x32 = "favicon-32x32.png"
+    apple_touch_icon = "apple-touch-icon.png"
+    safari_pinned_tab = "safari-pinned-tab.svg"
+    theme_color = "#0d0c1a"
+    msapplication_TileColor = "#0d0c1a"
+
+[menu]
+  [[menu.main]]
+    name = "Writing"
+    url  = "/writing/"
+    weight = 10
+
+  [[menu.main]]
+    name = "Fiction"
+    url  = "/fiction/"
+    weight = 20
+
+  [[menu.main]]
+    name = "Links"
+    url  = "/links/"
+    weight = 30
+
+  [[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 40
