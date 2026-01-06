@@ -162,7 +162,7 @@ These limitations don't invalidate our results. They define their scope.
 
 ## The Bigger Picture
 
-This project started as a hypothesis test and became an argument: **context engineering deserves serious attention as a discipline.**
+This project started as a curiosity, then ahypothesis test and became an argument: **context engineering deserves serious attention as a discipline.**
 
 "Just use a bigger window" is not engineering advice. Having a million-token window doesn't mean you should use it all, any more than having a terabyte of RAM means you should ignore memory management. Scale doesn't eliminate the need for discipline; it just changes what discipline looks like.
 
