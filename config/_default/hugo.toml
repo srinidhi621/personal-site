@@ -2,6 +2,7 @@ baseURL = "https://srinidhi.dev/"
 languageCode = "en-us"
 title = "Srinidhi Ramanujam"
 theme = "PaperMod"
+googleAnalytics = "G-MRKDHXM8CC"
 
 enableRobotsTXT = true
 
