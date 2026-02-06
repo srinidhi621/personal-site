@@ -15,14 +15,117 @@ Avoid long tables. Avoid dumping large machine-readable blobs. The author should
 
 ---
 
-## Local helper script (optional)
-This repo includes an optional helper script that supports the rubric with deterministic counts and line-numbered flags.
+## Local helper scripts
 
-- Script: `scripts/ai_writing_forensics.py`
-- Typical usage:
-  - `python3 scripts/ai_writing_forensics.py --file content/writing/<post>.md --channel blog --intent inform --topic "<topic>"`
+This repo includes helper scripts that support the rubric with deterministic counts and line-numbered flags.
 
-The script prints an editor-friendly report directly to stdout.
+### 1. Base Forensics Script: `scripts/ai_writing_forensics.py`
+
+The primary script for AI writing detection. Produces an editor-friendly report with:
+- Executive summary (score, classification, dialect)
+- Component scores (lexicon, cadence, template, abstraction, texture, etc.)
+- Top red flags with exact line numbers, quotes, and rewrite directions
+- Section-wise actionable guidance
+
+**Usage:**
+```bash
+python3 scripts/ai_writing_forensics.py \
+  --file content/writing/<post>.md \
+  --channel blog \
+  --intent inform \
+  --topic "<topic>"
+```
+
+**Options:**
+- `--file` (required): Path to markdown/text file
+- `--channel`: Context (blog / LinkedIn / marketing / memo / email)
+- `--author-profile`: Author type (technical / exec / non-native / unknown)
+- `--intent`: Purpose (persuade / inform / narrate / announce / explain / sell)
+- `--topic`: Short topic label
+- `--max-flags`: Maximum red flags to show (default: 15)
+
+---
+
+### 2. Deep Analysis Script: `scripts/ai_forensics_deep.py`
+
+Extended forensics for deeper pattern detection. Analyzes:
+- N-gram frequency (repeated phrases, a strong AI signal)
+- Sentence starter patterns (AI tends to overuse certain openings)
+- Transition word density (overuse of "however", "moreover", etc.)
+- One-sentence paragraph ratio ("LinkedIn broetry" detection)
+- Hedging language density
+- Blockquote/callout aphorism detection
+- Specificity ratio (concrete details vs abstract claims)
+
+**Usage:**
+```bash
+python3 scripts/ai_forensics_deep.py \
+  --file content/writing/<post>.md \
+  --verbose
+```
+
+**Options:**
+- `--file` / `-f` (required): Path to markdown/text file
+- `--verbose` / `-v`: Include detailed findings
+- `--json`: Output as JSON instead of human-readable
+
+**Typical workflow:** Run the base script first for an actionable editing report, then run the deep script for additional signal detection.
+
+---
+
+### 3. Line Finder Utility: `scripts/ai_forensics_linefinder.py`
+
+Utility to find exact line numbers for specific phrases or patterns. Useful for:
+- Locating repeated phrases flagged by deep analysis
+- Finding all instances of template language
+- Creating actionable edit lists with line numbers
+
+**Usage:**
+```bash
+# Search for specific phrases
+python3 scripts/ai_forensics_linefinder.py \
+  --file content/writing/<post>.md \
+  --phrases "non-negotiable" "earn the right" "the pattern that held up"
+
+# Use a preset phrase list
+python3 scripts/ai_forensics_linefinder.py \
+  --file content/writing/<post>.md \
+  --preset template_phrases
+
+# Search with regex pattern
+python3 scripts/ai_forensics_linefinder.py \
+  --file content/writing/<post>.md \
+  --pattern "^>\s+"  # Find all blockquotes
+```
+
+**Available presets:**
+- `ai_lexicon`: Classic AI safe-words (delve, unlock, harness, robust, seamless...)
+- `linkedin_dialect`: LinkedIn influencer markers (stop doing, let that sink in...)
+- `template_phrases`: Thought-leadership boilerplate (non-negotiable, key takeaway...)
+- `hedging`: Hedging language (may, might, could, potentially...)
+- `transitions`: Transition words (however, moreover, furthermore...)
+- `universal_claims`: Overconfident language (always, never, everyone...)
+- `portable_maxims`: Slide-ready maxims (is not a strategy, cannot leak what...)
+
+**Options:**
+- `--file` / `-f` (required): Path to file
+- `--phrases` / `-p`: Custom phrases to search
+- `--pattern` / `-r`: Regex pattern to search
+- `--preset`: Use a preset phrase list
+- `--case-sensitive` / `-c`: Case-sensitive search
+- `--context` / `-C`: Lines of context to show around matches
+- `--list-presets`: Show available presets and exit
+
+---
+
+### Recommended forensic workflow
+
+1. **Quick scan:** Run `ai_writing_forensics.py` for score and top flags
+2. **Deep dive:** Run `ai_forensics_deep.py --verbose` for pattern analysis
+3. **Edit prep:** Run `ai_forensics_linefinder.py` with specific phrases to get exact line numbers
+4. **Manual review:** Use the rubric below to assess signal families the scripts may miss
+
+The scripts print to stdout for easy terminal use. All are parameterized for reuse across files.
 
 ---
 
