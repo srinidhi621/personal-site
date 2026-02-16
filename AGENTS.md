@@ -137,7 +137,7 @@ When working with Srinidhi on writing/publishing, use these skill guides in `doc
 | `authoring-workflow.md` | Hugo commands for creating/previewing content |
 | `content-authoring.md` | Turning ideas into outlines and drafts |
 | `content-review.md` | Reviewing for clarity, structure, tone |
-| `ai-writing-detection.md` | Detecting AI-like patterns and humanizing drafts |
+| `ai-writing-forensics.md` | Detecting AI-like patterns and humanizing drafts (unified, canonical) |
 | `publishing-checklist.md` | Final checks before publishing |
 | `style-guide.md` | Markdown/Hugo formatting conventions |
 
@@ -155,6 +155,7 @@ This repo intentionally keeps customization small, but two overrides matter:
 
 Utility scripts live in `scripts/`:
 
+- `ai_forensics_unified.py` — canonical AI writing forensics CLI (reads rules from `ai_forensics_rules.json`)
 - `generate_context_engg_svgs.py` — generates SVG charts for the context engineering posts
 - `publish_staging.sh` — merges `staging` into `main` with a no-ff merge commit
 

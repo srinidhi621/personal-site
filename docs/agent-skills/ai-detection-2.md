@@ -1,5 +1,10 @@
 # AI-Writing Forensics (Text-Only, Editor-Friendly)
 
+> **SUPERSEDED**: This skill has been replaced by the unified skill at
+> [`ai-writing-forensics.md`](ai-writing-forensics.md).
+> Use the unified skill and `scripts/ai_forensics_unified.py` for all new reviews.
+> This file is kept for reference only.
+
 ## Purpose
 Evaluate whether a draft shows patterns consistent with AI generation or heavy AI assistance, using **text-only forensic analysis**.
 

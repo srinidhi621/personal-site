@@ -2,6 +2,10 @@
 """
 AI Writing Forensics — Deep Analysis Module.
 
+DEPRECATED: This script has been superseded by scripts/ai_forensics_unified.py.
+Use the unified script for all new analyses. This script is kept for backward
+compatibility and will be removed in a future cleanup.
+
 Extends the base forensics script with additional signal detection:
 - N-gram frequency analysis (detecting repetitive phrases)
 - Sentence starter patterns (AI tends to overuse certain openings)
@@ -602,8 +606,11 @@ def print_report(report: DeepForensicsReport, verbose: bool = False) -> None:
 
 
 def main() -> int:
+    print("WARNING: This script is deprecated. Use scripts/ai_forensics_unified.py instead.\n",
+          file=__import__("sys").stderr)
+
     parser = argparse.ArgumentParser(
-        description="Deep AI writing forensics analysis"
+        description="Deep AI writing forensics analysis (DEPRECATED — use ai_forensics_unified.py)"
     )
     parser.add_argument(
         "--file", "-f",

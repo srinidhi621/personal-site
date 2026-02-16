@@ -1,0 +1,411 @@
+{
+  "_comment": "AI Writing Forensics — Unified Rules Registry. Source of truth for all patterns, weights, thresholds, and cluster boosts. Referenced by: scripts/ai_forensics_unified.py. Documented in: docs/agent-skills/ai-writing-forensics.md",
+
+  "weights": {
+    "lexicon_phrase_clusters": 10,
+    "cadence_mechanical_framing": 22,
+    "structural_symmetry": 15,
+    "specificity_quality": 20,
+    "vocabulary_richness": 8,
+    "ownership_texture": 12,
+    "formatting_artifacts": 8,
+    "hard_artifacts": 5
+  },
+
+  "classification": {
+    "likely_human": [0, 29],
+    "ambiguous_hybrid": [30, 54],
+    "probably_ai_assisted": [55, 74],
+    "likely_ai_generated": [75, 100]
+  },
+
+  "cluster_boosts": [
+    {
+      "name": "em_dash_broetry",
+      "conditions": {
+        "em_dash_per_1k_gt": 4,
+        "one_sentence_para_ratio_gt": 0.45
+      },
+      "boost": 8
+    },
+    {
+      "name": "parallelism_no_ownership",
+      "conditions": {
+        "negative_parallelism_count_gte": 3,
+        "total_texture_markers_lt": 3
+      },
+      "boost": 6
+    },
+    {
+      "name": "abstract_low_anchor_low_ttr",
+      "conditions": {
+        "specificity_score_pct_gt": 0.5,
+        "avg_windowed_ttr_lt": 0.60
+      },
+      "boost": 8
+    },
+    {
+      "name": "symmetric_no_scars",
+      "conditions": {
+        "symmetric_contrast_count_gte": 4,
+        "total_texture_markers_lt": 3
+      },
+      "boost": 6
+    },
+    {
+      "name": "lexicon_no_anchors",
+      "conditions": {
+        "density_gt": 0.01,
+        "strong_anchors_lt": 1
+      },
+      "boost": 8
+    },
+    {
+      "name": "stock_photo_artifacts",
+      "conditions": {
+        "stock_photo_hits_gte": 1
+      },
+      "boost": 6
+    }
+  ],
+
+  "cluster_inference_min_families": 3,
+
+  "short_text": {
+    "word_count_threshold": 300,
+    "weight_multiplier": 0.5,
+    "max_score": 60,
+    "exempt_families": ["hard_artifacts"]
+  },
+
+  "lexicon": {
+    "thresholds": {
+      "low": 0.002,
+      "medium": 0.006,
+      "high": 0.012
+    },
+    "verbs": [
+      "delve", "underscore", "foster", "navigate", "harness",
+      "leverage", "optimize", "encapsulate", "reimagine", "unlock",
+      "unleash", "unpack", "dissect", "showcase", "streamline",
+      "spearhead", "bolster", "empower", "catalyze", "revolutionize"
+    ],
+    "nouns": [
+      "tapestry", "landscape", "realm", "synergy", "paradigm",
+      "testament", "catalyst", "beacon", "cornerstone", "journey",
+      "ecosystem", "framework", "infrastructure"
+    ],
+    "adjectives": [
+      "pivotal", "crucial", "intricate", "seamless", "robust",
+      "transformative", "dynamic", "unparalleled", "vibrant",
+      "multifaceted", "nuanced", "comprehensive", "cutting-edge",
+      "ever-evolving", "holistic", "scalable", "groundbreaking",
+      "game-changing"
+    ],
+    "fillers": [
+      "in conclusion", "in summary", "ultimately",
+      "it is important to note", "it's important to note",
+      "it's worth noting", "it is worth noting",
+      "moreover", "furthermore",
+      "in today's fast-paced", "in today's digital", "in today's world",
+      "not only", "additionally"
+    ],
+    "modern_ai_terms": [
+      "regime change", "paradigm shift", "inflection point",
+      "at its core", "key takeaway", "the bottom line",
+      "first principles", "north star", "double down", "move the needle"
+    ]
+  },
+
+  "cadence": {
+    "sentence_length_cv": {
+      "healthy_min": 0.55,
+      "moderate": 0.40,
+      "suspicious": 0.30
+    },
+    "sentence_starter_variety": {
+      "healthy_min": 0.50,
+      "low": 0.40
+    },
+    "one_sentence_para": {
+      "safe_max": 0.15,
+      "moderate": 0.30,
+      "suspicious": 0.45
+    },
+    "em_dash": {
+      "per_1000_words_safe": 3,
+      "per_1000_words_moderate": 5,
+      "per_1000_words_high": 8
+    },
+    "subordinating_conjunctions": [
+      "although", "because", "since", "unless", "while",
+      "whereas", "whenever", "wherever", "if", "though",
+      "even though", "so that", "in order to"
+    ]
+  },
+
+  "structural": {
+    "rule_of_three": {
+      "suspicious_count": 4
+    },
+    "negative_parallelism": {
+      "patterns": [
+        "not just\\s+.{1,60}?\\s+but\\s+",
+        "not only\\s+.{1,60}?\\s+but\\s+also",
+        "more than\\s+.{1,40}?\\s+it's\\s+",
+        "this isn't about\\s+.{1,40}?\\s+it's about",
+        "less about\\s+.{1,40}?\\s+more about",
+        "it's not\\s+.{1,40}?[.;]\\s+it's\\s+"
+      ],
+      "suspicious_count": 3
+    },
+    "symmetric_contrast": {
+      "patterns": [
+        "shifting from\\s+.{1,60}?\\s+to\\s+",
+        "moving from\\s+.{1,60}?\\s+to\\s+",
+        "from\\s+\\w+\\s+\\w+\\s+to\\s+\\w+\\s+\\w+",
+        "not\\s+.{1,40}?\\s+but\\s+rather\\s+"
+      ],
+      "suspicious_count": 4
+    },
+    "anaphora": {
+      "min_consecutive": 3,
+      "min_phrase_words": 2
+    },
+    "heading_regularity": {
+      "min_headings": 5
+    }
+  },
+
+  "specificity": {
+    "strong_anchor_patterns": [
+      "\\b\\d+(?:\\.\\d+)?\\s*%",
+      "\\b\\d+(?:\\.\\d+)?\\s*(?:ms|s|sec|min|hour|day|week|month)\\b",
+      "\\$\\d+",
+      "\\b(?:Q[1-4]|January|February|March|April|May|June|July|August|September|October|November|December)\\s+20\\d{2}\\b",
+      "\\b20\\d{2}\\b"
+    ],
+    "weak_anchor_patterns": [
+      "\\b[A-Z]{2,5}\\b"
+    ],
+    "vague_quantifiers": [
+      "many", "most", "some", "often", "usually",
+      "generally", "typically", "sometimes", "various", "several"
+    ],
+    "universal_claims": [
+      "always", "never", "everyone", "no one", "impossible"
+    ],
+    "anchor_rate": {
+      "strong": 0.020,
+      "moderate": 0.010,
+      "low": 0.005
+    }
+  },
+
+  "vocabulary": {
+    "ttr": {
+      "window_size": 100,
+      "healthy_min": 0.68,
+      "moderate": 0.62,
+      "low": 0.55
+    },
+    "hapax": {
+      "healthy_min": 0.55,
+      "moderate": 0.45,
+      "low": 0.35
+    },
+    "referential": {
+      "pronouns": [
+        "i", "we", "he", "she", "it", "they", "you",
+        "me", "us", "him", "her", "them",
+        "this", "that", "these", "those"
+      ],
+      "pronoun_rate_healthy_min": 0.04,
+      "pronoun_rate_low": 0.025
+    }
+  },
+
+  "ownership": {
+    "decision_scar_markers": [
+      "we tried", "it failed", "it broke", "we changed", "we switched",
+      "we gave up", "we dropped", "didn't work", "didn't expect",
+      "surprised me", "surprised us", "in retrospect", "mistake",
+      "the hard way", "postmortem", "rollback", "mid-demo",
+      "the incident", "the outage", "the audit", "after the",
+      "goes sideways", "went sideways", "bites you", "bit us",
+      "terrible place", "misbehaving", "quietly explodes", "rubber-stamp",
+      "crashed on", "scrambled to", "painful lesson",
+      "we had to", "forced us to", "ended up"
+    ],
+    "ownership_markers": [
+      "i chose", "i decided", "i observed", "i noticed", "i realized",
+      "i remember", "we chose", "we decided", "we built", "we shipped",
+      "we learned", "in my experience", "what i found",
+      "i see", "i keep", "i find", "i use", "i think", "i work",
+      "i know", "i wrote", "i spent", "i have", "i grew",
+      "we need", "we have", "we end up", "we use",
+      "most teams i", "teams i see", "people i",
+      "for me", "stands out for me", "my model", "my take"
+    ],
+    "tradeoff_markers": [
+      "trade-off", "tradeoff", "trade off", "at the cost of",
+      "downside", "the catch", "the risk", "gave up", "sacrifice",
+      "but we lost", "not useless", "not perfect", "not magic",
+      "both are lazy", "you still need"
+    ],
+    "hedging_words": [
+      "may", "might", "could", "perhaps", "possibly",
+      "potentially", "generally", "typically", "usually", "arguably",
+      "tends to", "seems to", "appears to", "it is likely",
+      "in some cases", "in many cases", "can be", "may be", "might be"
+    ]
+  },
+
+  "formatting": {
+    "em_dash_chars": ["\u2014", "--"],
+    "smart_quote_pairs": [["\u201c", "\u201d"], ["\u2018", "\u2019"]],
+    "emoji_bullet_pattern": "^\\s*[\\U0001F300-\\U0001F9FF]",
+    "stock_photo_patterns": [
+      "free stock photo", "download free images", "free illustrations",
+      "shutterstock", "getty images", "unsplash", "pixabay", "wikimedia commons"
+    ]
+  },
+
+  "hard_artifacts": {
+    "placeholder_patterns": [
+      "\\[placeholder[:\\s]", "\\[todo[:\\s]", "\\[tbd[:\\s\\]]",
+      "\\[insert\\s", "\\[add\\s", "\\[your\\s"
+    ],
+    "register_flip_markers": {
+      "academic": [
+        "it is widely regarded", "it has been observed",
+        "the literature suggests", "empirical evidence indicates",
+        "it should be noted that"
+      ],
+      "casual": ["tbh", "lol", "ngl", "imo"]
+    },
+    "ai_self_reference": [
+      "as an ai", "as a language model", "i don't have access to real-time",
+      "as of my last update", "as of my knowledge cutoff",
+      "i'd be happy to help", "i cannot browse",
+      "certainly!", "great question", "absolutely!"
+    ]
+  },
+
+  "transition_words": [
+    "however", "moreover", "furthermore", "additionally",
+    "consequently", "therefore", "thus", "hence",
+    "accordingly", "meanwhile", "nevertheless", "nonetheless",
+    "conversely", "similarly", "specifically", "particularly",
+    "notably", "importantly", "essentially", "fundamentally",
+    "ultimately", "basically"
+  ],
+
+  "line_flags": [
+    {
+      "pattern": "\\[(?:placeholder|todo|tbd)\\s*:",
+      "family": "H",
+      "strength": "high",
+      "why": "Explicit placeholder in prose — strong draft/AI-assist tell.",
+      "rewrite": "Replace with a concrete detail, or delete the line."
+    },
+    {
+      "pattern": "\\bstop doing\\b|\\bhere's what nobody tells you\\b|\\blet that sink in\\b|\\bread that again\\b",
+      "family": "C",
+      "strength": "high",
+      "why": "Strong LinkedIn dialect marker.",
+      "rewrite": "Remove the contrarian hook; replace with a specific observation."
+    },
+    {
+      "pattern": "\\bin conclusion\\b|\\bin summary\\b",
+      "family": "A",
+      "strength": "medium",
+      "why": "Generic wrap-up phrasing; strong AI/SEO-bot signal.",
+      "rewrite": "Replace with a specific reflection, next step, or changed belief."
+    },
+    {
+      "pattern": "\\bin today's (?:fast-paced|digital|rapidly|ever)",
+      "family": "A",
+      "strength": "high",
+      "why": "Classic AI/SEO-bot intro filler.",
+      "rewrite": "Delete entirely; start with the actual point."
+    },
+    {
+      "pattern": "\\bnon-negotiable\\b",
+      "family": "C",
+      "strength": "medium",
+      "why": "Overconfident/absolute phrasing; reads LinkedIn-ish without a forcing event.",
+      "rewrite": "Rewrite as consequence: 'After [incident], we changed X because Y.'"
+    },
+    {
+      "pattern": "\\bthink of it as\\b",
+      "family": "C",
+      "strength": "medium",
+      "why": "Portable maxim framing; generic unless anchored to an observed failure.",
+      "rewrite": "Add one concrete failure mode or example right after."
+    },
+    {
+      "pattern": "\\bat its core\\b|\\bkey takeaway\\b|\\bimportant to note\\b",
+      "family": "A",
+      "strength": "medium",
+      "why": "Classic AI safe-phrase cluster.",
+      "rewrite": "Delete the filler phrase; state the point directly."
+    },
+    {
+      "pattern": "\\bdelve\\b|\\bunpack\\b|\\bleverage\\b|\\bharness\\b",
+      "family": "A",
+      "strength": "medium",
+      "why": "High-frequency AI safe-word.",
+      "rewrite": "Replace with a plain verb: explore, examine, use, apply."
+    },
+    {
+      "pattern": "(?:free stock photo|download free images|free illustrations|wikimedia commons)",
+      "family": "H",
+      "strength": "high",
+      "why": "Leftover image credit from AI drafting tool.",
+      "rewrite": "Delete the credit line; add a real image or remove entirely."
+    },
+    {
+      "pattern": "\\bas an ai\\b|\\bas a language model\\b|\\bi'd be happy to help\\b",
+      "family": "H",
+      "strength": "high",
+      "why": "AI self-reference slip.",
+      "rewrite": "Delete entirely; this should never appear in published prose."
+    },
+    {
+      "pattern": "\\bcertainly!\\b|\\babsolutely!\\b|\\bgreat question!\\b",
+      "family": "H",
+      "strength": "medium",
+      "why": "Chatbot training residue — collaborative opener.",
+      "rewrite": "Delete; begin with the actual substance."
+    },
+    {
+      "pattern": "\\b10x\\b",
+      "family": "C",
+      "strength": "low",
+      "why": "'10x' can trip influencer/AI vibes depending on context.",
+      "rewrite": "If not essential, replace with a specific measurable improvement."
+    },
+    {
+      "pattern": "\\bthe pattern that held up\\b",
+      "family": "C",
+      "strength": "medium",
+      "why": "Slide-ready phrasing; sounds influencer-y without a scar.",
+      "rewrite": "What you tried first, what failed, what held up and why."
+    },
+    {
+      "pattern": "\\bwe converged on\\b",
+      "family": "C",
+      "strength": "low",
+      "why": "Case-study template beat; better with what you cut and why.",
+      "rewrite": "'We started with X, cut Y, kept Z because...'"
+    },
+    {
+      "pattern": "\\bmost of this will still apply\\b",
+      "family": "C",
+      "strength": "medium",
+      "why": "Universal closer; risks generic thought-leadership wrap-up.",
+      "rewrite": "Name 2-3 operational constraints that remain even if models improve."
+    }
+  ]
+}

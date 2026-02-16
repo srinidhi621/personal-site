@@ -2,6 +2,10 @@
 """
 AI Writing Forensics (text-only, editor-friendly).
 
+DEPRECATED: This script has been superseded by scripts/ai_forensics_unified.py.
+Use the unified script for all new analyses. This script is kept for backward
+compatibility and will be removed in a future cleanup.
+
 Supports the rubric in `docs/agent-skills/ai-detection-2.md`.
 
 Design goals:
@@ -343,6 +347,15 @@ def group_by_section(flags: Iterable[Flag]) -> Dict[str, List[Flag]]:
 
 
 def main() -> int:
+    import warnings
+    warnings.warn(
+        "ai_writing_forensics.py is deprecated. Use ai_forensics_unified.py instead.",
+        DeprecationWarning,
+        stacklevel=2,
+    )
+    print("WARNING: This script is deprecated. Use scripts/ai_forensics_unified.py instead.\n",
+          file=__import__("sys").stderr)
+
     parser = argparse.ArgumentParser()
     parser.add_argument("--file", required=True, help="Path to markdown/text file to analyze")
     parser.add_argument("--channel", default="blog")
