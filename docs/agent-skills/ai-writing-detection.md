@@ -1,5 +1,9 @@
 # AI writing detection & humanization skill
 
+> **SUPERSEDED**: This skill has been replaced by the unified skill at
+> [`ai-writing-forensics.md`](ai-writing-forensics.md).
+> Use the unified skill for all new reviews. This file is kept for reference only.
+
 Use this when reviewing drafts to identify AI-like patterns and restore authentic human voice.
 
 ## Role

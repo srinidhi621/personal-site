@@ -1,0 +1,47 @@
+{
+  "_comment": "Calibration corpus for AI Writing Forensics. Each entry maps a file path (relative to repo root) to its expected classification band [min_score, max_score] and authorship label.",
+  "samples": [
+    {
+      "file": "content/writing/scratch/scratchpad.txt",
+      "label": "ai_generated",
+      "expected_band": [65, 85],
+      "notes": "Mostly AI-written. Macroeconomics/IT services piece with neat frameworks, zero personal scars, invented portmanteaus."
+    },
+    {
+      "file": "content/writing/scratch/long live software engineering.txt",
+      "label": "human_ai_hybrid",
+      "expected_band": [30, 50],
+      "notes": "Human core with AI polishing. Strong personal anecdotes but some AI-elevated literary sections. Stock photo credits left in."
+    },
+    {
+      "file": "content/writing/ai-software-engg.md",
+      "label": "mostly_human",
+      "expected_band": [10, 30],
+      "notes": "Mostly human-written blog post. Strong conversational voice, genuine tradeoffs, specific scenarios, humor."
+    },
+    {
+      "file": "content/writing/first-post.md",
+      "label": "human",
+      "expected_band": [0, 20],
+      "notes": "Trivial human-written post ('Hello, world'). Short text normalization applies."
+    },
+    {
+      "file": "content/writing/coding-agents-2025.md",
+      "label": "mostly_human",
+      "expected_band": [10, 35],
+      "notes": "Blog post about coding agents. Expected human authorship with possible light AI assistance."
+    },
+    {
+      "file": "content/writing/context-engg-prelude.md",
+      "label": "mostly_human",
+      "expected_band": [5, 30],
+      "notes": "Context engineering prelude post. Expected human authorship."
+    },
+    {
+      "file": "content/writing/context-engg-conclusions.md",
+      "label": "mostly_human",
+      "expected_band": [10, 30],
+      "notes": "Context engineering conclusions post. Expected human authorship."
+    }
+  ]
+}

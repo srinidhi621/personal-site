@@ -2,6 +2,10 @@
 """
 AI Writing Forensics — Line Finder Utility.
 
+DEPRECATED: This script has been superseded by scripts/ai_forensics_unified.py.
+The unified script includes line-level flagging. This script is kept for backward
+compatibility and will be removed in a future cleanup.
+
 Finds exact line numbers for specified phrases or patterns in a markdown file.
 Useful for creating actionable forensic reports with edit locations.
 
