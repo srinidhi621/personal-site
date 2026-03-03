@@ -123,7 +123,16 @@ Often mistaken for style problems. Flag if:
 - Implications delivered with certainty (no hedging, no "it depends")
 - Generic certainty or moral posturing masquerading as argument
 
-### F. Authenticity signals (positive — reduce the score)
+### F. Chatbot residue / platform dialect
+
+Quick tells that leak from AI assistant training or platform conventions:
+- Collaborative openers: "Certainly!", "Of course!", "Great question!", "Absolutely!"
+- Helper phrasing: "Let me explain…", "I'd be happy to…", "Hope this helps!"
+- Wikipedia-ism: "It is widely regarded," detached encyclopedic tone
+- SEO-bot: "In today's fast-paced world…", "In conclusion, as we move forward…"
+- Elegant variation: cycling synonyms for no reason ("the tech mogul… the visionary entrepreneur… the Silicon Valley titan")
+
+### G. Authenticity signals (positive — reduce the score)
 
 - Domain-specific detail
 - Local context (this team, this system, this incident)

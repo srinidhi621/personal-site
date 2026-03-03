@@ -39,19 +39,11 @@ content-authoring.md          executive-communication.md
   publishing-checklist.md
 ```
 
-### Legacy (superseded)
+### Archived (do not use)
+
+Older detection skills have been consolidated into the two canonical passes above and moved to `archive/`. All unique signals from these files have been folded into `ai-smell-lint.md` and `ai-writing-forensics.md`.
 
 | File | Status |
 |------|--------|
-| `ai-writing-detection.md` | Superseded by `ai-writing-forensics.md` |
-| `ai-detection-2.md` | Superseded by `ai-writing-forensics.md` |
-
-### Source material (untracked, not active skills)
-
-The following files in this folder were used as source material to build the active skills above. They are kept for reference but are not active skills:
-
-| File | Incorporated into |
-|------|-------------------|
-| `skill_authentic_writing_studio.md` | `content-review.md` (revision workflow, line-level heuristics), `ai-smell-lint.md` (anti-patterns), `ai-writing-forensics.md` (line-level editing) |
-| `skill_executive_communication_systems_coach.md` | `executive-communication.md` |
-| `skill_rhetorical_lint_checker_ai_smell_test.md` | `ai-smell-lint.md` |
+| `archive/ai-writing-detection.md` | Consolidated into `ai-smell-lint.md` + `ai-writing-forensics.md` |
+| `archive/ai-detection-2.md` | Consolidated into `ai-writing-forensics.md` (helper scripts, signal families) |

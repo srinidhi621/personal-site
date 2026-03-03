@@ -6,8 +6,7 @@
 > - **Inputs**: draft text (up to ~5,000 words) + optional channel/author/intent/topic context
 > - **Output**: 1–10 score with 8-family breakdown, evidence quotes, line-level rewrite guidance
 > - **Pair with**: `ai-smell-lint.md` (run the fast pass first; use this for deeper investigation when lint score ≥ 6)
-> - **Helper script**: `scripts/ai_forensics_unified.py` (deterministic counts; reads `scripts/ai_forensics_rules.json`)
-> - **Supersedes**: `ai-writing-detection.md`, `ai-detection-2.md` (kept for reference only)
+> - **Helper scripts**: `scripts/ai_forensics_unified.py` (canonical), plus `ai_writing_forensics.py`, `ai_forensics_deep.py`, `ai_forensics_linefinder.py`
 
 ---
 
@@ -136,6 +135,7 @@ The strongest signal family. AI text makes claims without earning them. Human te
 - Standalone acronyms without context (just "GPU", "API" as set dressing)
 - Generic infrastructure nouns without mechanism ("data centers", "cloud platforms")
 - Broad claims without a "because" or "when" ("AI is transforming everything")
+- Hallucination-avoidance vagueness: "many believe," "research shows," "experts agree" with no specific citation — AI hedges attribution to avoid fabricating sources
 
 **Information density variance:**
 Measure per-paragraph anchor density (strong anchors / words). Compute standard deviation across paragraphs. Low variance (uniform distribution) is an AI signal. Humans cluster specifics unevenly — dense in the parts they care about, sparse in transitions.
@@ -152,6 +152,7 @@ AI reuses vocabulary more uniformly than humans.
 - Type-token ratio (TTR): unique words / total words, measured in 100-word sliding windows. Average windowed TTR < 0.60 is low.
 - Hapax legomena ratio: words appearing exactly once / total unique words. Ratio < 0.50 is low richness.
 - Referential density: AI tends to re-state full noun phrases instead of using pronouns. Very low pronoun usage relative to content nouns is a signal.
+- Elegant variation: cycling through unusual synonyms to avoid repetition ("the tech mogul… the visionary entrepreneur… the Silicon Valley titan") — a strong signal when the variation adds no meaning.
 
 ### Family F — Ownership / thought texture
 
@@ -188,6 +189,8 @@ Rare but very strong tells. Any single hard artifact is significant.
 - Leftover image/stock-photo credit lines
 - Knowledge-cutoff tells: "as of my last update", "I don't have access to real-time data"
 - Self-referential AI slips: "as an AI language model", "I'd be happy to help"
+- Chatbot training residue: "Certainly!", "Of course!", "Great question!", "Absolutely!", "Let me explain…", "Hope this helps!" — collaborative openers and helper phrasing that leak from assistant fine-tuning
+- Platform dialect spillover: Wikipedia-ism ("It is widely regarded," detached encyclopedic tone, title-case-heavy subheads), SEO-bot intros ("In today's fast-paced world…"), LinkedIn broetry (one-sentence paragraphs, emoji bullets, faux-contrarian hooks)
 
 ---
 
@@ -325,29 +328,61 @@ For each major section:
 
 ---
 
-## Helper script
+## Helper scripts
 
-The canonical CLI is `scripts/ai_forensics_unified.py`. It implements this rubric deterministically.
+Four scripts in `scripts/` support this rubric. All print to stdout for terminal use.
+
+> **Note**: scripts produce 0–100 raw scores internally. Divide by 10 and round to nearest 0.5 to get the 1–10 scale used in this skill.
+
+### 1. Unified forensics (canonical): `scripts/ai_forensics_unified.py`
+
+Implements this rubric deterministically. Reads pattern definitions and weights from `scripts/ai_forensics_rules.json`.
 
 ```bash
-# Quick scan
 python3 scripts/ai_forensics_unified.py --file content/writing/<post>.md
-
-# With context
-python3 scripts/ai_forensics_unified.py \
-  --file content/writing/<post>.md \
-  --channel blog --intent inform --topic "AI engineering"
-
-# JSON output for regression testing
-python3 scripts/ai_forensics_unified.py --file <path> --json
-
-# Verbose deep findings
-python3 scripts/ai_forensics_unified.py --file <path> --verbose
+python3 scripts/ai_forensics_unified.py --file <path> --channel blog --intent inform --topic "AI engineering"
+python3 scripts/ai_forensics_unified.py --file <path> --json      # JSON for regression testing
+python3 scripts/ai_forensics_unified.py --file <path> --verbose   # Deep findings
 ```
 
-The script reads pattern definitions and weights from `scripts/ai_forensics_rules.json`. Edit the JSON to update phrase lists, thresholds, and weights without touching the script.
+### 2. Base forensics: `scripts/ai_writing_forensics.py`
 
-> **Note**: the script's internal scoring currently produces a 0–100 raw score. Divide by 10 and round to nearest 0.5 to get the 1–10 scale used in this skill.
+Editor-friendly report with executive summary, component scores, top red flags with line numbers and rewrite directions.
+
+```bash
+python3 scripts/ai_writing_forensics.py --file <path> --channel blog --intent inform --topic "<topic>"
+```
+
+Options: `--file`, `--channel`, `--author-profile`, `--intent`, `--topic`, `--max-flags` (default 15).
+
+### 3. Deep analysis: `scripts/ai_forensics_deep.py`
+
+Extended pattern detection: n-gram frequency, sentence starter patterns, transition word density, one-sentence paragraph ratio, hedging density, specificity ratio.
+
+```bash
+python3 scripts/ai_forensics_deep.py --file <path> --verbose
+python3 scripts/ai_forensics_deep.py --file <path> --json
+```
+
+### 4. Line finder: `scripts/ai_forensics_linefinder.py`
+
+Locate exact line numbers for specific phrases or patterns. Useful after deep analysis to build edit lists.
+
+```bash
+python3 scripts/ai_forensics_linefinder.py --file <path> --phrases "non-negotiable" "earn the right"
+python3 scripts/ai_forensics_linefinder.py --file <path> --preset ai_lexicon
+python3 scripts/ai_forensics_linefinder.py --file <path> --pattern "^>\s+"
+python3 scripts/ai_forensics_linefinder.py --list-presets
+```
+
+Available presets: `ai_lexicon`, `linkedin_dialect`, `template_phrases`, `hedging`, `transitions`, `universal_claims`, `portable_maxims`.
+
+### Recommended workflow
+
+1. **Quick scan**: run `ai_forensics_unified.py` for score and top flags
+2. **Deep dive**: run `ai_forensics_deep.py --verbose` for pattern analysis
+3. **Edit prep**: run `ai_forensics_linefinder.py` with specific phrases for exact line numbers
+4. **Manual review**: use the rubric above to assess signals the scripts may miss
 
 ---
 
