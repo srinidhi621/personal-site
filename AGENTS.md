@@ -127,19 +127,23 @@ Agents should preserve existing patterns, but in general:
 
 ---
 
-## Agent skills (authoring & review)
+## Agent skills (authoring, review, and quality)
 
 When working with Srinidhi on writing/publishing, use these skill guides in `docs/agent-skills/`:
 
 | File | Purpose |
 |------|---------|
-| `README.md` | Overview |
+| `README.md` | Overview + skill inventory + how skills connect |
 | `authoring-workflow.md` | Hugo commands for creating/previewing content |
 | `content-authoring.md` | Turning ideas into outlines and drafts |
-| `content-review.md` | Reviewing for clarity, structure, tone |
-| `ai-writing-forensics.md` | Detecting AI-like patterns and humanizing drafts (unified, canonical) |
+| `content-review.md` | Reviewing for clarity, structure, tone (8-pass editorial review) |
+| `executive-communication.md` | Drafting work communication (memos, strategy docs, keynotes, alignment notes) |
+| `ai-smell-lint.md` | **Fast pass**: quick AI-smell lint check, 1–10 score, surgical fixes |
+| `ai-writing-forensics.md` | **Deep pass**: word/sentence-level forensic analysis, 8-family taxonomy, 1–10 scoring |
 | `publishing-checklist.md` | Final checks before publishing |
 | `style-guide.md` | Markdown/Hugo formatting conventions |
+
+**AI-smell workflow**: run `ai-smell-lint.md` first. If smell score ≥ 6, run `ai-writing-forensics.md` for deep analysis.
 
 ### Custom layout overrides (minimal)
 
