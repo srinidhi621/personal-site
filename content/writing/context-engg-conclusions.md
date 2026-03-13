@@ -3,187 +3,122 @@ title: "The Million-Token Question: What We Actually Found"
 date: 2026-01-02T00:00:00Z
 draft: false
 tags: ["llm", "context", "rag"]
-summary: "After 4,380 API calls, we found that context engineering matters more than context size."
-description: "Results from a 10-week experiment testing naive long-context, structured context, and RAG strategies across fill percentages."
+summary: "Structured context beat naive long context, retrieval handled noise better, and simple baselines held up better than expected."
+description: "Results from experiments comparing naive long context, structured context, and retrieval under controlled fill percentages."
 ---
 
 # The Million-Token Question: What We Actually Found
 
-**After 4,380 API Calls and 10 Weeks of experiments**
+If you only remember four points from this piece, remember these:
 
----
+- Structured 1M context outperformed naive 1M context by 68 percent on answer quality in these runs.
+- Retrieval mattered most when irrelevant text dominated the corpus; at 19:1 noise-to-signal, RAG variants more than doubled naive long-context performance.
+- Basic BM25 retrieval matched or slightly beat the more complex hybrid setup on this dataset.
+- The real decision is not "long context or RAG." It is which trade-off you want between latency, error tolerance, and system complexity.
 
-Read this first, to understand the context of the experiments: **[The Million-Token Question: Does More Context Actually Make LLMs Smarter?](/writing/context-engg-prelude/)**.
+Read the framing post first: [The Million-Token Question: Does More Context Actually Make LLMs Smarter?](/writing/context-engg-prelude/).
 
-## What We Were Testing
+## What Changed My View
 
-The premise was simple. Large language models now support context windows of a million tokens (roughly 750,000 words, about ten novels crammed into a single prompt). The marketing pitch writes itself: just dump everything in and let the model figure it out.
+I expected structure to help. I did not expect it to help this consistently.
 
-But does that actually work?
+I also expected the more complex retrieval stack to beat a basic BM25 baseline. It did not, at least not on this corpus. And I did not expect naive long context to fail as sharply as it did around the middle of the window.
 
-We had two hypotheses going in. First, that even with massive windows, naively stuffing context would underperform more thoughtful approaches: structured packaging, retrieval, the stuff engineers have been doing for years. Second, that smaller models with good engineering might match or beat larger contexts used carelessly.
+The project also stopped feeling theoretical once the pipeline started breaking in a few different ways. The pilot exposed a bad ground-truth entry, where our evaluation expected "256k" even though the source documents said "128k." One early 429 also forced me to make the runner resumable before the full experiments could finish cleanly.
 
-The real question underneath both: **When models keep getting bigger, and can theoretically read everything, does it still matter *how* you give them information?**
+Those surprises came out of 4,380 API calls across two experiments. That is enough volume to take the patterns seriously, but still narrow enough that the conclusions need to stay scoped to this workload.
 
----
+## Finding 1: Structure Beat Naive Long Context
 
-## The Four Strategies
+If you want to use long context, structure is not a cosmetic improvement. It is part of the method.
 
-We set up a controlled experiment with four approaches:
+![Strategy comparison showing structured context outperforming naive long context](exp1_strategy_comparison_fixed.svg)
 
-1. **Naive 1M**: The "just concatenate everything" approach. No structure, no organization. We literally dumped documents end-to-end and hoped for the best. This is what most people do when they first get access to a large context window.
+Across Experiment 1, structured long context averaged F1 0.228. Naive long context averaged 0.136. That is a 68 percent relative improvement. The absolute scores matter less than the gap: the same window size behaved very differently depending on how the material was packaged.
 
-2. **Structured 1M**: Same documents, same million-token window, but with actual engineering. A table of contents at the top. Clear document boundaries. Metadata tags. Section headers.
-
-3. **Basic RAG (128k)**: Traditional BM25 retrieval. Top-k chunks, nothing fancy. The production workhorse.
-
-4. **Advanced RAG**: Hybrid search combining dense embeddings with BM25, reciprocal rank fusion, query decomposition. The cutting-edge stuff from research papers.
-
-Here's the methodological piece that mattered most: we padded all strategies to identical fill percentages. Every comparison at 30% fill meant both strategies used exactly 30% of their available context window. Without this control, you can't tell if performance differences come from better engineering or just attention dilution. We wanted clean answers, not confounded results.
-
----
-
-## What Actually Happened
-
-### The 50% Fill Percentage idea 
-
-Everyone's heard of "Lost in the Middle," the research showing models lose track of information buried deep in their context. We expected that effect. What we didn't expect was where it hit.
+The second important result was stability across fill levels.
 
 ![Performance degradation showing naive collapse at 50% fill](exp1_degradation_curve_fixed.svg)
 
-At 30% fill, naive holds at F1 0.188. Then at 50% fill, it falls off a cliff, dropping to 0.019. Not graceful degradation. Catastrophic failure. And then, weirdly, it *recovers* at 90% fill, climbing back to 0.189.
+At 30 percent fill, naive long context held at F1 0.188. At 50 percent fill, it collapsed to 0.019. Structured long context did not show the same instability. In other words, the issue was not simply "more tokens hurt." The issue was that unstructured long context became unreliable under certain load conditions.
 
-What this means is that if you are using naive long-context in production, you can wave goodbye to performance.
+If a team wants to lean on long windows, explicit document boundaries, metadata headers, and a usable table of contents are part of the method, not polish added at the end.
 
-We checked the raw outputs. At 50% fill, naive was not only getting questions wrong, but it was producing garbled, incoherent responses. Our best guess: when the context gets very dense, the model leans on positional heuristics to survive. In the middle (50–70% fill), there's enough padding to diffuse attention but not enough structure to anchor it. But here, I'm not really sure, we'll need to run more experiments to figure out what's going on.
+## Finding 2: Retrieval Became Essential When Noise Increased
 
-The structured metadata+TOC approach? Flat line across all fill levels. Boring. Reliable. Exactly what you want in production.
+The second experiment tested a different question: what happens when the relevant material is buried inside a lot of plausible but irrelevant text?
 
-![Heatmap showing strategy and fill level interaction](exp1_strategy_fill_heatmap.svg)
+![Pollution robustness showing retrieval advantage at extreme noise](exp2_pollution_robustness_fixed.svg)
 
-That red-bordered cell in the heatmap tells the whole story. Naive at 50% fill is a danger zone.
+At moderate pollution levels, the strategies clustered fairly closely. Nothing separated decisively. At 950k pollution tokens, the picture changed. Basic RAG reached F1 0.307. Advanced RAG reached 0.314. Naive long context reached 0.148.
 
-### Engineering Actually Matters (Even at 1M Tokens)
+The 950k-pollution run is closer to a messy internal corpus than a clean benchmark is. Tickets, PDFs, stale wiki pages, and duplicated docs compete for attention. In that setting, retrieval is not only about reducing cost. It is a way to keep irrelevant material out of the retrieval and generation steps.
 
-So does structure help? Here's the headline number: **68% relative improvement**.
+The takeaway is not that full-context approaches are useless. It is that once noise crosses a certain threshold, the ability to ignore most of the corpus becomes a real advantage.
 
-![Strategy comparison showing 68% improvement over naive](exp1_strategy_comparison_fixed.svg)
+## Finding 3: Simple Baselines Held Up Better Than Expected
 
-Structured averaged F1 0.228. Naive averaged 0.136. That's not a rounding error. That's the difference between a system that works and a system that frustrates users.
+I assumed the advanced retrieval stack would clearly beat basic BM25 retrieval. On this dataset, it did not.
 
-Structure helping was expected; structure helping *everywhere* was not. Even at low fill percentages, where you'd think there's plenty of room for the model to find what it needs, structure added value.
+Basic RAG averaged F1 0.221. Advanced RAG averaged 0.217. That difference is small enough to treat as noise in practical terms, but it still matters directionally: the simpler baseline was at least as good as the more complicated system.
 
-![Relative performance lift showing percentage improvements](exp1_relative_lift.svg)
+The likely reason is domain fit. Technical documentation has strong lexical signals: model names, parameter names, endpoint names, and error strings. BM25 can do very well when the question and the source share precise terminology. In that environment, embeddings and reranking add complexity faster than they add value.
 
-The horizontal bars make it visceral. Structured: +68%. RAG: +63%. Advanced RAG: +60%. Naive: baseline. If you're using naive long-context in production, you're leaving performance on the table.
+If your source material looks like API docs or model cards, start with BM25 and measure from there. Add hybrid retrieval, reranking, or query decomposition only if the simple baseline stops being good enough.
 
-### The RAG vs Advanced RAG Surprise
+## A Decision Framework
 
-Here's where our expectations got humbled. We assumed Advanced RAG (with its hybrid search, reranking, and query decomposition) would clearly beat basic BM25 retrieval. Fancier should mean better, right?
+The most useful outcome of this work is not a winner. It is a better way to choose.
 
-It didn't. Basic RAG averaged 0.221 F1. Advanced RAG averaged 0.217. Not only was the difference not significant, the basic approach *slightly outperformed* the fancy one.
+- Latency-sensitive production systems: start with retrieval. In these runs, retrieval processed roughly 92k tokens regardless of corpus size, while full-context approaches scaled with window usage and could exceed 60 seconds near the high end.
+- Offline or batch analysis: structured full-context is reasonable when you can tolerate higher latency and you want the best answer quality from a large window.
+- Noisy corpus: retrieval is the safer default because it can filter irrelevant material before generation.
+- Greenfield builds: benchmark a BM25 baseline before adding hybrid complexity. On this corpus, the simple baseline was competitive with the more elaborate stack.
+- Any system using long context: measure fill percentage during evaluation. Window size alone tells you very little about how the system will behave under load.
 
-Our theory: for technical documentation with clear keywords (model names, API parameters, error codes), BM25's lexical matching works really well. Dense embeddings add compute cost without proportional benefit. The "advanced" in Advanced RAG is domain-dependent.
+![Latency vs tokens showing retrieval stays flatter as context grows](exp1_latency_vs_tokens.svg)
 
-This doesn't mean advanced retrieval is never worth it. But it means you should test against a BM25 baseline before piling on the complexity.
+That last point matters for operational planning. Retrieval kept latency relatively predictable because the generation step stayed small. Full-context strategies grew with prompt size. If your system has SLOs, concurrency constraints, or cost targets, that difference is not abstract.
 
-### What Happens When You Add Noise
+## Why Fill Percentage Mattered
 
-Experiment 2 tested pollution. We started with a clean 50k-token corpus containing all the answers, then progressively buried it in plausible but irrelevant content. 50k extra tokens. Then 200k. Then 500k, 700k, and finally 950k, a 19:1 noise-to-signal ratio.
+Fill percentage was the most important control mechanism in the study.
 
-![Pollution robustness showing RAG advantage at extreme noise](exp2_pollution_robustness_fixed.svg)
+A lot of long-context versus retrieval comparisons are confounded. One system sees a crowded prompt. The other sees a lighter one. If the lighter system wins, you do not know whether it won because retrieval was better or because the model had less to process.
 
-At moderate pollution (50k to 700k), all strategies clustered together around F1 0.05-0.07. Structure helped a little. Retrieval helped a little. Nothing broke away from the pack.
+To isolate context engineering from prompt size, every strategy was padded to the same percentage of its available window. That made fill percentage a proxy for attention strain. It is also what exposed the naive long-context failure zone around 50 to 70 percent fill.
 
-Then came 950k pollution, and the lines diverged. RAG jumped to 0.307 F1. Advanced RAG hit 0.314. Meanwhile, naive crawled to 0.148. The green shaded region marks where retrieval became essential: the ability to *ignore* most of the context determined success.
+If you are evaluating context strategies in your own stack, track fill percentage explicitly. It can change quality more than teams expect.
 
-There's a threshold, and it's not where you'd expect. Below it, everyone struggles. Above it, retrieval becomes a necessity rather than a preference.
+## Method Summary
 
----
+This is the compact version of the setup:
 
-## The Trade-offs You Actually Face
+- Four strategies: naive 1M context, structured 1M context, basic RAG, and advanced RAG.
+- Fill levels ranged from 10 percent to 90 percent, in 20-point steps.
+- Relevant corpus: recent Hugging Face model cards.
+- Irrelevant padding and pollution: Project Gutenberg text.
+- Model: Gemini 2.0 Flash Experimental at temperature 0.0.
+- Environment: identical prompts across strategies; latency measured wall-clock on a single GCP VM with serial requests and no batching.
 
-I wish I could tell you one strategy wins on every metric. It doesn't work that way.
+The free-tier setup mattered here. The runner had to respect rolling token caps and a 1,000-embedding daily cap, and it had to resume cleanly after 429s. I tracked answer quality, grounding behavior, latency, and cost. For the reported F1 results, differences smaller than about 0.01 should be treated as noise.
 
-![Pareto plot showing quality-latency trade-offs](pareto_quality_latency.svg)
+## Limits
 
-That dotted line is the Pareto frontier, the set of strategies where you can't improve one metric without losing out on another. Structured sits at the top right: best quality (0.228 F1), but highest latency (45.8 seconds). Advanced RAG is the balanced option: slightly lower quality (0.217 F1), but faster (35.3 seconds). Naive is quick but unreliable.
+These results are useful, but they are not universal.
 
-![Latency vs tokens showing RAG stays constant](exp1_latency_vs_tokens.svg)
+The study uses one model family, one main corpus type, and question styles centered on factual lookup and synthesis. Code assistants, legal search, scientific literature, or multi-turn agents may behave differently. The absolute F1 numbers are also less important than the relative differences between strategies, because the evaluation was intentionally strict.
 
-See that cluster of blue points at the left? That's RAG, processing about 92k tokens regardless of corpus size. The orange and teal scatter spreading rightward? That's naive and structured, scaling linearly with context. At 900k tokens, full-context strategies take 60+ seconds. RAG stays flat. For any system with an SLO, that predictability matters.
+The safest claim is this: in this workload, context engineering changed system behavior materially. Whether the same ranking holds in your workload is something you should test, not assume.
 
-![Summary table with all boring metrics](summary_table.svg)
+## Bottom Line
 
-**Method notes:** All runs used Gemini 2.0 Flash Experimental at temperature 0.0, identical prompts across strategies, padded contexts to fixed fill percentages (10–90%). Latency was measured wall-clock on a single GCP VM (n2-standard-4) with serial requests and no batching. Variance across repeated runs was low enough that differences under ~0.01 F1 should be treated as noise.
+A larger context window is capacity, not a strategy.
 
----
+In these experiments, structure improved long-context behavior, retrieval protected the system when noise rose, and a simple baseline held up better than expected. The right decision was not determined by the biggest available window. It was determined by the combination of answer quality, latency tolerance, noise level, and operational complexity.
 
-## What This Means for Your Work
+That is the reason I think context engineering deserves attention as a discipline. It is the work that turns raw model capacity into predictable system behavior.
 
-I'll resist the urge to write prescriptive rules. Your use case isn't my use case. But here are some of the takeaways.
+*The full repo and analysis are available at [github.com/srinidhi621/context-engineering-experiments](https://github.com/srinidhi621/context-engineering-experiments).*
 
-**Production systems which are sensitive to latency**
-- Prefer RAG for predictable latency and cost. Easy to build, easy to scale, easy to maintain and estimate costs & latency.
-- If you need higher quality, consider structured full-context, but know that this will mean higher latency, and costs.
-
-**Batch or offline analysis**
-- Structured 1M delivers the best quality when latency is less important. The 68% increase in quality over naive is effectively free performance once you add a TOC and consistent boundaries.
-- Re-run evaluations when your fill percentage changes; the 50–70% naive cliff is real.
-
-**Noisy or polluted text data**
-- Route through a retriever. At 19:1 noise-to-signal, RAG variants more than doubled naive performance. Retrieval isn't just helpful in this regime; it's the only thing keeping quality above random.
-
-**Greenfield builds**
-- Start with a BM25 baseline before adding hybrid complexity. In our domain, BM25 matched or beat the fancier stack at lower operational overhead.
-- Decide your fill budget early and engineer to it. Padding to controlled percentages was the most revealing part of this study.
-
-And regardless of what you choose: **measure fill percentage**. It affected quality more than any other variable we tested.
-
----
-
-##  A few important caveats, because no single study answers everything.
-
-We tested one model: Gemini 2.0 Flash Experimental. Models from Anthropic, OpenAI, Meta and others might behave differently. We tested API documentation and financial reports; code, legal documents, and scientific papers might show different patterns. We focused on lookup and synthesis questions; summarization and multi-turn conversation might favor different strategies.
-
-The absolute F1 numbers are low because our answers were short and the evaluation metric was strict. The value is in the *relative* differences between strategies, not the raw scores.
-
-These limitations don't invalidate our results. They define their scope.
-
----
-
-## The Bigger Picture
-
-This project started as a curiosity, then ahypothesis test and became an argument: **context engineering deserves serious attention as a discipline.**
-
-"Just use a bigger window" is not engineering advice. Having a million-token window doesn't mean you should use it all, any more than having a terabyte of RAM means you should ignore memory management. 
-
-We found that:
-- **Structure matters**, even when you have plenty of room
-- **Retrieval matters**, especially when signal is buried in noise
-- **Fill percentage matters**, more than raw context size
-- **Simple baselines often beat fancy techniques**, at least in our domain
-
-None of these are universal laws. All of them are testable in your context. And that's the real takeaway: **empirical evaluation beats intuition**. The only way to know what works for your use case is to measure.
-
----
-
-## The Bottom Line
-
-We started with a question: when we have models with million-token context windows, does engineering discipline still matter?
-
-After 4,380 API calls and ten weeks, the answer is yes. Defintively yes.
-
-Structured context beat naive by 68%. The gap appeared at every fill level. Retrieval filtered noise that full-context approaches couldn't ignore. Simple BM25 matched fancy hybrid retrieval. And naive long-context collapsed catastrophically at 50% fill, something no one predicted.
-
-The "just throw more context at it" instinct is easy because it feels like progress. It's not. It's technical debt dressed up as capability.
-
-Context engineering is a real discipline with real trade-offs. Understanding those trade-offs (quality, cost, latency, robustness) enables better decisions than following trends.
-
-I hope this data helps you make those decisions.
-
----
-
-*All data, code, and analysis available at [github.com/srinidhi621/context-engineering-experiments](https://github.com/srinidhi621/context-engineering-experiments).*
-
-*Last updated: January 2, 2026*
+*Last updated: March 13, 2026*
