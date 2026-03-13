@@ -4,7 +4,7 @@ date: 2025-12-17T00:00:00Z
 draft: false
 tags: ["llm", "context"]
 summary: "Testing whether million-token context windows actually beat disciplined retrieval and packaging."
-description: "A prelude on context engineering, long windows, and the difference between input capacity and reasoning capacity."
+description: "A set of experiments on context engineering, long windows, and the difference between input capacity and reasoning capacity."
 ---
 
 # The Million-Token Question: Does More Context Actually Make LLMs Smarter?
@@ -13,9 +13,9 @@ description: "A prelude on context engineering, long windows, and the difference
 
 ---
 
-I've been noticing a silent shift in LLM architecture. Through late 2024 and early 2025, RAG (Retrieval-Augmented Generation) was the industry’s darling - the standard answer to "how do I make the model know about my data?" But as we head into 2026, that enthusiasm has cooled. With the arrival of 1M+ token windows, the the default instinct is moving from ‘retrieve carefully’ to ‘include a lot and let the model sort it out. 
+Through late 2024 and early 2025, RAG (Retrieval-Augmented Generation) was the industry’s darling - the standard answer to "how do I make the model know about my data?" But as we head into 2026, that enthusiasm has cooled. With the arrival of 1M+ token windows, the the default instinct is moving from ‘retrieve carefully’ to ‘include a lot and let the model sort it out. 
 
-I get the appeal. If a prompt can accommodate an entire library, the rigorous, boring work of data curation feels unnecessary. Why maintain a vector database, rerankers, and complex chunking strategies when you can just pass the documents directly? The temptation is to view the context window as a perfect hard drive - a place where data is stored and perfectly recalled.
+If a prompt can accommodate an entire library, the rigorous, boring work of data curation feels unnecessary. Why maintain a vector database, rerankers, and complex chunking strategies when you can just pass the documents directly? The temptation is to view the context window as a perfect hard drive - a place where data is stored and perfectly recalled.
 
 I’m not convinced it works the way we want. We often mix up *input capacity* with *reasoning capacity*. Just because a model can ingest a million tokens doesn't mean it can manage them effectively. In my experience, models do not read like humans; they pattern-match. Flooding the context window doesn't necessarily make the model smarter; it often just dilutes the signal.
 
@@ -60,4 +60,4 @@ Here is the uncomfortable possibility: long context might make systems feel easi
 
 The real question, therefore, is not “how big is the window?” but “how predictable is the model's attention under load?”
 
-That is what I am trying to measure. The results—and the bill—will follow in Part 2.
+That is what I am trying to measure. The results will follow in Part 2.
