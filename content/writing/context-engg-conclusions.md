@@ -9,19 +9,11 @@ description: "Results from a 10-week experiment testing naive long-context, stru
 
 # The Million-Token Question: What We Actually Found
 
-**After 4,380 API Calls and 10 Weeks of Stress-Testing the Future**
+**After 4,380 API Calls and 10 Weeks of experiments**
 
 ---
 
-I'll be honest: when we started this project, I expected the results to be boring. The "long context vs RAG" debate has been done to death in blog posts and Twitter threads. Everyone has opinions. Few have data.
-
-So we got data. A lot of it.
-
-4,380 API calls. Four different strategies. Fill percentages from 10% to 90%. Temperature locked at 0.0 so we could actually trust the results. And after ten weeks of running experiments, debugging pipelines, and staring at log files, we found something that genuinely surprised us.
-
-But I'm getting ahead of myself.
-
----
+Read this first, to understand the context of the experiments: **[The Million-Token Question: Does More Context Actually Make LLMs Smarter?](/writing/context-engg-prelude/)**.
 
 ## What We Were Testing
 
@@ -32,8 +24,6 @@ But does that actually work?
 We had two hypotheses going in. First, that even with massive windows, naively stuffing context would underperform more thoughtful approaches: structured packaging, retrieval, the stuff engineers have been doing for years. Second, that smaller models with good engineering might match or beat larger contexts used carelessly.
 
 The real question underneath both: **When models keep getting bigger, and can theoretically read everything, does it still matter *how* you give them information?**
-
-If you haven't read the setup, start with the prelude: **[Does More Context Actually Make LLMs Smarter?](/writing/context-engg-prelude/)**.
 
 ---
 
@@ -55,13 +45,15 @@ Here's the methodological piece that mattered most: we padded all strategies to 
 
 ## What Actually Happened
 
-### The 50% Fill Percentage Cliff
+### The 50% Fill Percentage idea 
 
 Everyone's heard of "Lost in the Middle," the research showing models lose track of information buried deep in their context. We expected that effect. What we didn't expect was where it hit.
 
 ![Performance degradation showing naive collapse at 50% fill](exp1_degradation_curve_fixed.svg)
 
 At 30% fill, naive holds at F1 0.188. Then at 50% fill, it falls off a cliff, dropping to 0.019. Not graceful degradation. Catastrophic failure. And then, weirdly, it *recovers* at 90% fill, climbing back to 0.189.
+
+What this means is that if you are using naive long-context in production, you can wave goodbye to performance.
 
 We checked the raw outputs. At 50% fill, naive was not only getting questions wrong, but it was producing garbled, incoherent responses. Our best guess: when the context gets very dense, the model leans on positional heuristics to survive. In the middle (50–70% fill), there's enough padding to diffuse attention but not enough structure to anchor it. But here, I'm not really sure, we'll need to run more experiments to figure out what's going on.
 
@@ -133,10 +125,10 @@ I'll resist the urge to write prescriptive rules. Your use case isn't my use cas
 
 **Production systems which are sensitive to latency**
 - Prefer RAG for predictable latency and cost. Easy to build, easy to scale, easy to maintain and estimate costs & latency.
-- If you need higher quality, consider structured full-context, but budget for the longer tail latencies at high fill.
+- If you need higher quality, consider structured full-context, but know that this will mean higher latency, and costs.
 
 **Batch or offline analysis**
-- Structured 1M delivers the best quality when latency is less critical. The 68% lift over naive is effectively free performance once you add a TOC and consistent boundaries.
+- Structured 1M delivers the best quality when latency is less important. The 68% increase in quality over naive is effectively free performance once you add a TOC and consistent boundaries.
 - Re-run evaluations when your fill percentage changes; the 50–70% naive cliff is real.
 
 **Noisy or polluted text data**
@@ -164,7 +156,7 @@ These limitations don't invalidate our results. They define their scope.
 
 This project started as a curiosity, then ahypothesis test and became an argument: **context engineering deserves serious attention as a discipline.**
 
-"Just use a bigger window" is not engineering advice. Having a million-token window doesn't mean you should use it all, any more than having a terabyte of RAM means you should ignore memory management. Scale doesn't eliminate the need for discipline; it just changes what discipline looks like.
+"Just use a bigger window" is not engineering advice. Having a million-token window doesn't mean you should use it all, any more than having a terabyte of RAM means you should ignore memory management. 
 
 We found that:
 - **Structure matters**, even when you have plenty of room
@@ -180,7 +172,7 @@ None of these are universal laws. All of them are testable in your context. And 
 
 We started with a question: when we have models with million-token context windows, does engineering discipline still matter?
 
-After 4,380 API calls and ten weeks, the answer is yes. Not "it depends" or "maybe." Yes.
+After 4,380 API calls and ten weeks, the answer is yes. Defintively yes.
 
 Structured context beat naive by 68%. The gap appeared at every fill level. Retrieval filtered noise that full-context approaches couldn't ignore. Simple BM25 matched fancy hybrid retrieval. And naive long-context collapsed catastrophically at 50% fill, something no one predicted.
 
