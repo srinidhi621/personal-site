@@ -9,7 +9,7 @@ description: "Results from experiments comparing naive long context, structured 
 
 # The Million-Token Question: What We Actually Found
 
-If you only remember four points from this piece, remember these:
+If you only take away highlights from this piece, remember these:
 
 - Structured 1M context outperformed naive 1M context by 68 percent on answer quality in these runs.
 - Retrieval mattered most when irrelevant text dominated the corpus; at 19:1 noise-to-signal, RAG variants more than doubled naive long-context performance.
@@ -113,9 +113,9 @@ The safest claim is this: in this workload, context engineering changed system b
 
 ## Bottom Line
 
-A larger context window is capacity, not a strategy.
+A larger context window is capacity, not a strategy by itself.
 
-In these experiments, structure improved long-context behavior, retrieval protected the system when noise rose, and a simple baseline held up better than expected. The right decision was not determined by the biggest available window. It was determined by the combination of answer quality, latency tolerance, noise level, and operational complexity.
+In these experiments, structure improved long-context behavior, retrieval protected the system when context pollution increased, and a simple baseline held up better than expected. The right decision was not determined by the biggest available window. It was determined by the combination of answer quality, latency tolerance, noise level, and operational complexity.
 
 That is the reason I think context engineering deserves attention as a discipline. It is the work that turns raw model capacity into predictable system behavior.
 
