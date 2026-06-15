@@ -1,7 +1,8 @@
-{{/* Show the latest post across main sections */}}
-{{ $writing := where .Site.RegularPages "Section" "writing" }}
-{{ $writing = where $writing "Draft" "!=" true }}
-{{ $latest := first 1 ($writing.ByDate.Reverse) }}
+{{/* Show the latest published article or fiction piece. */}}
+{{ $sections := slice "writing" "fiction" }}
+{{ $pages := where .Site.RegularPages "Section" "in" $sections }}
+{{ $pages = where $pages "Draft" "!=" true }}
+{{ $latest := first 1 ($pages.ByDate.Reverse) }}
 {{ with index $latest 0 }}
 <div class="spotlight">
   <p class="spotlight-label">Spotlight</p>
