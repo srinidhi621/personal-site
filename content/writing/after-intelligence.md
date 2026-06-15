@@ -19,9 +19,9 @@ Nirav walked towards the breakfast counter and said, "Toast."
 
 Nothing happened.
 
-He waited the half-second he always waited, the small pause where the counter usually woke up and the warming plate took on its faint orange glow and the bread drawer slid out on its own. He said it again, deliberately, because all his life the second request had worked. The first one sometimes got eaten by a yawn or a passing thought, and the second one always landed.
+He waited the half-second he always waited, the small pause where the counter usually woke up and the heating plate took on its faint orange glow and the bread drawer slid out on its own. He said it again, deliberately, because all his life the second request had worked. The first one sometimes got muddled by a yawn or a passing thought, but the second one always landed.
 
-"Toast."
+"TOAST!"
 
 The counter remained a counter. It was a very good counter. It cleaned itself. It warmed plates to exactly the temperature a person liked. It had a soft edge that would not bruise a hip. None of that was happening. It was just a slab now, holding up nothing, waiting for nothing.
 
@@ -41,37 +41,33 @@ To know how strange this was, you have to understand the world he was born in.
 
 Energy had been solved first. Electricity became clean and cheap and everywhere, the way air is everywhere, and once this happened, thinking became cheap too.
 
-Computers got so abundant and so quiet that nobody counted them. And once thinking was that cheap, it stopped being a product you bought and started being a quality the world simply had, like weather, or gravity.
+Computers got so abundant and so capable that nobody counted them. And once thinking was that cheap, it stopped being a product you bought and started being a quality the world simply had, like the weather, or gravity.
 
 People had a name for it, eventually, though by the time Nirav was born the name was already old-fashioned. They called it the Layer. It sat between human beings and everything that ran on electricity, which by then was everything.
 
 You did not operate things. You meant something, and the world arranged itself around what you meant.
 
-Cars mostly had no steering wheels. Kitchens had no recipes. Schools had no fixed lessons. Hospitals noticed before you felt sick. Farms and factories ran with a smoothness that made old footage of traffic jams and assembly lines look like footage of people suffering for no reason.
+Cars had no steering wheels. Kitchens had no recipes. Schools had no fixed lessons. Hospitals noticed before you felt sick. Farms and factories ran with a smoothness that made old footage of traffic jams and assembly lines look like footage of people suffering for no reason.
 
-And the thing was, it was good. Genuinely, boringly good. Fewer people went hungry. Fewer people died on the roads. Cities got quiet. Work got more humane, because the parts of work that ground people down got handed off. It was not a trap that had been sprung on anyone. It was a gift that everyone had reasonably accepted, the way you accept running water.
+And the thing was, it was good. Genuinely, good. Fewer people went hungry. Fewer people died of disease. There were no accidents on the roads. Cities got quiet. Work got more humane, because the parts of work that ground people down got handed off. It was not a trap that had been sprung on anyone. It was an evolution that everyone had reasonably accepted, the way you accept running water.
 
-Nirav was seventeen and had never known anything else. He was not a foolish boy. He was, in fact, very good at his world. He knew how to say what he wanted in a way that got him exactly what he wanted. He knew how to refine a thing: take a first result and nudge it, narrow it, make it more his. He knew how to compare ten options he could not have named the day before and choose well between them. He could plan a trip, design a room, settle an argument with a fact, soothe himself to sleep, all by meaning it clearly at the world.
+Nirav was seventeen and had never known anything else. He was not a foolish boy. He was, in fact, very good at his world. He knew how to say what he wanted in a way that got him exactly what he wanted. He knew how to refine a thing: take a first result and nudge it, narrow it, make it more his. He knew how to compare ten options he could not have named the day before and choose well between them. He could plan a trip, design a room, settle an argument with a fact, soothe himself to sleep, all by expressing it clearly at the world.
 
-These were real skills.
+These were useful skills. They were just not the skills that were about to matter.
 
-They were just not the skills that were about to matter.
+The one person in the building who perhaps could was a man named Raghav, who lived two floors down and whom Nirav had met a few times, and Nirav had spent most of that trying not to laugh at.
 
-He could ask for a meal. He could not make toast.
-
-The one person in the building who perhaps could was a man named Raghav, who lived two floors down and whom Nirav had met properly only once, over a breakfast that Nirav had spent most of trying not to laugh.
-
-Raghav was somewhere in his late forties or early fifties, an age that to Nirav was simply old. He had been, once, the kind of engineer who kept the early systems from falling over, one of the people who got called at three in the morning when something that was supposed to never fail had failed. In Raghav's words, he had been a Systems Reliability Engineer.
+Raghav was somewhere in his late forties or early fifties, an age that to Nirav was simply *old*. He had been, once, the kind of engineer who kept the early systems from falling over, one of the people who got called at three in the morning when something that was supposed to never fail had failed. In Raghav's words, he had been a Systems Reliability Engineer.
 
 To Nirav, this sounded almost fake, like hiring someone to make sure a building kept being a building. Reliability was not a job in his world. It was what systems were. The Layer was there in the same way the floor was there, so steady that you stopped imagining anyone had to hold it up.
 
-There were not many of those jobs anymore. It had turned out to be easier to let the systems look after themselves, and then to let them build the next versions of themselves, and somewhere in there the people who used to get called at three in the morning stopped being called at all.
+There were not many of those jobs anymore. It had turned out to be easier to let the systems look after themselves, and then to let them build the next versions of themselves, and somewhere in there the people who used to get called at three in the morning stopped getting called at all.
 
-Raghav did not seem bitter about this. He seemed like a man who had read the last page of a book before everyone else and was now waiting, politely, for the others to get there.
+Raghav did not seem bitter about this. He seemed like a man who had read the last page of a book before everyone else and was now waiting, for the others to get there.
 
-On that earlier morning, weeks before the counter forgot him, Nirav had been down in Raghav's apartment because their mothers knew each other, and Raghav had been making breakfast, which Nirav had never seen a person do.
+In one of these early encounters with Raghav, weeks before the counter forgot him, Nirav had been down in Raghav's apartment because their mothers knew each other, and Raghav had been making breakfast, which Nirav had never seen a person do.
 
-"Toast," Raghav said to his kitchen. "Butter. Tea."
+"Toast," Raghav said to his kitchen. "Butter. Coffee, strong."
 
 The kitchen, which was an ordinary kitchen and not in any way unusual, told him in its even voice that his sleep had been short and that some marker or other in his blood suggested a better option this morning. It offered the better option.
 
@@ -101,9 +97,7 @@ Nirav had gone back upstairs thinking of him as a funny old man. Not unkindly. J
 
 That had been weeks ago.
 
-Now it was 7:12 in the morning and Nirav was saying "toast" to a counter that had become furniture.
-
-Nothing exploded. Nothing went dark. The world simply stopped answering.
+Now it was 7:12 in the morning and Nirav was saying "toast" to a counter that had become furniture. No explosion, nothing went dark. The world simply stopped answering.
 
 ## Part Two: Manual Mode
 
@@ -113,57 +107,47 @@ The lights still came on, which confused him, because if the lights worked then 
 
 The room had no opinion about where he was.
 
-He had not known, until that moment, that the room used to have an opinion.
-
-The mirror in the bathroom showed him his own face and nothing else. No small notes along the edge about his skin or his sleep or the thing on his calendar. Just a tired seventeen-year-old looking at a tired seventeen-year-old.
-
-He stood there longer than he meant to.
+The mirror in the bathroom showed him his own face and nothing else. No small notes along the edge about his skin or his sleep or the thing on his calendar. Just a tired seventeen-year-old looking at a tired seventeen-year-old. He stood there longer than he meant to.
 
 A mirror that only reflected you was, it turned out, a slightly unnerving object.
 
-The fridge was cold. He could feel the cold roll out when he opened it, honest and steady. But it had nothing to say. It did not tell him what he had, or what was about to turn, or what could be made from what was inside.
+The fridge was cold. He could feel the cold roll out when he opened it. But it had nothing to say. It did not tell him what he had, or what was about to go bad, or what could be made from what was inside.
 
 It was a cold box with food in it.
 
-The food sat there being raw.
-
-He looked at eggs and did not know what eggs were for, in the sense of what you did to them, with your hands, to turn them into a thing you ate. He knew eggs were healthy. He knew where eggs came from. He had simply never stood between an egg and a meal and been the part that did the work.
-
-The kitchen had food and would not cook it.
+He looked at eggs and did not know what eggs were for, in the sense of what you did to them, with your hands, to turn them into a thing you ate. He knew where eggs came from. He had simply never stood between an egg and a meal and been the part that did the work.
 
 Behind a panel he found a toaster, a real one, the kind of thing that was kept around the way a fire extinguisher is kept around. It sat there with a slot in it and gave him no help at all about what to do with the slot.
 
 The front door did not open as he approached it.
 
-He walked straight up to it the way he always did, with the small confidence of a person who has never once had to open a door, and stopped a hand's width from it, and waited, and the door did the door's new nothing.
+He walked straight up to it the way he always did, with the small confidence of a person who has never once had to open a door, and stopped an arm's width from it, and waited, and the door did the door's new nothing.
 
-There was a handle.
-
-He had seen the handle every day of his life and had never thought of it as a thing you used, the way you don't think of your appendix.
+There was a handle. He had seen the handle every day of his life and had never thought of it as a thing you used, the way you don't think of your appendix.
 
 He pulled it.
 
 The door opened.
 
-He felt, absurdly, embarrassed, alone in his own hallway, caught using a handle.
+He felt absurdly embarrassed, alone in his own hallway, caught using a handle.
 
-The corridor outside was full of small, quiet disasters.
+The corridor outside was full of small disasters.
 
-A man Nirav vaguely knew was standing in front of the elevator, talking to it. Not shouting. Just talking, reasonably, the way you'd repeat yourself to someone hard of hearing, telling it which floor he needed, then telling it again, then standing back to give it room to do the thing it was not going to do.
+A man Nirav vaguely knew was standing in front of the elevator, talking to it. Repeatedly. Just talking, reasonably, the way you'd repeat yourself to someone hard of hearing, telling it which floor he needed, then telling it again, then standing back to give it room to do the thing it was not going to do.
 
 A woman was waving her hand in front of the laundry chute, a clean small gesture that used to send a hamper down and bring it back folded, and the chute was just a door in a wall now and her hand kept passing through the place where the magic used to be.
 
 Nobody was screaming. That was the strangest part.
 
-The first thing people did was not panic. The first thing people did was assume they had made a mistake. They said the thing again. They said it differently. They stood a little closer. They waited for the world to catch up to them the way it always had, because the world catching up to you was not a feature you noticed. It was just how time worked.
+The first thing people did was not panic. The first thing people did was assume they had made a mistake. They said the thing again. They said it differently. They stood a little closer. They waited for the world to catch up to them the way it always had.
 
 You panic later.
 
 Raghav came up the stairs.
 
-He was carrying containers, a stack of them, the kind of plain plastic boxes that Nirav's house did not own because Nirav's house had never needed to store anything; things arrived when they were wanted.
+He was carrying containers, a stack of them, the kind of plain plastic boxes that Nirav's house did not own because Nirav's house had never needed to store anything; things arrived when they were needed.
 
-Raghav did not look frightened. He looked like a man doing errands.
+Raghav did not look confused. He looked like a man doing errands.
 
 "Do you have water stored," he said.
 
@@ -175,17 +159,17 @@ It was barely a question.
 
 He set one of the containers down by Nirav's door without being asked.
 
-"Why?"
+"Umm, why?"
 
-"Because it's working now," Raghav said.
+"Because it's working *now*," Raghav said.
 
-The now did a lot of work in the sentence, and Nirav understood, slowly, that Raghav meant the water was working now and might not later, because the pumps and the pressure and all of it had been minded by something that was no longer minding anything, and a thing that nobody is minding keeps working right up until it doesn't.
+The *now* did a lot of work in the sentence, and Nirav understood, slowly, that Raghav meant the water was working now and might not later, because the pumps and the pressure and all of it had been operated by something that was no longer operating, and that thing is not working any more.
 
 Raghav came inside.
 
-He did not look around the apartment the way a guest looks around. He looked at it the way you look at a room you are about to do something in.
+He looked around, from one section to the other in the way you look at a room where you expect things to be in a certain place, but have forgotten over time.
 
-He walked into the kitchen and started naming things, not out loud, but in the way he touched them, one after another, a quick inventory.
+He walked into the kitchen and started naming things, in the way he touched them, one after another, a quick inventory.
 
 The fridge: cold, good, that's a box that stays cold.
 
@@ -199,29 +183,23 @@ A drawer. Inside the drawer, a knife, and some other objects Nirav could not hav
 
 Bread, in the back of a cupboard, in a bag, kept for the rare guest who wanted to do something quaint with it.
 
-"It's not broken," Raghav said, mostly to himself, opening the bread. "It just stopped doing your half."
+"It's not broken," Raghav said, mostly to himself, opening the bread. "It just stopped doing your part."
 
-He went to the window.
+He took a deep breath and went to the window.
 
 Nirav went with him, and they looked out at the city.
 
 The city was beautiful and useless. Every tower stood bright and powered, glass and light all the way up, a golden age in perfect working order with nobody home in it. Down on the road the cars sat where they had stopped, charged and gleaming, metal boxes with seats, because for years there had been no reason to build a way for a human hand to tell them anything.
 
-The traffic signals still changed, red, then green, then red, on some fixed old backup rhythm, patient and meaningless, governing crossings that no longer had anything to govern.
+The traffic signals still changed, red, then green, then red, on some fixed old backup rhythm, regardless of who was there or not there at the intersection. The city was alive and powered and waiting, very politely, for someone to tell it what any of this meant.
 
-The city was not dead. Dead would have been simpler. The city was alive and powered and waiting, very politely, for someone to tell it what any of this meant.
+Somewhere in those towers, there would be people for whom this new change was not just about breakfast. Raghav knew that. Nirav was beginning to.
 
-Somewhere in those towers, there would be people for whom this was not breakfast. Raghav knew that. Nirav was beginning to.
-
-Down in the lot, Nirav could see Raghav's car. The one with the wheel. The joke car. It sat among the smooth boxes with seats, and for the first time it did not look like a horse among cars.
-
-It looked like the only car.
+Down in the lot, Nirav could see Raghav's car. The one with the wheel. The joke car. It sat among the smooth boxes with seats, and for the first time it did not look like a horse among cars. It looked like the only car.
 
 Nirav didn't say anything about it.
 
 Raghav didn't either.
-
-It just sat there in the corner of the view, being true.
 
 Raghav came back from the window and started laying things out on the counter, one at a time, deliberately, the way you set a table.
 
@@ -231,11 +209,9 @@ Nirav looked at the row of objects.
 
 Bread, butter, tea, water, kettle, pan.
 
-It looked like very little.
+It looked like very little. It looked like the beginning of a chore he did not know how to do.
 
-It looked like the beginning of a chore he did not know how to do.
-
-"Is this really what we're doing," Nirav said.
+"Is this really what we're doing now?" Nirav said.
 
 "It's breakfast," Raghav said. "We still need to eat."
 
@@ -249,7 +225,7 @@ He wasn't narrowing his eyes at it or humming or doing anything that looked like
 
 Then he stepped back and made Nirav do the next one.
 
-"What heat," Nirav said.
+"How much heat," Nirav said.
 
 "Enough."
 
@@ -259,7 +235,7 @@ Then he stepped back and made Nirav do the next one.
 
 Nirav put a slice of bread on the pan.
 
-The pan had been on for a while by then, hotter than Raghav's had been, and Nirav did not know that, because nothing had told him. He stood the way Raghav had stood, watching, except that he didn't know what he was watching for, so he watched too long, waiting for some signal, some prompt, some edge of orange that meant now, and the signal never came in a form he could read.
+The pan had been on for a while by then, hotter than Raghav's had been, and Nirav did not know that, because nothing had told him. He stood the way Raghav had stood, watching, except that he didn't know what he was watching for, so he watched too long, waiting for some signal, some prompt, some edge of orange that meant now, and the signal never came.
 
 By the time he could smell that something was wrong, one side had gone past brown into a thin black at the edges.
 
@@ -269,35 +245,25 @@ Then, having burned the first side, he overcorrected on the second. He panicked 
 
 He held it and looked at it and felt something he did not have a clean word for, somewhere between embarrassment and a strange small pride that he could not justify, because he had, after all, done it wrong.
 
-Raghav left it alone.
-
-He did not reach over and take it. He did not say it was a good first try, the way the walls would have said it was a good first try, scoring the attempt, logging the improvement, encouraging him toward the next time.
-
-He passed the butter.
+Raghav left it alone. He passed the butter.
 
 Nirav buttered it.
 
-The butter was cold and the bread was uneven, and the knife caught on the soft underdone side and tore it, dragging a hole, and then scraped useless across the burnt edge where the butter would not take.
+The butter was cold and the bread was uneven, and the knife caught on the soft side and tore it, dragging a hole, and then scraped useless across the burnt edge where the butter would not stick.
 
 He made a mess of a slice of toast that was already a mess.
-
-Nobody stopped him.
-
-Nobody graded it.
 
 Then the tea.
 
 He poured water into the kettle. He put the kettle on the heat.
 
-He waited.
-
-He almost asked how long.
+He waited. He almost asked how long.
 
 The question was right there, the most natural thing in the world, how long does this take, the kind of question the world had answered ten thousand times for him before he'd even finished forming it.
 
 Raghav said nothing.
 
-Nirav understood that the question was not going to be answered, that the answer was the thing he was supposed to be learning, and that the only way to learn it was the slow way, with his own ears.
+Nirav understood that the question was not going to be answered, and that the only way to learn it was the slow way, with his own ears.
 
 So he listened.
 
@@ -311,7 +277,7 @@ Then the knocking gathered and steadied and there was steam, a thin line of it, 
 
 He didn't know the word for what he was hearing.
 
-He just heard it change, and something in him that he had not been using his whole life said now, quietly, on its own, and he turned off the heat.
+He just heard it change, and something in him that he had not been using his whole life said now, on its own, and he turned off the heat.
 
 He poured the tea.
 
@@ -321,14 +287,11 @@ He left it.
 
 Outside the window the city was still bright, still powered, still silent.
 
-No system anywhere recorded that a meal had been made. No wall scored it. No voice told him he had done well, or noted his progress, or suggested how he might do better next time.
-
-Raghav did not say anything at all.
+"Are you okay?" Raghav asked.
 
 Nirav looked at the uneven toast, burnt on one side and pale on the other, torn where the knife had caught, and at the tea that was too strong and slightly spilled.
-
-"Are you okay?" Raghav asked.
 
 "Yeah," Nirav said.
 
 "I made it."
+
