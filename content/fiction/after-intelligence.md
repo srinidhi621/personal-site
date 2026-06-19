@@ -1,5 +1,5 @@
 ---
-title: "After Intelligence"
+title: "After Intelligence: Chapter 1"
 date: 2026-06-12T12:54:00+05:30
 draft: false
 tags: ["fiction"]
@@ -9,11 +9,11 @@ description: "A short science fiction story about a Golden Age of ambient AI, th
 
 *by Srinidhi Ramanujam*
 
-## Part One: The Age of Asking
+## The Age of Asking
 
 At 7:12 in the morning, the apartment stopped knowing what Nirav meant.
 
-The lights were on. The floor was warm under his feet, the way it always was by the time he got out of bed, because the floor knew when he was getting out of bed. The kitchen breathed its usual refrigerated breath. Everything looked exactly like a morning.
+The lights were on. The floor was warm under his feet, the way it always was by the time he got out of bed, because the floor knew when he was getting out of bed. The kitchen breathed its usual clean breath. Everything looked exactly like a morning.
 
 Nirav walked towards the breakfast counter and said, "Toast."
 
@@ -41,23 +41,23 @@ To know how strange this was, you have to understand the world he was born in.
 
 Energy had been solved first. Electricity became clean and cheap and everywhere, the way air is everywhere, and once this happened, thinking became cheap too.
 
-Computers got so abundant and so capable that nobody counted them. And once thinking was that cheap, it stopped being a product you bought and started being a quality the world simply had, like the weather, or gravity.
+Computers got so abundant and so capable that nobody counted on them. And once thinking was that cheap, it stopped being a product you bought and started being a quality the world simply had, like the weather, or gravity.
 
-People had a name for it, eventually, though by the time Nirav was born the name was already old-fashioned. They called it the Layer. It sat between human beings and everything that ran on electricity, which by then was everything.
+People had many names for it, eventually, though by the time Nirav was born the name was already old-fashioned. They called it the Layer. It sat between human beings and everything that ran on electricity, which by then was everything.
 
 You did not operate things. You meant something, and the world arranged itself around what you meant.
 
 Cars had no steering wheels. Kitchens had no recipes. Schools had no fixed lessons. Hospitals noticed before you felt sick. Farms and factories ran with a smoothness that made old footage of traffic jams and assembly lines look like footage of people suffering for no reason.
 
-And the thing was, it was good. Genuinely, good. Fewer people went hungry. Fewer people died of disease. There were no accidents on the roads. Cities got quiet. Work got more humane, because the parts of work that ground people down got handed off. It was not a trap that had been sprung on anyone. It was an evolution that everyone had reasonably accepted, the way you accept running water.
+And the thing was, it was good. Genuinely, good. Fewer people went hungry. Fewer people died of disease, no accidents on the roads. Cities got quiet. Work got more humane, because the parts of work that ground people down got handed off. It was not a trap that had been sprung on anyone. It was an evolution that everyone had reasonably accepted, the way you accept running water.
 
 Nirav was seventeen and had never known anything else. He was not a foolish boy. He was, in fact, very good at his world. He knew how to say what he wanted in a way that got him exactly what he wanted. He knew how to refine a thing: take a first result and nudge it, narrow it, make it more his. He knew how to compare ten options he could not have named the day before and choose well between them. He could plan a trip, design a room, settle an argument with a fact, soothe himself to sleep, all by expressing it clearly at the world.
 
 These were useful skills. They were just not the skills that were about to matter.
 
-The one person in the building who perhaps could was a man named Raghav, who lived two floors down and whom Nirav had met a few times, and Nirav had spent most of that trying not to laugh at.
+Someone in the building still had something close to the skills that were about to matter: a man named Raghav, who lived two floors down and whom Nirav had met a few times, and Nirav had spent most of that trying not to laugh at.
 
-Raghav was somewhere in his late forties or early fifties, an age that to Nirav was simply *old*. He had been, once, the kind of engineer who kept the early systems from falling over, one of the people who got called at three in the morning when something that was supposed to never fail had failed. In Raghav's words, he had been a Systems Reliability Engineer.
+Raghav was somewhere in his late forties or early fifties, an age that to Nirav was simply old. He had been, once, the kind of engineer who kept the early systems from falling over, one of the people who got called at three in the morning when something that was supposed to never fail had failed. In Raghav's words, he had been a Systems Reliability Engineer.
 
 To Nirav, this sounded almost fake, like hiring someone to make sure a building kept being a building. Reliability was not a job in his world. It was what systems were. The Layer was there in the same way the floor was there, so steady that you stopped imagining anyone had to hold it up.
 
@@ -69,7 +69,7 @@ In one of these early encounters with Raghav, weeks before the counter forgot hi
 
 "Toast," Raghav said to his kitchen. "Butter. Coffee, strong."
 
-The kitchen, which was an ordinary kitchen and not in any way unusual, told him in its even voice that his sleep had been short and that some marker or other in his blood suggested a better option this morning. It offered the better option.
+The kitchen, which was an ordinary kitchen and not in any way unusual, told him in its even voice that his sleep had been short and that some marker or other in his body suggested a better option this morning. It offered the better option.
 
 "I didn't ask for a committee," Raghav said.
 
@@ -99,7 +99,7 @@ That had been weeks ago.
 
 Now it was 7:12 in the morning and Nirav was saying "toast" to a counter that had become furniture. No explosion, nothing went dark. The world simply stopped answering.
 
-## Part Two: Manual Mode
+## Manual Mode
 
 Nirav went looking for proof that he was wrong.
 
@@ -129,7 +129,7 @@ He pulled it.
 
 The door opened.
 
-He felt absurdly embarrassed, alone in his own hallway, caught using a handle.
+He felt somewhat embarrassed, alone in his own hallway, caught using a handle.
 
 The corridor outside was full of small disasters.
 
@@ -161,9 +161,9 @@ He set one of the containers down by Nirav's door without being asked.
 
 "Umm, why?"
 
-"Because it's working *now*," Raghav said.
+"Because it's working now," Raghav said.
 
-The *now* did a lot of work in the sentence, and Nirav understood, slowly, that Raghav meant the water was working now and might not later, because the pumps and the pressure and all of it had been operated by something that was no longer operating, and that thing is not working any more.
+The now did a lot of work in the sentence, and Nirav understood, slowly, that Raghav meant the water was working now and might not later, because the pumps and the pressure and all of it had been operated by something that was no longer operating.
 
 Raghav came inside.
 
@@ -215,11 +215,11 @@ It looked like very little. It looked like the beginning of a chore he did not k
 
 "It's breakfast," Raghav said. "We still need to eat."
 
-## Part Three: The First Breakfast
+## The First Breakfast
 
 Raghav did the first part himself, slowly, so Nirav could see it.
 
-He put the pan on the stove and the stove came on, with a flick; a real flame, low and blue and a little frightening. He laid a slice of bread on the hot metal. He stood there.
+He put the pan on the stove and the portable burner stove came on, with a flick; a real flame, low and blue and a little frightening. He laid a slice of bread on the hot metal. He stood there.
 
 He wasn't narrowing his eyes at it or humming or doing anything that looked like a technique. He just watched a piece of bread sit on a pan, which Nirav now understood was the entire activity, and after a while he turned it, and after a shorter while he took it off, and it was brown, evenly, on both sides, and it smelled like something.
 
@@ -294,4 +294,3 @@ Nirav looked at the uneven toast, burnt on one side and pale on the other, torn 
 "Yeah," Nirav said.
 
 "I made it."
-
