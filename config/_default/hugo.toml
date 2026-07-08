@@ -15,10 +15,10 @@ enableRobotsTXT = true
 
 [params]
   author = "Srinidhi Ramanujam"
-  description = "Writing on data engineering, AI, technology, and fiction."
-  keywords = ["data engineering", "applied ai", "writing", "fiction"]
+  description = "Applied AI architecture, production GenAI, evals, RAG, text-to-SQL, and engineering writing."
+  keywords = ["applied AI", "GenAI", "production AI", "regulated enterprises", "evals", "RAG", "text-to-SQL", "data engineering"]
   images = ["social-card.png"]
-  mainSections = ["writing", "fiction", "links"]
+  mainSections = ["writing"]
   defaultTheme = "auto"
   ShowReadingTime = true
   ShowPostNavLinks = true
@@ -36,6 +36,17 @@ enableRobotsTXT = true
     theme_color = "#0d0c1a"
     msapplication_TileColor = "#0d0c1a"
 
+  [params.footer]
+    text = "[LinkedIn](https://www.linkedin.com/in/srinidhiramanujam/) | [GitHub](https://github.com/srinidhi621)"
+
+  [[params.socialIcons]]
+    name = "linkedin"
+    url = "https://www.linkedin.com/in/srinidhiramanujam/"
+
+  [[params.socialIcons]]
+    name = "github"
+    url = "https://github.com/srinidhi621"
+
 [menu]
   [[menu.main]]
     name = "Writing"
@@ -43,16 +54,16 @@ enableRobotsTXT = true
     weight = 10
 
   [[menu.main]]
+    name = "About"
+    url  = "/about/"
+    weight = 20
+
+  [[menu.main]]
     name = "Fiction"
     url  = "/fiction/"
-    weight = 20
+    weight = 30
 
   [[menu.main]]
     name = "Links"
     url  = "/links/"
-    weight = 30
-
-  [[menu.main]]
-    name = "About"
-    url  = "/about/"
     weight = 40

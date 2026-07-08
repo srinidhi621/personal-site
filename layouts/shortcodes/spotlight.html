@@ -1,5 +1,5 @@
-{{/* Show the latest published article or fiction piece. */}}
-{{ $sections := slice "writing" "fiction" }}
+{{/* Show the latest published writing piece. */}}
+{{ $sections := slice "writing" }}
 {{ $pages := where .Site.RegularPages "Section" "in" $sections }}
 {{ $pages = where $pages "Draft" "!=" true }}
 {{ $latest := first 1 ($pages.ByDate.Reverse) }}

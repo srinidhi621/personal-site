@@ -125,3 +125,8 @@ Start with the workflow. Get the data model and definitions right. Bring domain 
 When those things are done well, the fact that the product uses a large language model stops being the main point. It becomes one line in the architecture.
 
 For serious enterprise systems, that is where it belongs.
+
+## Related Public Work
+
+- [The Million Token Question: What We Actually Found](/writing/context-engg-conclusions/) covers the context engineering experiments behind my view on retrieval, structure, and prompt load.
+- [Quant Magic](https://github.com/srinidhi621/quant-magic-SandP-500) is a public financial analytics project that uses natural language to SQL over S&P 500 data.
