@@ -1,14 +1,14 @@
 ---
 title: "Writing"
-description: "Essays on data platforms, AI, engineering, and leadership."
+description: "Essays on production AI, evals, data systems, and engineering leadership."
 ---
 
-Long-form pieces on how I build and lead data and AI teams in the real world.
+Long-form pieces on production AI and the engineering work around it.
 
 You can expect deep dives into:
 
-- Data platforms that balance rigor with delivery speed
-- Applied generative AI and agent workflows
-- Pragmatic engineering leadership lessons
+- Building AI products for enterprise workflows
+- Evaluation, RAG, text-to-SQL, and context design
+- Software engineering as AI changes how code is written
 
-Looking for something lighter? Check out [fiction](/fiction/) or the quick [links](/links/) notes.
+For a shorter professional overview, start with [About](/about/). For something lighter, see [Fiction](/fiction/) or [Links](/links/).

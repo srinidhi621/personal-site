@@ -71,3 +71,5 @@ That boundary is part of the claim.
 Part 2 is not about whether large context windows are real. They are. It asks whether they reduce the need for context engineering in a way that matters for production systems.
 
 Part 2 covers the results. In these runs, the maximum window on the spec sheet did not decide the outcome. Structure and irrelevant text did.
+
+The companion repo for the full experiment is [github.com/srinidhi621/context-engineering-experiments](https://github.com/srinidhi621/context-engineering-experiments).

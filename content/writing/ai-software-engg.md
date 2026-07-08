@@ -4,7 +4,7 @@ date: 2025-06-01T00:00:00Z
 lastmod: 2025-06-01T00:00:00Z
 draft: false
 tags: ["ai", "software engineering"]
-summary: ""
+summary: "AI makes code cheaper to generate, which raises the value of design, review, testing, and system judgment."
 description: "A practical view of how AI changes software engineering by making code generation cheaper while raising the value of design, review, testing, and system judgment."
 ---
 
