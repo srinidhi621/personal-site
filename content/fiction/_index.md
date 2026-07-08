@@ -1,15 +1,10 @@
 ---
 title: "Fiction"
-description: "Short fiction experiments mixing technology, people, and imagination."
+description: "Fiction and story writing."
 ---
 
-This corner is for narrative experiments—micro fiction, character sketches,
-and speculative notes that sneak in between the technical essays.
+This is where I put fiction and story writing.
 
-Expect drafts that explore:
+The pieces here are usually short. Some start from technology. Others start from a person or a strange situation.
 
-- People building improbable systems
-- Quiet science-fiction moments grounded in reality
-- Observations that do not fit a traditional blog post
-
-For the analytical side of my brain, hop over to the [writing](/writing/) section.
+For technical essays, go to [Writing](/writing/).
