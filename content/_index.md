@@ -18,8 +18,7 @@ I have spent 17+ years shipping ML and AI systems, including two granted US pate
 
 - **[Writing](/writing/):** Long-form essays on production AI, evals, data systems, and engineering work.
 - **[About](/about/):** A concise professional bio and contact links.
-- **[Fiction](/fiction/):** Narrative experiments that keep my creative
-  muscles honest.
+- **[Fiction](/fiction/):** Where I indulge in a bit of story writing.
 - **[Links](/links/):** Annotated bookmarks, prototypes, and notes worth saving.
 
 ## Spotlight
