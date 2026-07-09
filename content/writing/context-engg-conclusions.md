@@ -14,7 +14,7 @@ These results came after a pilot fix and 4,380 API calls across two experiments.
 - Structured 1M context outperformed naive 1M context by 68 percent on answer quality in these runs.
 - Retrieval helped most when irrelevant text dominated the corpus. At 19 to 1 noise to signal, RAG variants more than doubled naive long context performance.
 - Basic BM25 retrieval matched or slightly beat the more complex hybrid setup on this dataset.
-- Choosing a strategy means choosing tradeoffs in latency, error tolerance, and system complexity.
+- Choosing a strategy means choosing tradeoffs in latency and error tolerance. It also changes how much system complexity you are willing to own.
 
 Read the framing post first. [The Million Token Question: Does More Context Actually Make LLMs Smarter?](/writing/context-engg-prelude/).
 
@@ -52,7 +52,7 @@ The second experiment tested what happens when relevant material appears inside 
 
 At moderate pollution levels, the strategies clustered fairly closely. No strategy separated decisively. At 950k pollution tokens, the picture changed. Basic RAG reached F1 0.307. Advanced RAG reached F1 0.314. Naive long context reached F1 0.148.
 
-The 950k pollution run looked closer to a messy internal corpus than to a clean benchmark. Tickets, PDFs, stale wiki pages, and duplicated docs all add irrelevant text that can look plausible. In that setting, retrieval is useful because it keeps most irrelevant material out before generation.
+The 950k pollution run looked closer to a messy internal corpus than to a clean benchmark. A stale wiki page or duplicated doc can look plausible enough to distract the model. In that setting, retrieval is useful because it keeps most irrelevant material out before generation.
 
 Full context approaches can still be useful. Once noise crosses a certain level, a system that can ignore most of the corpus has a clear advantage.
 
@@ -62,9 +62,9 @@ I assumed the advanced retrieval stack would clearly beat basic BM25 retrieval. 
 
 Basic RAG averaged F1 0.221. Advanced RAG averaged F1 0.217. That difference is small enough to treat as noise in practical terms. It still matters directionally because the simpler baseline was at least as good as the more complicated system.
 
-The likely reason is domain fit. Technical documentation has strong lexical signals such as model names, parameter names, endpoint names, and error strings. BM25 can work well when the question and the source share precise terms. In that environment, embeddings and reranking add complexity faster than they add value.
+The likely reason is domain fit. Technical documentation often repeats exact names from the source. A question may include the same model name or parameter name that appears in the answer. BM25 can work well when the question and the source share precise terms. In that environment, embeddings and reranking add complexity faster than they add value.
 
-If your source material looks like API docs or model cards, start with BM25 and measure from there. Add hybrid retrieval, reranking, or query decomposition only if the simple baseline stops being good enough.
+If your source material looks like API docs or model cards, start with BM25 and measure from there. Add hybrid retrieval only after the simple baseline stops being good enough. Reranking and query decomposition should earn their complexity in your own evals.
 
 ## A Decision Framework
 
@@ -78,7 +78,7 @@ The most useful outcome of this work is a better way to choose.
 
 ![Latency vs tokens showing retrieval stays flatter as context grows](exp1_latency_vs_tokens.svg)
 
-That last point matters for operational planning. Retrieval kept latency relatively predictable because the generation prompt stayed small. Full context strategies grew with prompt size. If your team has SLOs, concurrency constraints, or cost targets, that difference changes capacity planning.
+That last point matters for operational planning. Retrieval kept latency relatively predictable because the generation prompt stayed small. Full context strategies grew with prompt size. If your team has strict latency or cost targets, that difference changes capacity planning.
 
 ## Why Fill Percentage Mattered
 
@@ -94,8 +94,8 @@ If you are evaluating context strategies in your own stack, track fill percentag
 
 This is the compact version of the setup.
 
-- I tested naive 1M context, structured 1M context, basic RAG, and advanced RAG.
-- The fill levels were 10 percent, 30 percent, 50 percent, 70 percent, and 90 percent.
+- The comparison used four strategies. Two used the full 1M context window, one with structure and one without it. The other two used retrieval, with basic RAG and advanced RAG.
+- I tested 10 percent to 90 percent fill in 20 point steps.
 - The relevant corpus was recent Hugging Face model cards.
 - The irrelevant padding and pollution came from Project Gutenberg text.
 - The model was Gemini 2.0 Flash Experimental at temperature 0.0.
@@ -107,7 +107,7 @@ The free tier setup shaped the runner. I had to throttle requests for rolling to
 
 These results are useful, but they are bounded.
 
-The study uses one model family, one main corpus type, and question styles centered on factual lookup and synthesis. Code assistants, legal search, scientific literature, or agent workflows with several turns may behave differently. The absolute F1 numbers are also less important than the relative differences between strategies, because the evaluation was intentionally strict.
+The study uses Gemini 2.0 Flash against Hugging Face model cards. The questions are mostly factual lookup and synthesis questions. Do not assume the same ranking will hold for code assistants or legal search. The absolute F1 numbers are also less important than the relative differences between strategies, because the evaluation was intentionally strict.
 
 The safest claim is narrow. In this workload, context engineering changed system behavior materially. You should test whether the same ranking holds in your workload.
 
@@ -115,7 +115,7 @@ The safest claim is narrow. In this workload, context engineering changed system
 
 A larger context window gives capacity. A team still has to decide how to use that capacity.
 
-In these experiments, structure improved long context behavior, retrieval protected the system when context pollution increased, and a simple baseline held up better than expected. The best choice depended on answer quality, latency tolerance, noise level, and operational complexity.
+In these experiments, structure made long context more reliable. Retrieval helped once the corpus had a lot of irrelevant text. Basic BM25 was better than I expected. The right choice depends first on latency and noise. Operational complexity comes next.
 
 That is why I think context engineering deserves attention as a discipline. Teams need that work if they want raw model capacity to produce predictable system behavior.
 

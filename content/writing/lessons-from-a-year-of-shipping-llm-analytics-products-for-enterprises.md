@@ -27,7 +27,7 @@ A finance lead may use it during month-end close. A risk analyst may use it duri
 
 Write down the questions people ask again and again. Do not start by trying to answer every question they could ask.
 
-Build a narrow first version. Pick one person, one workflow, and one part of the data. Then make that full path work from beginning to end.
+Build a narrow first version around one user and one workflow. Use only the data needed for that workflow, then make the full path work end to end.
 
 A useful test is this:
 
@@ -41,9 +41,9 @@ Large language models are good with language. They cannot fix messy data by them
 
 The product needs a clear data model. It also needs clear rules for how data is prepared and used.
 
-Keep raw data and curated data separate. Raw data is the source data as received. Curated data is cleaned, shaped, and ready for use by the product.
+Keep raw data and curated data separate. Raw data is the source as received. Curated data is the version the product can use after the team has cleaned it.
 
-Create data contracts that people can read. A data contract should explain what each metric means, the level of detail in the data, acceptable tolerance, and how often the data refreshes.
+Create data contracts that people can read. Each contract should define the metric and say what level of detail it uses. It should also state when the data refreshes. If the metric has tolerance rules, put those rules in the contract instead of leaving them in code or Slack threads.
 
 Domain experts need to be involved early. They help design the data model. They help shape the prompts. They validate the expected answers. They also test edge cases that developers may miss.
 
@@ -57,12 +57,12 @@ Four measures catch many problems:
 
 - **Answer quality:** Use a fixed set of questions and define what a good answer should contain.
 - **Coverage:** Track how many real user questions the system can answer without a handoff.
-- **Layer-level checks:** Test the user interface, ingestion, retrieval, SQL generation, post-processing, and chart rendering separately.
-- **Cost per question:** Track tokens, model calls, and cloud cost.
+- **Layer-level checks:** Test each layer separately. Start with the user interface and the ingestion path. Then test whether the generated SQL returns the expected data before it reaches the chart.
+- **Cost per question:** Track the model calls made for each question. Add token usage and cloud cost to the same log record.
 
 The team should log every API call and every contract clearly. Use structured logs so people can search and compare them later.
 
-Keep detailed traces. Store the prompt and response, the query that ran, and the result of any validation step.
+Keep detailed traces. Store the prompt next to the response. Link both to the query that ran and to any validation result.
 
 Use large language models as judges only when the task is about surface quality. Do not use them as the only judge for correctness.
 
@@ -72,7 +72,7 @@ Security cannot depend on one prompt or one filter. It needs checks at each laye
 
 ### Request Filtering
 
-Check the length and shape of the request. Screen for language that should not be accepted. Check for prompt injection, raw SQL, schema dumps, and other unsafe patterns. Add rate limits and abuse detection.
+Check whether the request is too long or oddly shaped. Reject language the product should not accept. Block prompt injection attempts and any request that tries to send raw SQL or expose schema details. Add rate limits for repeated abuse.
 
 ### Data Access and Model Context
 
@@ -82,7 +82,7 @@ Build model context only from data and schema that the user is allowed to see.
 
 ### Response Checking
 
-Check that the response stays within the intended scope. Look for attempts to expose data, schema, or internal instructions.
+Check that the response stays within the intended scope. It should not expose restricted data. It should also avoid schema details and internal instructions.
 
 Add a deterministic gatekeeper step when the risk is high. This step should use fixed rules rather than another open-ended model response.
 
@@ -92,11 +92,11 @@ The system should fail safely. A safe failure is better than a confident answer 
 
 Users should be able to check an answer in less than a minute.
 
-For any chart, show the query, filters, or calculation behind it. Let users move from a written answer to the source rows or documents.
+For any chart, show how the answer was calculated. If the answer came from a query, let the user inspect that query and the filters applied to it. Let users move from a written answer to the source rows or documents.
 
 Let them change the slice themselves instead of treating the assistant as the only way to explore the data.
 
-Make it easy to report a bad answer. The report should include the question, answer, source data, and trace details.
+Make it easy to report a bad answer. The report should capture the original question and the answer the user saw. It should also link to the source data and trace details.
 
 Users should see how the answer was produced. Show the work. Cite the source. Expect the user to question the result.
 
@@ -106,11 +106,11 @@ The model or vendor will change over time. Plan for that from the start.
 
 One demo failure led us to make three changes.
 
-First, we added graceful fallback paths. The system could show cached answers, use template-based reports, or give a clear message when the model was slow or unavailable.
+First, we added graceful fallback paths. When the model was slow or unavailable, the system could show a cached answer. For repeatable reports, it could use a template instead of waiting on the model.
 
 Second, we added a light provider abstraction. This gave us enough separation to switch models without rewriting the product.
 
-Third, we treated model upgrades like production changes. Each upgrade needed a rollout plan, regression checks, and a quick way to revert.
+Third, we treated model upgrades like production changes. Each upgrade needed a rollout plan. Before rollout, we ran regression checks and kept a revert path ready.
 
 One simple test helps. Replace the current model with the smaller version from the same provider.
 
@@ -120,7 +120,7 @@ If the product still works reasonably well, the design is more likely to hold up
 
 The basics do not change much across tools or vendors.
 
-Start with the workflow. Get the data model and definitions right. Bring domain experts in early. Treat the product like production software. Add tests, logs, and clear failure paths.
+Start with the workflow. Get the data model right before you tune prompts. Bring domain experts in while the definitions are still being set. Treat the product like production software, with tests and logs that show where it failed.
 
 When those things are done well, the fact that the product uses a large language model stops being the main point. It becomes one line in the architecture.
 
@@ -128,5 +128,5 @@ For serious enterprise systems, that is where it belongs.
 
 ## Related Public Work
 
-- [The Million Token Question: What We Actually Found](/writing/context-engg-conclusions/) covers the context engineering experiments behind my view on retrieval, structure, and prompt load.
+- [The Million Token Question: What We Actually Found](/writing/context-engg-conclusions/) covers the context engineering experiments behind my view on when retrieval helps and when prompt load hurts.
 - [Quant Magic](https://github.com/srinidhi621/quant-magic-SandP-500) is a public financial analytics project that uses natural language to SQL over S&P 500 data.
