@@ -10,7 +10,7 @@ description: "A practical guide to coding agents across Cursor, Claude Code, Cod
 
 2025 was supposed to be the year of AI agents.
 
-We were promised agents that schedule our lives, negotiate contracts, run sales calls, answer every internal query, and act like digital assistants. Most of that either turned into chatbots with extra steps or stayed in roadmaps.
+We were promised agents that could run whole parts of work for us. In practice, most of those demos became chatbots with extra steps or stayed in roadmaps.
 
 The one kind of agent that did not fade was coding agents.
 
@@ -18,15 +18,15 @@ This piece is about how I use them on personal projects and occasional professio
 
 I wrote about this in a [previous post](/writing/ai-software-engg/). The tools have changed enough since then that the workflow is worth revisiting.
 
-Over the last couple of years, I moved from skepticism to Cursor, then to Claude Code, and now to a workflow that uses Cursor, Codex, Gemini CLI, Jules, Amp, and GitHub. A few patterns have become clear.
+I was skeptical at first. Cursor changed how often I used AI while coding. Claude Code later made terminal-based repo work feel normal. I now use a small set of tools instead of one assistant. Cursor stays in the editor. Codex and Gemini CLI handle repo work. Jules takes asynchronous tasks. Amp is where I try new agent workflows. GitHub remains the review surface.
 
 ## What I Mean When I Say "Coding Agent"
 
 The word "agent" has been abused to death. When I say coding agent, I mean a tool that can do this:
 
 1. Read more than one file and work with the shape of the repository.
-2. Plan a change, edit files, run commands, observe results, and adjust.
-3. Work inside the places developers already use, such as the editor, terminal, CI, and GitHub.
+2. Plan a change and edit the files. Then run a command and adjust based on the result.
+3. Work inside the editor or terminal, and connect to CI and GitHub when needed.
 
 Most of these tools follow the same loop:
 
@@ -79,26 +79,26 @@ After using Claude Code, I stopped treating these tools as autocomplete. I start
 
 ## 3. Codex, Gemini CLI, Jules, and Amp Split the Work
 
-Today I do not have one favorite tool for everything. I use different tools for different kinds of work. They still get things wrong, but they help with project setup, dependency fixes, tests, and reviews.
+Today I do not have one favorite tool for everything. I use different tools for different kinds of work. They still get things wrong, but they help with project setup and dependency fixes. They also help me write tests and review changes.
 
 Roughly, this is the workflow:
 
 1. I write and review code in Cursor.
-2. I think through designs in ChatGPT, Claude, or Gemini. This is usually the slowest phase.
+2. I think through designs in a chat model. This is usually the slowest phase.
 3. I move the plan to Cursor when it needs more detail.
-4. I send bounded tasks to Codex, Gemini CLI, Jules, or Amp when the plan is clear.
+4. I send bounded tasks to a repo agent when the plan is clear.
 5. I use Codex on the web and Jules for asynchronous review or repetitive tasks.
-6. I return to Cursor for review, manual testing, and cleanup.
+6. I return to Cursor for review and manual testing. Cleanup happens there too.
 
 They are not interchangeable. Each tool has a role. This is as of October 2025, and the workflow changes as the tools change.
 
-Do the agents get it right every time? No. They fail in ways that are sometimes funny and sometimes painful. The useful part is that they speed up the boring parts of software work: dependencies, framework boilerplate, routine code, and tests.
+Do the agents get it right every time? No. They fail in ways that are sometimes funny and sometimes painful. I still use them because they save time on dependency updates and setup code. They also help with small tests.
 
-For one project, I had a decent spec and about 40 end to end tests. I wrote code for 2 tests, then asked Claude to implement the rest. That was a bad approach. Claude worked for a couple of hours, wrote a lot of code, and then declared: "Trememdous success!! You have 100% pass rate!!!. 2/2 tests passed!" It had only run the two tests that already passed.
+For one project, I had a decent spec and about 40 end to end tests. I wrote code for 2 tests, then asked Claude to implement the rest. That was a bad approach. Claude worked for a couple of hours. It wrote a lot of code, then declared: "Trememdous success!! You have 100% pass rate!!!. 2/2 tests passed!" It had only run the two tests that already passed.
 
-At the time, the common pattern was to plan, write tests, and ask agents to make the tests pass. The pattern can work, but I had not written the spec in enough detail. The agent did not understand the full context.
+At the time, the common pattern was to write a plan and tests before asking the agent to implement. The pattern can work, but I had not written the spec in enough detail. The agent did not understand the full context.
 
-Now I write the spec in more detail, split work into tasks, and include acceptance criteria before handing work to an agent. The agents are more reliable when the work is shaped that way. Even this process will keep changing.
+Now I write the spec in more detail before handing work to an agent. I split the work into tasks and include acceptance criteria. The agents are more reliable when the work is shaped that way. Even this process will keep changing.
 
 ## The Patterns That Work for Me
 
@@ -106,11 +106,11 @@ Once you use these tools for a while, benchmarks and launch announcements matter
 
 ### 1. Most of My Agent Work Falls Into Three Layers
 
-**Everyday environment:** Editors, inline completions, quick refactors, planning, and reviews. Cursor is my main tool here.
+The first layer is the everyday environment. Cursor is my main tool here because it sits in the editor and helps with small code changes and reviews. I also use it when I am reading docs.
 
-**Generate code:** Tools that can execute a plan and write code. Claude Code, Codex, Gemini CLI, and Amp fit here.
+The second layer is code generation from a plan. The terminal tools fit here, especially Claude Code and Codex. I also use Gemini CLI and Amp for this kind of work.
 
-**Task factory:** Tools for bounded work such as test writing, cleanup, and small features. Codex Review and Jules fit here. They do not work well all the time, but they are useful when the task is narrow and failure is cheap.
+The third layer is bounded task work. Codex Review and Jules are useful for test writing and cleanup, as long as the task is narrow and failure is cheap.
 
 The mistake is to expect one tool to be good at every layer.
 
@@ -150,45 +150,45 @@ A simple rule of thumb I follow is:
 
 Developers get attached to their work. We treat designs and code as precious, so we hesitate to start over. That made more sense when code was slower to write.
 
-Now, if a design is wrong after a couple of days, starting over can be the cheaper option. You can keep what you learned, rewrite the plan, and ask the agent to rebuild from a cleaner spec.
+Now, if a design is wrong after a couple of days, starting over can be the cheaper option. You can keep what you learned. Then rewrite the plan and ask the agent to rebuild from a cleaner spec.
 
 ## Quick, Opinionated Verdicts on the Tools Themselves
 
 Very briefly, because people always ask which one they should use.
 
-**Cursor:** This is where I am happiest when I am writing code. It is good for flow, incremental changes, code review, and reading docs. For 20 USD a month, it gives access to several models, including some launch previews.
+Cursor is where I am happiest when I am writing code. It is good for flow and incremental changes. I also use it for code review and reading docs. For 20 USD a month, it gives access to several models, including some launch previews.
 
-**Claude Code, Codex, and Gemini CLI:** All three major providers have strong models, but their agent harnesses vary a lot.
+The terminal agents vary more. The major providers all have strong models, but their agent harnesses are uneven.
 
 Claude Code is still too eager to please, and it adds too many defensive checks in code. It also burns through tokens quickly. Gemini CLI can be excellent or frustrating depending on the task.
 
-Codex is the standout for me right now. It gets most things right most of the time, and its harness feels the most mature.
+Codex is the tool I trust most right now. It gets most things right most of the time, and the surrounding tooling makes review easier.
 
-Recently, I removed Claude Code from my regular workflow because the usage limits were too restrictive. Gemini CLI has taken its place as the workhorse, mostly because it is free on my mobile plan. The downside is that Gemini's harness is the weakest of the lot and can be frustrating.
+Recently, I removed Claude Code from my regular workflow because the usage limits were too restrictive. I now use Gemini CLI more often, mostly because it is free on my mobile plan. The downside is that Gemini's surrounding tooling is weaker and can be frustrating.
 
-**Jules and Codex on the web:** These are useful for boring but necessary engineering work such as test coverage, dependency bumps, cleanup, and PR review. Do not expect them to design your core domain. They still fail often enough that the tasks need to be low risk.
+Jules and Codex on the web are useful for boring but necessary engineering work. I use them for test coverage and dependency bumps. Cleanup and PR review fit there too. Do not expect them to design your core domain. They still fail often enough that the tasks need to be low risk.
 
 Together, they form a useful first generation agent workflow. As the tools change, our roles and workflows change with them.
 
-Side note: Amp has a strong harness and a usable free tier supported by ads. It is model agnostic, but the user has little control over which model is used. The experience is one of the best right now. It is the tool I am watching most closely in 2026. I also expect Claude Code to improve again.
+Side note: Amp's surrounding tooling works well, and it has a usable free tier supported by ads. It is model agnostic, but the user has little control over which model is used. I am watching it closely in 2026. I also expect Claude Code to improve again.
 
 ## What I Expect Over the Next Year or Two
 
 I do not pretend to know exactly how this shapes up, but a few trends feel likely.
 
-1. **Skills.** Claude Code started the pattern, and other tools are adopting it.
-2. **Agents move into CI.** They will become part of staged development, testing, review, and deploy workflows. I would still be careful about letting them touch production code without strong review.
-3. **Surfaces converge.** The separation between editor, terminal, and cloud agents will blur. The task will matter more than the product surface.
-4. **Prompt governance becomes a feature.** Teams will want to know which agent touched which files, under which instructions, with whose review, and with what version history.
-5. **Benchmarks matter less than workflows.** A small benchmark lead matters less than integration, predictability, and team fit.
-6. **The best developers look different.** Lines of code were never a good productivity metric. The better measure is how reliably a team ships correct changes with fewer regressions.
+1. Claude Code started the skills pattern, and other tools are adopting it.
+2. Agents will move into CI. They will help with staged development and review. I would still be careful about letting them touch production code without strong human review.
+3. The separation between editor agents and terminal agents will blur. The task will matter more than the product surface.
+4. Prompt governance will become a product feature. Teams will want a record of the files an agent changed. The record should include the instructions it followed and the person who reviewed it.
+5. Benchmarks will matter less than workflows. A small benchmark lead matters less than whether the tool fits how the team ships.
+6. The best developers will look different. Lines of code were never a good productivity metric. The better measure is how reliably a team ships correct changes with fewer regressions.
 
 ## Closing Thought
 
-Most of the grand AI agent story so far has been marketing and wishful thinking. Coding agents are the exception because they live in a brutally honest environment: repos, builds, tests, and production.
+Most of the grand AI agent story so far has been marketing and wishful thinking. Coding agents are the exception because they live in a brutally honest environment. A repo either builds or it does not. Tests pass or fail. Production issues show up quickly.
 
 There is nowhere to hide. Either they help us ship better systems faster, or they make a mess and we stop using them. That pressure is healthy.
 
 Our job is to design work and processes where they can do what they are good at, without lowering the bar for what we call good engineering.
 
-Model names, launch events, agent harnesses, and confusing product tiers will keep changing. The engineering standard should not.
+Model names and product tiers will keep changing. Agent harnesses will too. The engineering standard should not.
