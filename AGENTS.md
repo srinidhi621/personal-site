@@ -75,6 +75,7 @@ This section is the “navigation map” agents should use when helping with con
 - **Default authoring target**: use the staging worktree for all new drafts and edits
 - **Compare versions**: `git diff main..staging -- content/writing/<post>.md`
 - **Publish**: merge `staging` → `main` and set `draft = false` when explicitly asked to publish
+- **Full publishing instruction**: when Srinidhi asks to set `draft = false` and commit or push, or uses equivalent language, complete the production flow: merge `staging` into `main`, push `main`, wait for the GitHub Pages workflow to succeed, and confirm the article's live URL.
 - **Commits/push**: commit with a clear message; only push if the user asks
 
 ### Example publish flow (commands)
