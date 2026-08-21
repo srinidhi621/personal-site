@@ -1,4 +1,5 @@
 ---
+
 title: "The Scikit-Learn Moment for LLMs Has Not Happened Yet"
 date: 2026-08-06T00:00:00Z
 lastmod: 2026-08-21T00:00:00Z
@@ -20,7 +21,7 @@ Scikit-learn gave a newbie software engineer like me a consistent way of working
 
 A few years later, TensorFlow [3](https://www.tensorflow.org/) and PyTorch [2](https://pytorch.org/) did similar work for deep learning. You could define and train a network on a GPU, or wait overnight on a laptop. When something went wrong, you could inspect it without building the underlying matrices and optimizers. Tools like Weights & Biases helped with tracking those runs. Google stood behind TensorFlow. Facebook stood behind PyTorch. That kind of backing is part of why those conventions lasted.
 
-## A model migration isn't just about bumping a version number, yet. 
+## A model migration isn't just about bumping a version number, yet.
 
 We built an application for questions over financial data. For each question we generate SQL and check the results. Depending on the question, we build a graph or reason over documents, then present the answer in a form finance users can trust.
 
@@ -80,7 +81,7 @@ A team should be able to reproduce a release from that record and compare it aga
 
 If that workflow layer arrives, my guess is that it will be an open source project with a large company as its long-term maintainer. A standard has to survive model changes and compatibility problems for years before enterprise teams will trust it. Google made that commitment to TensorFlow, and Facebook did the same for PyTorch. Both companies used the frameworks themselves and kept engineers on them. That connection between internal use and sustained maintenance is why teams could build on the conventions. I do not know which company will take on that role for LLMs. I expect the winning version to be open because the earlier workflow standards were open.
 
-## Ok, but what about RAG ? 
+## Ok, but what about RAG ?
 
 None of this means you should post-train your enterprise knowledge into model weights.
 
@@ -115,4 +116,3 @@ I lived through the first version of this democratisation as a beneficiary of it
 11. [https://github.com/ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp)
 12. [https://x.com/satyanadella/status/2082601792538640465](https://x.com/satyanadella/status/2082601792538640465)
 13. [http://www.incompleteideas.net/IncIdeas/BitterLesson.html](http://www.incompleteideas.net/IncIdeas/BitterLesson.html)
-
