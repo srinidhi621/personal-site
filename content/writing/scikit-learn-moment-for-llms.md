@@ -6,7 +6,7 @@ lastmod: 2026-08-21T00:00:00Z
 draft: false
 tags: ["ai", "llm", "machine-learning", "open-source", "enterprise"]
 summary: "Enterprise teams still lack a standard workflow for adapting, evaluating, versioning, and replacing LLMs on their own terms."
-description: "Why enterprise AI needs a simple, open workflow for adapting, evaluating, versioning, and replacing LLMs."
+description: "How do engineering teams keep control when models they use change"
 ---
 
 I can get a working demo out of a hosted language model in a few days. Replacing that model later is still a project. I think the missing product is a shared workflow for adapting, evaluating, versioning, and replacing a model. Scikit-learn made that kind of work ordinary for classifiers about fifteen years ago.
