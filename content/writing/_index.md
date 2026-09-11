@@ -1,5 +1,5 @@
 ---
-title: "Writing"
+title: "Essays"
 description: "Essays on production AI, evals, data systems, and engineering leadership."
 ---
 

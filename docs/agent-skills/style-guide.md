@@ -17,7 +17,7 @@ Use this to keep posts consistent and easy to read on PaperMod.
 ## Hugo conventions in this repo
 
 - Posts live under `content/<section>/...` and render to `/<section>/<slug>/`.
-- The homepage uses `{{< spotlight >}}` in `content/_index.md`.
+- The homepage introduction is in `content/_index.md`; `layouts/index.html` selects the latest published essay and fiction plus two earlier pieces from each. Supply a short `summary` for the featured previews.
 - Per-post images/diagrams should generally live under `static/<section>/<slug>/...`.
 
 ## Front matter conventions

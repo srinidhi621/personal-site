@@ -54,7 +54,8 @@ The `archetypes/links.md` template includes a `link` field plus sections for
 
 ## Update section intros or the homepage
 
-- `content/_index.md`: homepage hero + summary blocks
+- `content/_index.md`: short homepage introduction and About link
+- `layouts/index.html`: latest published essay and fiction, then two earlier pieces from each section; drafts stay out of these selections even in staging
 - `content/<section>/_index.md`: overview text at the top of each list page
 
 ## Brand assets

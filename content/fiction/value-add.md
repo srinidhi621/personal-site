@@ -2,7 +2,7 @@
 title = "Value add"
 date = 2026-09-11T12:34:07+05:30
 draft = false
-summary = ""
+summary = "A computer scientist spends his days improving slides and adjusting projected savings. Then his old supervisor calls, looking for work."
 tags = ["fiction"]
 +++
 
