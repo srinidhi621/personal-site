@@ -26,8 +26,8 @@ Primary config: `config/_default/hugo.toml`
 
 - **`baseURL`**: `https://srinidhi.dev/`
 - **Theme**: `PaperMod`
-- **Menu**: Writing / Fiction / Links / About
-- **Home feed sections**: `params.mainSections = ["writing", "fiction", "links"]`
+- **Menu**: Essays / Fiction / About. Links and RSS are in the footer.
+- **Main sections**: `params.mainSections = ["writing", "fiction"]`. The homepage separately selects the latest published piece and two earlier pieces from each section.
 - **Icons/social**:
   - `params.assets.*` point to files under `static/`
   - `params.images = ["social-card.png"]` for OpenGraph/Twitter defaults
@@ -96,7 +96,7 @@ cd ../personal-site
 ### Quick content map
 
 - **Homepage copy**: `content/_index.md`
-  - Includes the homepage intro + the `{{< spotlight >}}` block.
+  - Contains the short introduction and About link. Recent pieces are selected in `layouts/index.html`.
 - **Section intros**:
   - Writing: `content/writing/_index.md`
   - Fiction: `content/fiction/_index.md`
@@ -110,9 +110,8 @@ cd ../personal-site
 ### Common “change requests” → file to touch
 
 - **Update site title/menu/SEO defaults/social card**: `config/_default/hugo.toml`
-- **Change what appears on home feed**: `config/_default/hugo.toml` → `params.mainSections`
-- **Change how the home list renders**: `layouts/index.html` (override of PaperMod list behavior)
-- **Change spotlight selection/rendering**: `layouts/shortcodes/spotlight.html`
+- **Change homepage selection/rendering**: `layouts/index.html` (latest published essay and fiction, followed by two earlier pieces from each)
+- **Change homepage styling**: `assets/css/extended/home.css`
 - **Add or update per-post images/diagrams**:
   - Put assets in `static/<section>/<slug>/...`
   - Reference them by URL (e.g. `/writing/my-post/diagram.svg`)
@@ -148,13 +147,13 @@ When working with Srinidhi on writing/publishing, use these skill guides in `doc
 
 ### Custom layout overrides (minimal)
 
-This repo intentionally keeps customization small, but two overrides matter:
+This repo intentionally keeps customization small:
 
-- **Home/list template override**: `layouts/index.html`
-  - On home, it lists pages from `params.mainSections` (via PaperMod-style paginator logic).
-- **Homepage spotlight shortcode**: `layouts/shortcodes/spotlight.html`
-  - Used from `content/_index.md` as `{{< spotlight >}}`
-  - Currently shows the latest *non-draft* post from the **writing** section.
+- **Homepage template override**: `layouts/index.html`
+  - Shows one latest published essay and one latest published fiction piece, followed by two earlier pieces from each section.
+  - Excludes drafts even in staging. Section archives retain PaperMod's normal lists and pagination.
+- **Homepage styles**: `assets/css/extended/home.css`
+  - Gives essays and fiction equal columns on desktop and stacks them on mobile, using the theme's light/dark colors.
 
 ### Scripts
 
@@ -195,8 +194,8 @@ Archetypes: `archetypes/writing.md`, `archetypes/fiction.md`, `archetypes/links.
 ## Conventions & gotchas
 
 - **Drafts**: drafts won’t publish on production builds. Flip `draft = false` when ready, and use the staging environment to preview drafts.
-- **Spotlight behavior**: `spotlight.html` currently only considers `content/writing/` and excludes drafts.
-  - If you want the spotlight to cover Fiction/Links, adjust the shortcode (small, safe change).
+- **Homepage selection**: each category updates automatically by publication date. Add a short `summary` to each piece for its homepage preview.
+- **Authoring files**: `_backups/` and `scratch/` folders are excluded from generated pages, archives, and feeds through `ignoreFiles`.
 - **Styling**: prefer PaperMod params and small additive overrides.
   - If custom CSS is needed, prefer adding it via Hugo’s assets pipeline (e.g. `assets/css/extended/*.css`) rather than editing `themes/PaperMod`.
 - **Binaries**: avoid committing large binary files (PDF/DOCX) unless intentionally providing downloads.
