@@ -42,7 +42,7 @@ tags = ["fiction"]
 
 “But you tried to do right by people.”
 
-“I thought that was the useful part of the religion. Be decent. Help where you can. Also, for the record,I went to all the temples, did all the ceremonies.”
+“I thought that was the useful part of the religion. Be decent. Help where you can. Also, for the record, I went to all the temples, did all the ceremonies.”
 
 “Despite not believing.”
 
@@ -82,7 +82,7 @@ tags = ["fiction"]
 
 “What sort of thing?”
 
-“ANything that strikes my fancy. A little dictation program that kept my voice on my own computer. Better school notes for my daughter. I had stories to finish.”
+“Anything that strikes my fancy. A little dictation program that kept my voice on my own computer. Better school notes for my daughter. I had stories to finish.”
 
 “Several.”
 
