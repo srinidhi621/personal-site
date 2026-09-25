@@ -1,28 +1,24 @@
 ---
 title: "About"
-description: "Srinidhi Ramanujam is an applied AI architect focused on production GenAI for regulated enterprises."
+description: "I build enterprise AI systems and write essays and fiction."
 ---
 
-Hi, I'm **Srinidhi Ramanujam**, an applied AI architect based in Bengaluru.
+I'm **Srinidhi Ramanujam**, an applied AI architect in Bengaluru. I build AI systems for regulated enterprises, with recent work in financial analytics. Earlier, I built production ML systems in telecom. That work led to two granted US patents, [US12069122B2](https://patents.google.com/patent/US12069122B2/) and [US11310162B2](https://patents.google.com/patent/US11310162B2/).
 
-I build production GenAI systems for regulated enterprises, especially BFSI workflows where data access, audit, security, latency, cost, and trust all affect the design.
+My essays draw on what I've learned while building AI products. I also write fiction, from workplace stories to speculative ones.
 
-I work across discovery, architecture, data integration, evaluation checks, security controls, and rollout. Recent work includes financial analytics agents, text-to-SQL, agentic ingestion, and evaluation harnesses for enterprise AI products.
+## Selected writing
 
-Before GenAI, I spent years building production ML systems in telecom. That work included video quality and traffic classification systems, and it led to two granted US patents.
+### Essays
 
-After the demo, teams still need clear data models, measurement, security controls, and systems that users can inspect.
+- [The Scikit-Learn Moment for LLMs Has Not Happened Yet](/writing/scikit-learn-moment-for-llms/)
+- [Lessons From a Year of Shipping LLM Analytics Products for Enterprises](/writing/lessons-from-a-year-of-shipping-llm-analytics-products-for-enterprises/)
 
-## Selected public work
+### Fiction
 
-- **[Lessons From a Year of Shipping LLM Analytics Products for Enterprises](/writing/lessons-from-a-year-of-shipping-llm-analytics-products-for-enterprises/):** What changes when an LLM analytics product has to survive real workflows and production controls.
-- **[Context engineering experiments](/writing/context-engg-conclusions/):** A published experiment on long context, retrieval, structured prompts, latency, and answer quality. The companion repo is on [GitHub](https://github.com/srinidhi621/context-engineering-experiments).
-- **[Quant Magic](https://github.com/srinidhi621/quant-magic-SandP-500):** A public financial analytics project using natural language to SQL over S&P 500 data.
-- **Patents:** [US12069122B2](https://patents.google.com/patent/US12069122B2/) and [US11310162B2](https://patents.google.com/patent/US11310162B2/).
+- [Fair Usage](/fiction/fair-usage/)
+- [Value add](/fiction/value-add/)
 
 ## Contact
 
-- [LinkedIn](https://www.linkedin.com/in/srinidhiramanujam/)
-- [GitHub](https://github.com/srinidhi621)
-
-For work conversations, LinkedIn is the best route.
+For work conversations, [find me on LinkedIn](https://www.linkedin.com/in/srinidhiramanujam/).
