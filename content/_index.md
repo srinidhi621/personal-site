@@ -8,3 +8,5 @@ description: "Srinidhi Ramanujam is an applied AI architect in Bengaluru. Read h
 I'm an applied AI architect based in Bengaluru. I build AI systems for regulated enterprises and write long-form essays about the engineering work behind them. I also write fiction, often about technology and the people who live and work with it.
 
 [More about me](/about/)
+
+[Subscribe by RSS](/index.xml) for new essays and stories.

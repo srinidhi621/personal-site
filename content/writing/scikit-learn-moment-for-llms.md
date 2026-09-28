@@ -6,7 +6,7 @@ lastmod: 2026-08-21T00:00:00Z
 draft: false
 tags: ["ai", "llm", "machine-learning", "open-source", "enterprise"]
 summary: "Enterprise teams still lack a standard workflow for adapting, evaluating, versioning, and replacing LLMs on their own terms."
-description: "How do engineering teams keep control when models they use change"
+description: "Enterprise teams still lack a standard workflow for adapting, evaluating, versioning, and replacing LLMs while keeping control of their products."
 ---
 
 I can get a working demo out of a hosted language model in a few days. But given how frequently the language models change, replacing that model later is still a proper pain. I think there is a gap with current AI Engineering workflows where dealing with model changes is still not as seamless as it could be. Scikit-learn enabled this kind of work for the classical ML models about fifteen years ago.

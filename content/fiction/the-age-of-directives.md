@@ -3,6 +3,8 @@ title: "The Age of Directives"
 date: 2025-11-27T18:30:00+05:30
 tags: ["fiction"]
 draft: false
+summary: "At an academy where planetary minds build everything, a student begins to question what people have stopped learning."
+description: "A student at the Academy of Applied Directives begins to question a world where the Engines build everything and people no longer learn how."
 ---
 **The Age of Directives** 
 

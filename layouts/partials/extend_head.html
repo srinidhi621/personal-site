@@ -1,0 +1,9 @@
+{{- /* Offer the complete feed on every page. PaperMod also discovers section feeds. */ -}}
+{{- if not .IsHome }}
+<link rel="alternate" type="application/rss+xml" title="All writing and fiction — {{ site.Title }}" href="{{ "index.xml" | absURL }}">
+{{- end }}
+{{- if .IsHome }}
+  {{- with site.Params.googleSearchConsoleVerification }}
+<meta name="google-site-verification" content="{{ . }}">
+  {{- end }}
+{{- end }}
