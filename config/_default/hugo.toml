@@ -3,7 +3,6 @@ googleAnalytics = "" # Cloudflare Web Analytics is the only site analytics beaco
 locale = "en-US"
 title = "Srinidhi Ramanujam"
 theme = "PaperMod"
-googleAnalytics = "G-MRKDHXM8CC"
 
 enableRobotsTXT = true
 ignoreFiles = ['(^|/)(_backups|scratch)(/|$)']
