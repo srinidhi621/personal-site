@@ -1,4 +1,5 @@
 baseURL = "https://srinidhi.dev/"
+googleAnalytics = "" # Cloudflare Web Analytics is the only site analytics beacon.
 locale = "en-US"
 title = "Srinidhi Ramanujam"
 theme = "PaperMod"
@@ -27,6 +28,11 @@ ignoreFiles = ['(^|/)(_backups|scratch)(/|$)']
   ShowBreadCrumbs = true
   ShowCodeCopyButtons = true
   env = "production"
+  # Public site token from Cloudflare Web Analytics for srinidhi.dev.
+  cloudflareWebAnalyticsToken = "4ac4a08f2a37455f8131adf4d0ec966c"
+  # Public address used for reader replies at the end of essays and stories.
+  readerEmail = "srinidhi621@gmail.com"
+  googleSearchConsoleVerification = "O3RQ2nHy6DPOJrVMMhMASp0K0zJ5e1oRG-0WlMFDy7U"
 
   [params.assets]
     favicon = "favicon.ico"

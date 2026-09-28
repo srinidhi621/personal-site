@@ -1,0 +1,18 @@
+{{- /* Keep chronology within the current section, excluding unpublished drafts. */ -}}
+{{- $pages := where .CurrentSection.RegularPages "Draft" false }}
+{{- if and (in (slice "writing" "fiction") .Section) (gt (len $pages) 1) (in $pages .) }}
+<nav class="paginav" aria-label="More {{ .CurrentSection.Title | lower }}">
+  {{- with $pages.Next . }}
+  <a class="prev" href="{{ .RelPermalink }}">
+    <span class="title">« Newer {{ .CurrentSection.Title | lower }}</span><br>
+    <span>{{ .LinkTitle }}</span>
+  </a>
+  {{- end }}
+  {{- with $pages.Prev . }}
+  <a class="next" href="{{ .RelPermalink }}">
+    <span class="title">Older {{ .CurrentSection.Title | lower }} »</span><br>
+    <span>{{ .LinkTitle }}</span>
+  </a>
+  {{- end }}
+</nav>
+{{- end }}

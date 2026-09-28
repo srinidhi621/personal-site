@@ -8,3 +8,5 @@ This is where I put fiction and story writing.
 The pieces here are usually short. Some start from technology. Others start from a person or a strange situation.
 
 For technical essays, go to [Essays](/writing/).
+
+[Subscribe to fiction by RSS](/fiction/index.xml), or [follow everything](/index.xml).

@@ -12,3 +12,5 @@ You can expect deep dives into:
 - Software engineering as AI changes how code is written
 
 For a shorter professional overview, start with [About](/about/). For something lighter, see [Fiction](/fiction/) or [Links](/links/).
+
+[Subscribe to essays by RSS](/writing/index.xml), or [follow everything](/index.xml).
