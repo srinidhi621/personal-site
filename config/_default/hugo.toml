@@ -66,6 +66,11 @@ ignoreFiles = ['(^|/)(_backups|scratch)(/|$)']
     weight = 20
 
   [[menu.main]]
+    name = "Links"
+    url  = "/links/"
+    weight = 30
+
+  [[menu.main]]
     name = "About"
     url  = "/about/"
-    weight = 30
+    weight = 40
