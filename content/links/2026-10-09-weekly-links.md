@@ -2,7 +2,7 @@
 title = "Weekly Links: 5 to 9 October 2026"
 date = 2026-10-09T12:00:00+05:30
 draft = false
-summary = "Three selected links on security in the LLM age, AI for physical experiments, and the future of mathematics."
+summary = "Four selected links on security in the LLM age, AI for physical experiments, the future of mathematics, and learning to program."
 tags = ["links"]
 +++
 
@@ -29,3 +29,11 @@ A physical experiment gives you a much less tidy answer than a passing software 
 
 What happens to a mathematician's sense of purpose when a machine can solve the problems they spent years learning to solve? Christian Szegedy starts with the loss he felt when his competition years ended, then considers a similar change for the profession. He expects more of the work, and the recognition, to go towards choosing problems, directing AI tools, and explaining the results. The human reaction gets as much attention as the technical change. His confidence about how quickly AI will advance is harder to assess from this essay alone. The argument about what people value in mathematical work is worth considering even if you disagree with the timetable.
 <!-- /weekly-links-local:03 -->
+
+<!-- weekly-links-local:04 -->
+## Yes, and...
+
+<https://htmx.org/essays/yes-and/>
+
+Should you still learn programming when AI can write code? Carson Gross thinks so. Solving problems and keeping systems understandable remain useful skills, but juniors need to write code themselves to develop that judgment. AI can help explain a confusing concept without doing the assignment for you. Getting the homework finished and learning something are occasionally different activities. Gross also expects clear communication, business understanding, and software architecture to become more valuable. His advice is practical; his confidence that the job market will recover is a forecast, not a promise.
+<!-- /weekly-links-local:04 -->
