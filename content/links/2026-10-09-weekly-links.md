@@ -36,4 +36,6 @@ What happens to a mathematician's sense of purpose when a machine can solve the 
 <https://htmx.org/essays/yes-and/>
 
 Should you still learn programming when AI can write code? Carson Gross thinks so. Solving problems and keeping systems understandable remain useful skills, but juniors need to write code themselves to develop that judgment. AI can help explain a confusing concept without doing the assignment for you. Getting the homework finished and learning something are occasionally different activities. Gross also expects clear communication, business understanding, and software architecture to become more valuable. His advice is practical; his confidence that the job market will recover is a forecast, not a promise.
+
+**My note:** This is a very thoughtfully written article that challenged some of my own previously held beliefs on abstractions in programming
 <!-- /weekly-links-local:04 -->
