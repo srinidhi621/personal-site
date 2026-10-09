@@ -76,6 +76,7 @@ This section is the “navigation map” agents should use when helping with con
 - **Compare versions**: `git diff main..staging -- content/writing/<post>.md`
 - **Publish**: merge `staging` → `main` and set `draft = false` when explicitly asked to publish
 - **Full publishing instruction**: when Srinidhi asks to set `draft = false` and commit or push, or uses equivalent language, complete the production flow: merge `staging` into `main`, push `main`, wait for the GitHub Pages workflow to succeed, and confirm the article's live URL.
+- **"Run the pipeline" means publish**: commit the requested changes, merge `staging` into `main`, push `main`, wait for the GitHub Actions Pages deployment to succeed, and verify the live URLs on `https://srinidhi.dev/`. A local Hugo build or preview alone does not complete this request.
 - **Commits/push**: commit with a clear message; only push if the user asks
 
 ### Example publish flow (commands)
