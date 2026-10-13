@@ -31,7 +31,7 @@ ignoreFiles = ['(^|/)(_backups|scratch)(/|$)']
   # Public site token from Cloudflare Web Analytics for srinidhi.dev.
   cloudflareWebAnalyticsToken = "4ac4a08f2a37455f8131adf4d0ec966c"
   # Public address used for reader replies at the end of essays and stories.
-  readerEmail = "srinidhi621@gmail.com"
+  readerEmail = "hello@srinidhi.dev"
   googleSearchConsoleVerification = "O3RQ2nHy6DPOJrVMMhMASp0K0zJ5e1oRG-0WlMFDy7U"
 
   [params.assets]
