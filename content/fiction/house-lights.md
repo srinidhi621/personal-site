@@ -1,5 +1,7 @@
 +++
 title = "Before He Speaks"
+slug = "before-he-speaks"
+aliases = ["/fiction/house-lights/"]
 date = 2026-11-20T00:00:00+05:30
 draft = false
 summary = "Two hundred employees are waiting for a town hall. The executive who designed the restructuring has walked offstage."
